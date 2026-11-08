@@ -1,0 +1,832 @@
+dataset_kind: synthetic_example
+version: 0.3.0
+as_of: '2026-11-08'
+notice: 모든 사람·조직·프로젝트·실행·수치는 가상 데이터이며 실제 HR 또는 연구 결과가 아니다.
+entities:
+- id: src_hr
+  type: SourceRecord
+  access_scope: public
+  name: HR (synthetic)
+  source_kind: hr
+  authority_domains:
+  - organization_structure
+  - employment_affiliation
+  locator: example://src_hr
+  retrieved_at: '2026-11-08T09:00:00+09:00'
+  is_synthetic: true
+- id: src_projects
+  type: SourceRecord
+  access_scope: public
+  name: Project Registry (synthetic)
+  source_kind: project_registry
+  authority_domains:
+  - project_membership
+  - project_role
+  - project_organization
+  locator: example://src_projects
+  retrieved_at: '2026-11-08T09:00:00+09:00'
+  is_synthetic: true
+- id: src_skills
+  type: SourceRecord
+  access_scope: public
+  name: Reviewed Skills Registry (synthetic)
+  source_kind: skills_review
+  authority_domains:
+  - expertise_assessment
+  locator: example://src_skills
+  retrieved_at: '2026-11-08T09:00:00+09:00'
+  is_synthetic: true
+- id: src_git
+  type: SourceRecord
+  access_scope: public
+  name: GitLab demo (synthetic)
+  source_kind: git
+  authority_domains:
+  - code_authorship
+  locator: example://src_git
+  retrieved_at: '2026-11-08T09:00:00+09:00'
+  is_synthetic: true
+- id: src_execution
+  type: SourceRecord
+  access_scope: public
+  name: Agent execution log (synthetic)
+  source_kind: execution
+  authority_domains:
+  - execution
+  locator: example://src_execution
+  retrieved_at: '2026-11-08T09:00:00+09:00'
+  is_synthetic: true
+- id: src_ci
+  type: SourceRecord
+  access_scope: public
+  name: Simulation CI (synthetic)
+  source_kind: ci
+  authority_domains:
+  - experiment_result
+  locator: example://src_ci
+  retrieved_at: '2026-11-08T09:00:00+09:00'
+  is_synthetic: true
+- id: src_doc
+  type: SourceRecord
+  access_scope: public
+  name: Research documents (synthetic)
+  source_kind: document
+  authority_domains:
+  - technical_document
+  locator: example://src_doc
+  retrieved_at: '2026-11-08T09:00:00+09:00'
+  is_synthetic: true
+- id: ev_hr
+  type: Evidence
+  access_scope: public
+  name: ev_hr (synthetic)
+  evidence_kind: hr_record
+  source_ref: src_hr
+  observed_at: '2026-11-07T18:00:00+09:00'
+  description: 가상 시나리오 설명용 근거이며 실제 조직·실행·실험 기록이 아니다.
+- id: ev_project
+  type: Evidence
+  access_scope: public
+  name: ev_project (synthetic)
+  evidence_kind: approved_project_record
+  source_ref: src_projects
+  observed_at: '2026-11-07T18:00:00+09:00'
+  description: 가상 시나리오 설명용 근거이며 실제 조직·실행·실험 기록이 아니다.
+- id: ev_role
+  type: Evidence
+  access_scope: public
+  name: ev_role (synthetic)
+  evidence_kind: formal_designation
+  source_ref: src_projects
+  observed_at: '2026-11-07T18:00:00+09:00'
+  description: 가상 시나리오 설명용 근거이며 실제 조직·실행·실험 기록이 아니다.
+- id: ev_skill
+  type: Evidence
+  access_scope: public
+  name: ev_skill (synthetic)
+  evidence_kind: reviewed_assessment
+  source_ref: src_skills
+  observed_at: '2026-11-07T18:00:00+09:00'
+  description: 가상 시나리오 설명용 근거이며 실제 조직·실행·실험 기록이 아니다.
+- id: ev_git
+  type: Evidence
+  access_scope: public
+  name: ev_git (synthetic)
+  evidence_kind: git_commit
+  source_ref: src_git
+  observed_at: '2026-11-07T18:00:00+09:00'
+  description: 가상 시나리오 설명용 근거이며 실제 조직·실행·실험 기록이 아니다.
+- id: ev_agent_run
+  type: Evidence
+  access_scope: public
+  name: ev_agent_run (synthetic)
+  evidence_kind: execution_log
+  source_ref: src_execution
+  observed_at: '2026-11-07T18:00:00+09:00'
+  description: 가상 시나리오 설명용 근거이며 실제 조직·실행·실험 기록이 아니다.
+- id: ev_simulation
+  type: Evidence
+  access_scope: public
+  name: ev_simulation (synthetic)
+  evidence_kind: experiment_result
+  source_ref: src_ci
+  observed_at: '2026-11-07T18:00:00+09:00'
+  description: 가상 시나리오 설명용 근거이며 실제 조직·실행·실험 기록이 아니다.
+- id: ev_document
+  type: Evidence
+  access_scope: public
+  name: ev_document (synthetic)
+  evidence_kind: technical_document
+  source_ref: src_doc
+  observed_at: '2026-11-07T18:00:00+09:00'
+  description: 가상 시나리오 설명용 근거이며 실제 조직·실행·실험 기록이 아니다.
+- id: org_memory_solutions
+  type: Organization
+  access_scope: public
+  name: Memory Solutions (synthetic)
+  organization_kind: division
+  source_ref: src_hr
+  valid_from: '2026-01-01'
+  valid_to: null
+- id: org_systems_research
+  type: Organization
+  access_scope: public
+  name: Systems Research (synthetic)
+  organization_kind: department
+  source_ref: src_hr
+  valid_from: '2026-01-01'
+  valid_to: null
+- id: org_ai_research
+  type: Organization
+  access_scope: public
+  name: AI Research (synthetic)
+  organization_kind: department
+  source_ref: src_hr
+  valid_from: '2026-01-01'
+  valid_to: null
+- id: org_interface_team
+  type: Organization
+  access_scope: public
+  name: Interface Team (synthetic)
+  organization_kind: team
+  source_ref: src_hr
+  valid_from: '2026-01-01'
+  valid_to: null
+- id: org_ax_team
+  type: Organization
+  access_scope: public
+  name: AX Team (synthetic)
+  organization_kind: team
+  source_ref: src_hr
+  valid_from: '2026-01-01'
+  valid_to: null
+- id: org_storage_team
+  type: Organization
+  access_scope: public
+  name: Storage Team (synthetic)
+  organization_kind: team
+  source_ref: src_hr
+  valid_from: '2026-01-01'
+  valid_to: null
+- id: orgrel_systems
+  type: OrganizationRelation
+  access_scope: public
+  child_organization_ref: org_systems_research
+  parent_organization_ref: org_memory_solutions
+  assertion_status: verified
+  source_ref: src_hr
+  evidence_refs:
+  - ev_hr
+  valid_from: '2026-01-01'
+  valid_to: null
+- id: orgrel_ai
+  type: OrganizationRelation
+  access_scope: public
+  child_organization_ref: org_ai_research
+  parent_organization_ref: org_memory_solutions
+  assertion_status: verified
+  source_ref: src_hr
+  evidence_refs:
+  - ev_hr
+  valid_from: '2026-01-01'
+  valid_to: null
+- id: orgrel_interface_old
+  type: OrganizationRelation
+  access_scope: public
+  child_organization_ref: org_interface_team
+  parent_organization_ref: org_systems_research
+  assertion_status: verified
+  source_ref: src_hr
+  evidence_refs:
+  - ev_hr
+  valid_from: '2026-01-01'
+  valid_to: '2026-11-01'
+- id: orgrel_interface_new
+  type: OrganizationRelation
+  access_scope: public
+  child_organization_ref: org_interface_team
+  parent_organization_ref: org_ai_research
+  assertion_status: verified
+  source_ref: src_hr
+  evidence_refs:
+  - ev_hr
+  valid_from: '2026-11-01'
+  valid_to: null
+- id: orgrel_ax
+  type: OrganizationRelation
+  access_scope: public
+  child_organization_ref: org_ax_team
+  parent_organization_ref: org_ai_research
+  assertion_status: verified
+  source_ref: src_hr
+  evidence_refs:
+  - ev_hr
+  valid_from: '2026-01-01'
+  valid_to: null
+- id: orgrel_storage
+  type: OrganizationRelation
+  access_scope: public
+  child_organization_ref: org_storage_team
+  parent_organization_ref: org_systems_research
+  assertion_status: verified
+  source_ref: src_hr
+  evidence_refs:
+  - ev_hr
+  valid_from: '2026-01-01'
+  valid_to: null
+- id: person_engineer_a
+  type: Person
+  access_scope: public
+  name: Engineer A (synthetic)
+  external_key: SYNTHETIC-person_engineer_a
+  employment_status: active
+  source_ref: src_hr
+- id: person_engineer_b
+  type: Person
+  access_scope: public
+  name: Engineer B (synthetic)
+  external_key: SYNTHETIC-person_engineer_b
+  employment_status: active
+  source_ref: src_hr
+- id: affiliation_a_old
+  type: OrganizationMembership
+  access_scope: public
+  person_ref: person_engineer_a
+  organization_ref: org_interface_team
+  membership_kind: primary
+  assertion_status: verified
+  source_ref: src_hr
+  evidence_refs:
+  - ev_hr
+  valid_from: '2026-01-01'
+  valid_to: '2026-11-01'
+- id: affiliation_a_new
+  type: OrganizationMembership
+  access_scope: public
+  person_ref: person_engineer_a
+  organization_ref: org_ax_team
+  membership_kind: primary
+  assertion_status: verified
+  source_ref: src_hr
+  evidence_refs:
+  - ev_hr
+  valid_from: '2026-11-01'
+  valid_to: null
+- id: affiliation_b
+  type: OrganizationMembership
+  access_scope: public
+  person_ref: person_engineer_b
+  organization_ref: org_storage_team
+  membership_kind: primary
+  assertion_status: verified
+  source_ref: src_hr
+  evidence_refs:
+  - ev_hr
+  valid_from: '2026-01-01'
+  valid_to: null
+- id: research_rtl_agent
+  type: ResearchProject
+  access_scope: public
+  name: RTL Agent Development (synthetic)
+  objective: 제안된 온톨로지의 분류와 연결을 확인하기 위한 가상 연구.
+  primary_area_ref: ax_engineering
+  topic_refs:
+  - spec_to_rtl_generation
+  workload_refs:
+  - workload_spec_to_rtl_development
+  technique_refs:
+  - tech_sft
+  - tech_grpo
+  - tech_rtl_repair_loop
+  lifecycle_status: active
+  source_ref: src_projects
+  develops_asset_refs:
+  - asset_rtl_agent_v1
+- id: research_kv_analysis
+  type: ResearchProject
+  access_scope: public
+  name: KV Cache Workload Analysis (synthetic)
+  objective: 제안된 온톨로지의 분류와 연결을 확인하기 위한 가상 연구.
+  primary_area_ref: ai_workload
+  topic_refs:
+  - kv_cache_reuse_analysis
+  workload_refs:
+  - workload_long_context_llm_inference
+  technique_refs:
+  - tech_profiling
+  - tech_trace_analysis
+  lifecycle_status: proposed
+  source_ref: src_projects
+- id: research_kv_offloading
+  type: ResearchProject
+  access_scope: public
+  name: KV Cache Offloading Optimization (synthetic)
+  objective: 제안된 온톨로지의 분류와 연결을 확인하기 위한 가상 연구.
+  primary_area_ref: ai_native_storage
+  topic_refs:
+  - kv_cache_offloading_optimization
+  workload_refs:
+  - workload_long_context_llm_inference
+  technique_refs:
+  - tech_kv_cache_offloading
+  - tech_prefetching
+  lifecycle_status: proposed
+  source_ref: src_projects
+- id: research_hbf
+  type: ResearchProject
+  access_scope: public
+  name: HBF Architecture (synthetic)
+  objective: 제안된 온톨로지의 분류와 연결을 확인하기 위한 가상 연구.
+  primary_area_ref: ai_native_storage
+  topic_refs:
+  - hbf_architecture_exploration
+  workload_refs:
+  - workload_ai_inference_memory_access
+  technique_refs:
+  - tech_memory_tiering
+  - tech_data_placement
+  lifecycle_status: proposed
+  source_ref: src_projects
+- id: research_ssd
+  type: ResearchProject
+  access_scope: public
+  name: AI-Optimized SSD (synthetic)
+  objective: 제안된 온톨로지의 분류와 연결을 확인하기 위한 가상 연구.
+  primary_area_ref: ai_native_storage
+  topic_refs:
+  - ai_ssd_controller_optimization
+  workload_refs:
+  - workload_long_context_llm_inference
+  technique_refs:
+  - tech_io_scheduling
+  lifecycle_status: proposed
+  source_ref: src_projects
+- id: research_llm_inference
+  type: ResearchProject
+  access_scope: public
+  name: LLM Inference Optimization (synthetic)
+  objective: 제안된 온톨로지의 분류와 연결을 확인하기 위한 가상 연구.
+  primary_area_ref: ai_domain
+  topic_refs:
+  - llm_inference_optimization
+  workload_refs:
+  - workload_llm_inference
+  technique_refs: []
+  lifecycle_status: proposed
+  source_ref: src_projects
+- id: research_cxl_controller
+  type: ResearchProject
+  access_scope: public
+  name: CXL Controller Research (synthetic)
+  objective: 제안된 온톨로지의 분류와 연결을 확인하기 위한 가상 연구.
+  primary_area_ref: ai_native_storage
+  topic_refs:
+  - cxl_controller_architecture
+  workload_refs:
+  - workload_memory_intensive_server_application
+  technique_refs: []
+  lifecycle_status: active
+  source_ref: src_projects
+  develops_asset_refs:
+  - asset_cxl_controller
+  planned_asset_refs:
+  - asset_rtl_agent_v1
+  related_area_refs:
+  - ax_engineering
+- id: research_gpu_infra
+  type: ResearchProject
+  access_scope: public
+  name: GPU Shared Infrastructure (synthetic)
+  objective: 제안된 온톨로지의 분류와 연결을 확인하기 위한 가상 연구.
+  primary_area_ref: shared_infra
+  topic_refs:
+  - gpu_resource_scheduling
+  workload_refs:
+  - workload_research_benchmark_execution
+  technique_refs:
+  - tech_gpu_scheduling
+  - tech_usage_attribution
+  lifecycle_status: proposed
+  source_ref: src_projects
+- id: membership_a_cxl
+  type: ProjectMembership
+  access_scope: public
+  person_ref: person_engineer_a
+  project_ref: research_cxl_controller
+  assertion_status: verified
+  source_ref: src_projects
+  evidence_refs:
+  - ev_project
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: membership_a_ax
+  type: ProjectMembership
+  access_scope: public
+  person_ref: person_engineer_a
+  project_ref: research_rtl_agent
+  assertion_status: verified
+  source_ref: src_projects
+  evidence_refs:
+  - ev_project
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: membership_b_ax
+  type: ProjectMembership
+  access_scope: public
+  person_ref: person_engineer_b
+  project_ref: research_rtl_agent
+  assertion_status: verified
+  source_ref: src_projects
+  evidence_refs:
+  - ev_project
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: membership_b_hbf
+  type: ProjectMembership
+  access_scope: public
+  person_ref: person_engineer_b
+  project_ref: research_hbf
+  assertion_status: verified
+  source_ref: src_projects
+  evidence_refs:
+  - ev_project
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: membership_b_kv
+  type: ProjectMembership
+  access_scope: public
+  person_ref: person_engineer_b
+  project_ref: research_kv_analysis
+  assertion_status: verified
+  source_ref: src_projects
+  evidence_refs:
+  - ev_project
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: roleassign_a_cxl_owner
+  type: RoleAssignment
+  access_scope: public
+  membership_ref: membership_a_cxl
+  role_ref: role_project_owner
+  assertion_status: verified
+  source_ref: src_projects
+  evidence_refs:
+  - ev_role
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: roleassign_a_ax_developer
+  type: RoleAssignment
+  access_scope: public
+  membership_ref: membership_a_ax
+  role_ref: role_developer
+  assertion_status: verified
+  source_ref: src_projects
+  evidence_refs:
+  - ev_role
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: roleassign_b_ax_owner
+  type: RoleAssignment
+  access_scope: public
+  membership_ref: membership_b_ax
+  role_ref: role_project_owner
+  assertion_status: verified
+  source_ref: src_projects
+  evidence_refs:
+  - ev_role
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: skill_a_pcie
+  type: ExpertiseAssertion
+  access_scope: public
+  person_ref: person_engineer_a
+  expertise_ref: expertise_pcie
+  assessment_basis: reviewed_demonstration
+  level: specialist
+  reviewed_by_ref: person_engineer_b
+  assertion_status: verified
+  source_ref: src_skills
+  evidence_refs:
+  - ev_skill
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: skill_a_rtl
+  type: ExpertiseAssertion
+  access_scope: public
+  person_ref: person_engineer_a
+  expertise_ref: expertise_rtl
+  assessment_basis: reviewed_demonstration
+  level: specialist
+  reviewed_by_ref: person_engineer_b
+  assertion_status: verified
+  source_ref: src_skills
+  evidence_refs:
+  - ev_skill
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: skill_a_cxl
+  type: ExpertiseAssertion
+  access_scope: public
+  person_ref: person_engineer_a
+  expertise_ref: expertise_cxl
+  assessment_basis: reviewed_demonstration
+  level: specialist
+  reviewed_by_ref: person_engineer_b
+  assertion_status: verified
+  source_ref: src_skills
+  evidence_refs:
+  - ev_skill
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: skill_b_hbf
+  type: ExpertiseAssertion
+  access_scope: public
+  person_ref: person_engineer_b
+  expertise_ref: expertise_hbf
+  assessment_basis: reviewed_demonstration
+  level: specialist
+  reviewed_by_ref: person_engineer_a
+  assertion_status: verified
+  source_ref: src_skills
+  evidence_refs:
+  - ev_skill
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: skill_b_kv
+  type: ExpertiseAssertion
+  access_scope: public
+  person_ref: person_engineer_b
+  expertise_ref: expertise_kv_cache
+  assessment_basis: reviewed_demonstration
+  level: specialist
+  reviewed_by_ref: person_engineer_a
+  assertion_status: verified
+  source_ref: src_skills
+  evidence_refs:
+  - ev_skill
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: skill_a_hbf_candidate
+  type: ExpertiseAssertion
+  access_scope: public
+  person_ref: person_engineer_a
+  expertise_ref: expertise_hbf
+  assessment_basis: inferred_from_activity
+  valid_from: '2026-10-01'
+  valid_to: null
+  assertion_status: candidate
+  source_ref: src_git
+  evidence_refs:
+  - ev_git
+  rationale: Commit 활동만으로 전문성 보유를 확정하지 않는 예시.
+- id: orgpart_interface_cxl
+  type: OrganizationParticipation
+  access_scope: public
+  organization_ref: org_interface_team
+  project_ref: research_cxl_controller
+  participation_kind: owning
+  assertion_status: verified
+  source_ref: src_projects
+  evidence_refs:
+  - ev_project
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: orgpart_ax_cxl
+  type: OrganizationParticipation
+  access_scope: public
+  organization_ref: org_ax_team
+  project_ref: research_cxl_controller
+  participation_kind: contributing
+  assertion_status: verified
+  source_ref: src_projects
+  evidence_refs:
+  - ev_project
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: orgpart_ax_agent
+  type: OrganizationParticipation
+  access_scope: public
+  organization_ref: org_ax_team
+  project_ref: research_rtl_agent
+  participation_kind: owning
+  assertion_status: verified
+  source_ref: src_projects
+  evidence_refs:
+  - ev_project
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: asset_rtl_agent_v1
+  type: Asset
+  access_scope: public
+  name: RTL Agent (synthetic)
+  asset_kind: agent
+  version: demo-v1
+  capability_refs:
+  - capability_rtl_generation
+  - capability_rtl_repair
+  source_ref: src_doc
+- id: asset_cxl_controller
+  type: Asset
+  access_scope: public
+  name: CXL Controller RTL (synthetic)
+  asset_kind: controller
+  version: demo-v1
+  capability_refs: []
+  source_ref: src_doc
+- id: asset_cmx
+  type: Asset
+  access_scope: public
+  name: CMX Platform (synthetic)
+  asset_kind: platform
+  version: demo-v1
+  capability_refs: []
+  source_ref: src_doc
+- id: asset_hbf_prototype
+  type: Asset
+  access_scope: public
+  name: HBF Prototype (synthetic)
+  asset_kind: prototype
+  version: demo-v1
+  capability_refs: []
+  source_ref: src_doc
+- id: resource_gpu_b200
+  type: Resource
+  access_scope: public
+  name: B200 GPU Pool (synthetic)
+  resource_kind: gpu_pool
+  owner_organization_ref: org_ax_team
+  source_ref: src_doc
+- id: resource_eda_sim
+  type: Resource
+  access_scope: public
+  name: EDA Simulation Environment (synthetic)
+  resource_kind: simulation_environment
+  owner_organization_ref: org_ax_team
+  source_ref: src_doc
+- id: artifact_cxl_commit
+  type: Artifact
+  access_scope: public
+  name: Synthetic CXL RTL commit
+  artifact_kind: git_commit
+  locator: example://git/cxl/synthetic-commit-001
+  revision: synthetic-commit-001
+  source_ref: src_git
+- id: artifact_sim_report
+  type: Artifact
+  access_scope: public
+  name: Synthetic simulation report
+  artifact_kind: report
+  locator: example://ci/cxl/run-001/report
+  source_ref: src_ci
+- id: benchmark_cxl_regression
+  type: Benchmark
+  access_scope: public
+  name: Synthetic CXL regression
+  version: demo-v1
+  workload_refs:
+  - workload_rtl_verification
+  source_ref: src_ci
+- id: experiment_cxl_simulation
+  type: Experiment
+  access_scope: public
+  name: CXL RTL simulation demo
+  project_ref: research_cxl_controller
+  objective: 실행·코드·결과의 provenance 연결 예시.
+  benchmark_refs:
+  - benchmark_cxl_regression
+  metric_refs:
+  - metric_simulation_pass_rate
+- id: agent_run_a_rtl
+  type: AgentExecution
+  access_scope: public
+  project_ref: research_cxl_controller
+  agent_asset_ref: asset_rtl_agent_v1
+  initiated_by_ref: person_engineer_a
+  code_commit_ref: artifact_cxl_commit
+  started_at: '2026-11-05T10:00:00+09:00'
+  ended_at: '2026-11-05T10:20:00+09:00'
+  run_status: completed
+  resource_refs:
+  - resource_gpu_b200
+  configuration:
+    scenario: synthetic_only
+  source_ref: src_execution
+  evidence_refs:
+  - ev_agent_run
+- id: usage_a_rtl_agent
+  type: AssetUsage
+  access_scope: public
+  person_ref: person_engineer_a
+  project_ref: research_cxl_controller
+  asset_ref: asset_rtl_agent_v1
+  execution_ref: agent_run_a_rtl
+  used_at: '2026-11-05T10:01:00+09:00'
+  usage_kind: operated
+  assertion_status: verified
+  source_ref: src_execution
+  evidence_refs:
+  - ev_agent_run
+- id: run_cxl_simulation
+  type: ExperimentRun
+  access_scope: public
+  experiment_ref: experiment_cxl_simulation
+  asset_refs:
+  - asset_cxl_controller
+  code_commit_ref: artifact_cxl_commit
+  started_at: '2026-11-06T14:00:00+09:00'
+  ended_at: '2026-11-06T14:05:00+09:00'
+  run_status: completed
+  resource_refs:
+  - resource_eda_sim
+  configuration:
+    tool_version: synthetic-simulator-v1
+    design_revision: synthetic-commit-001
+  source_ref: src_ci
+  evidence_refs:
+  - ev_simulation
+- id: measurement_simulation_pass
+  type: Measurement
+  access_scope: public
+  run_ref: run_cxl_simulation
+  metric_ref: metric_simulation_pass_rate
+  value: 1.0
+  unit: ratio
+  aggregation: passed_count/total_count
+  conditions:
+    passed_count: 48
+    total_count: 48
+    design_revision: synthetic-commit-001
+    tool_version: synthetic-simulator-v1
+  benchmark_ref: benchmark_cxl_regression
+  evidence_refs:
+  - ev_simulation
+  notes: 48/48은 온톨로지 예시를 위한 가상 값이다.
+- id: requirement_kv_offload_slo
+  type: Requirement
+  access_scope: public
+  name: KV offload workload SLO
+  statement: 각 Workload SLO와 데이터 프로파일을 명시하여 offloading 지연을 평가한다.
+  requirement_kind: latency
+  source_ref: src_doc
+- id: link_kv_studies
+  type: RelationAssertion
+  access_scope: public
+  subject_ref: research_kv_analysis
+  predicate: STUDIES
+  object_ref: subject_kv_cache
+  asserted_at: '2026-11-08T09:00:00+09:00'
+  asserted_by: synthetic-curator
+  assertion_status: verified
+  source_ref: src_doc
+  evidence_refs:
+  - ev_document
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: link_kv_requirement
+  type: RelationAssertion
+  access_scope: public
+  subject_ref: research_kv_analysis
+  predicate: DERIVES_REQUIREMENT
+  object_ref: requirement_kv_offload_slo
+  asserted_at: '2026-11-08T09:00:00+09:00'
+  asserted_by: synthetic-curator
+  assertion_status: verified
+  source_ref: src_doc
+  evidence_refs:
+  - ev_document
+  valid_from: '2026-08-01'
+  valid_to: null
+- id: link_offload_requirement
+  type: RelationAssertion
+  access_scope: public
+  subject_ref: research_kv_offloading
+  predicate: ADDRESSES_REQUIREMENT
+  object_ref: requirement_kv_offload_slo
+  asserted_at: '2026-11-08T09:00:00+09:00'
+  asserted_by: synthetic-curator
+  assertion_status: verified
+  source_ref: src_doc
+  evidence_refs:
+  - ev_document
+  valid_from: '2026-08-01'
+  valid_to: null

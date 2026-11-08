@@ -1,0 +1,997 @@
+schema_version: 1
+ontology_version: 0.3.0
+status: proposed
+updated_at: '2026-11-08'
+purpose: Memory Solutions Research Intelligence ontology
+conventions:
+  ids: globally unique stable snake_case IDs
+  validity_interval: '[valid_from, valid_to); null/absent valid_to means ongoing'
+  datetimes: ISO 8601 with timezone offset; user-facing timezone Asia/Seoul
+  project_owner: derived from verified active RoleAssignment for role_project_owner
+  access_scope_note: metadata and static export guard only; production authorization is a separate integration
+    requirement
+common_fields:
+  id:
+    kind: string
+    required: true
+  type:
+    kind: string
+    required: true
+  access_scope:
+    kind: enum
+    required: true
+    values:
+    - public
+    - internal
+    - restricted_hr
+  notes:
+    kind: string
+    required: false
+  recorded_at:
+    kind: datetime
+    required: false
+classes:
+  ResearchPortfolio:
+    description: 연구 포트폴리오의 최상위 객체.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      term_status: &id001
+        kind: enum
+        required: true
+        values:
+        - proposed
+        - accepted
+        - deprecated
+  ResearchArea:
+    description: 5개 기술 중심 연구 분야. 조직 단위를 하위에 넣지 않는다.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      portfolio_ref:
+        kind: ref
+        required: true
+        target:
+        - ResearchPortfolio
+      core_question:
+        kind: string
+        required: true
+      term_status: *id001
+  ResearchTopic:
+    description: 연구 질문 또는 기술 목표를 나타내는 통제 용어.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      area_ref:
+        kind: ref
+        required: true
+        target:
+        - ResearchArea
+      topic_level:
+        kind: enum
+        required: true
+        values:
+        - group
+        - topic
+      parent_topic_ref:
+        kind: ref
+        required: false
+        target:
+        - ResearchTopic
+      term_status: *id001
+  WorkloadUseCase:
+    description: 연구가 적용되는 실행 환경 또는 엔지니어링 업무.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      term_status: *id001
+  Technique:
+    description: 연구 문제 해결에 적용하는 방법.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      term_status: *id001
+  Capability:
+    description: 실제 자산이 제공하는 기능.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      term_status: *id001
+  ResearchSubject:
+    description: 연구 대상 데이터 개념, 기술, 부품 또는 동작.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      term_status: *id001
+  Role:
+    description: 프로젝트 안에서 공식 지정하는 역할.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      role_scope:
+        kind: enum
+        required: true
+        values:
+        - project
+      term_status: *id001
+  Expertise:
+    description: 사람의 전문성을 기술하는 기술 영역. 자산의 Capability와 별도이다.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      term_status: *id001
+  Organization:
+    description: HR에서 식별하는 조직 단위. 상위 조직 이력은 OrganizationRelation에 저장.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      organization_kind:
+        kind: enum
+        required: true
+        values:
+        - division
+        - department
+        - team
+        - group
+      external_key:
+        kind: string
+        required: false
+      source_ref:
+        kind: ref
+        required: true
+        target:
+        - SourceRecord
+      valid_from: &id002
+        kind: date
+        required: true
+      valid_to: &id003
+        kind: date
+        required: false
+        nullable: true
+  Person:
+    description: 안정적 ID를 가진 연구원. 직속 조직이나 전문성을 직접 속성으로 단정하지 않는다.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      external_key:
+        kind: string
+        required: false
+      employment_status:
+        kind: enum
+        required: true
+        values:
+        - active
+        - inactive
+        - unknown
+      source_ref:
+        kind: ref
+        required: true
+        target:
+        - SourceRecord
+  OrganizationRelation:
+    description: 조직 상하위 관계의 유효 기간과 HR 근거.
+    fields:
+      child_organization_ref:
+        kind: ref
+        required: true
+        target:
+        - Organization
+      parent_organization_ref:
+        kind: ref
+        required: true
+        target:
+        - Organization
+      valid_from: *id002
+      valid_to: *id003
+      assertion_status: &id004
+        kind: enum
+        required: true
+        values:
+        - candidate
+        - verified
+        - rejected
+      source_ref: &id005
+        kind: ref
+        required: true
+        target:
+        - SourceRecord
+      evidence_refs: &id006
+        kind: refs
+        required: false
+        target:
+        - Evidence
+        min_items: 0
+      rationale: &id007
+        kind: string
+        required: false
+  OrganizationMembership:
+    description: 사람과 조직의 소속 이력.
+    fields:
+      person_ref:
+        kind: ref
+        required: true
+        target:
+        - Person
+      organization_ref:
+        kind: ref
+        required: true
+        target:
+        - Organization
+      membership_kind:
+        kind: enum
+        required: true
+        values:
+        - primary
+        - secondary
+      valid_from: *id002
+      valid_to: *id003
+      assertion_status: *id004
+      source_ref: *id005
+      evidence_refs: *id006
+      rationale: *id007
+  ProjectMembership:
+    description: 조직상 소속과 독립된 사람의 프로젝트 참여 이력.
+    fields:
+      person_ref:
+        kind: ref
+        required: true
+        target:
+        - Person
+      project_ref:
+        kind: ref
+        required: true
+        target:
+        - ResearchProject
+      valid_from: *id002
+      valid_to: *id003
+      assertion_status: *id004
+      source_ref: *id005
+      evidence_refs: *id006
+      rationale: *id007
+  RoleAssignment:
+    description: 참여 기간 안에서 유효한 공식 프로젝트 역할 지정.
+    fields:
+      membership_ref:
+        kind: ref
+        required: true
+        target:
+        - ProjectMembership
+      role_ref:
+        kind: ref
+        required: true
+        target:
+        - Role
+      valid_from: *id002
+      valid_to: *id003
+      assertion_status: *id004
+      source_ref: *id005
+      evidence_refs: *id006
+      rationale: *id007
+  ExpertiseAssertion:
+    description: 검증 상태, 평가 방법, 유효 기간을 갖는 전문성 주장.
+    fields:
+      person_ref:
+        kind: ref
+        required: true
+        target:
+        - Person
+      expertise_ref:
+        kind: ref
+        required: true
+        target:
+        - Expertise
+      assessment_basis:
+        kind: enum
+        required: true
+        values:
+        - official_profile
+        - reviewed_demonstration
+        - self_report
+        - inferred_from_activity
+      level:
+        kind: enum
+        required: false
+        values:
+        - practitioner
+        - specialist
+        - expert
+      reviewed_by_ref:
+        kind: ref
+        required: false
+        target:
+        - Person
+      valid_from: *id002
+      valid_to: *id003
+      assertion_status: *id004
+      source_ref: *id005
+      evidence_refs: *id006
+      rationale: *id007
+  OrganizationParticipation:
+    description: 공식 확인된 조직의 프로젝트 참여. 개인 소속으로 자동 추론하지 않는다.
+    fields:
+      organization_ref:
+        kind: ref
+        required: true
+        target:
+        - Organization
+      project_ref:
+        kind: ref
+        required: true
+        target:
+        - ResearchProject
+      participation_kind:
+        kind: enum
+        required: true
+        values:
+        - owning
+        - contributing
+        - supporting
+      valid_from: *id002
+      valid_to: *id003
+      assertion_status: *id004
+      source_ref: *id005
+      evidence_refs: *id006
+      rationale: *id007
+  ResearchProject:
+    description: 기술 분류와 조직·사람이 만나는 중심 객체. Owner는 RoleAssignment로 조회.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      objective:
+        kind: string
+        required: true
+      primary_area_ref:
+        kind: ref
+        required: true
+        target:
+        - ResearchArea
+      related_area_refs:
+        kind: refs
+        required: false
+        target:
+        - ResearchArea
+        min_items: 0
+      topic_refs:
+        kind: refs
+        required: true
+        target:
+        - ResearchTopic
+        min_items: 1
+      workload_refs:
+        kind: refs
+        required: false
+        target:
+        - WorkloadUseCase
+        min_items: 0
+      technique_refs:
+        kind: refs
+        required: false
+        target:
+        - Technique
+        min_items: 0
+      subject_refs:
+        kind: refs
+        required: false
+        target:
+        - ResearchSubject
+        min_items: 0
+      planned_asset_refs:
+        kind: refs
+        required: false
+        target:
+        - Asset
+        min_items: 0
+      develops_asset_refs:
+        kind: refs
+        required: false
+        target:
+        - Asset
+        min_items: 0
+      target_capability_refs:
+        kind: refs
+        required: false
+        target:
+        - Capability
+        min_items: 0
+      lifecycle_status:
+        kind: enum
+        required: true
+        values:
+        - proposed
+        - active
+        - paused
+        - completed
+        - cancelled
+        - archived
+      source_ref:
+        kind: ref
+        required: true
+        target:
+        - SourceRecord
+  Asset:
+    description: 실제 모델, 플랫폼, Agent, 도구, 컨트롤러, 펌웨어, 시제품.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      asset_kind:
+        kind: enum
+        required: true
+        values:
+        - model
+        - runtime
+        - agent
+        - framework
+        - platform
+        - software_tool
+        - controller
+        - firmware
+        - hardware_product
+        - prototype
+      version:
+        kind: string
+        required: true
+      capability_refs:
+        kind: refs
+        required: false
+        target:
+        - Capability
+        min_items: 0
+      owner_organization_ref:
+        kind: ref
+        required: false
+        target:
+        - Organization
+      artifact_refs:
+        kind: refs
+        required: false
+        target:
+        - Artifact
+        min_items: 0
+      source_ref:
+        kind: ref
+        required: false
+        target:
+        - SourceRecord
+  Resource:
+    description: GPU Pool, 서버, 스토리지, EDA 라이선스 등의 실제 공유 자원.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      resource_kind:
+        kind: enum
+        required: true
+        values:
+        - gpu_pool
+        - compute_server
+        - storage_cluster
+        - eda_license_pool
+        - simulation_environment
+        - test_environment
+      owner_organization_ref:
+        kind: ref
+        required: false
+        target:
+        - Organization
+      source_ref:
+        kind: ref
+        required: false
+        target:
+        - SourceRecord
+  EvaluationMetric:
+    description: 이름과 산식·단위·집계·조건이 분리된 지표 정의.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      definition:
+        kind: string
+        required: true
+      contract_status:
+        kind: enum
+        required: true
+        values:
+        - candidate
+        - ready
+      value_kind:
+        kind: enum
+        required: true
+        values:
+        - number
+        - boolean
+        - distribution
+        - family
+      unit:
+        kind: string
+        required: false
+      required_conditions:
+        kind: strings
+        required: false
+      term_status: *id001
+  Benchmark:
+    description: 재현 가능한 평가 workload 또는 task set의 특정 버전.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      version:
+        kind: string
+        required: true
+      workload_refs:
+        kind: refs
+        required: false
+        target:
+        - WorkloadUseCase
+        min_items: 0
+      source_ref:
+        kind: ref
+        required: false
+        target:
+        - SourceRecord
+  Experiment:
+    description: 프로젝트에 속하는 반복 가능한 실험 설계.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      project_ref:
+        kind: ref
+        required: true
+        target:
+        - ResearchProject
+      objective:
+        kind: string
+        required: true
+      benchmark_refs:
+        kind: refs
+        required: false
+        target:
+        - Benchmark
+        min_items: 0
+      metric_refs:
+        kind: refs
+        required: true
+        target:
+        - EvaluationMetric
+        min_items: 1
+      protocol_ref:
+        kind: ref
+        required: false
+        target:
+        - Artifact
+  ExperimentRun:
+    description: 실험 설계의 실제 실행 기록.
+    fields:
+      experiment_ref:
+        kind: ref
+        required: true
+        target:
+        - Experiment
+      asset_refs:
+        kind: refs
+        required: false
+        target:
+        - Asset
+        min_items: 0
+      code_commit_ref:
+        kind: ref
+        required: false
+        target:
+        - Artifact
+      started_at: &id008
+        kind: datetime
+        required: true
+      ended_at: &id009
+        kind: datetime
+        required: false
+        nullable: true
+      run_status: &id010
+        kind: enum
+        required: true
+        values:
+        - planned
+        - running
+        - completed
+        - failed
+        - cancelled
+      resource_refs: &id011
+        kind: refs
+        required: false
+        target:
+        - Resource
+        min_items: 0
+      configuration: &id012
+        kind: mapping
+        required: true
+      source_ref: &id013
+        kind: ref
+        required: true
+        target:
+        - SourceRecord
+      evidence_refs: &id014
+        kind: refs
+        required: false
+        target:
+        - Evidence
+        min_items: 0
+  AgentExecution:
+    description: Agent와 실행 요청자를 식별하는 실제 실행 기록.
+    fields:
+      project_ref:
+        kind: ref
+        required: true
+        target:
+        - ResearchProject
+      agent_asset_ref:
+        kind: ref
+        required: true
+        target:
+        - Asset
+      initiated_by_ref:
+        kind: ref
+        required: true
+        target:
+        - Person
+      code_commit_ref:
+        kind: ref
+        required: false
+        target:
+        - Artifact
+      started_at: *id008
+      ended_at: *id009
+      run_status: *id010
+      resource_refs: *id011
+      configuration: *id012
+      source_ref: *id013
+      evidence_refs: *id014
+  AssetUsage:
+    description: 어떤 사람이 특정 자산을 실제 사용한 기록. 프로젝트 소속만으로 만들지 않는다.
+    fields:
+      person_ref:
+        kind: ref
+        required: true
+        target:
+        - Person
+      project_ref:
+        kind: ref
+        required: true
+        target:
+        - ResearchProject
+      asset_ref:
+        kind: ref
+        required: true
+        target:
+        - Asset
+      execution_ref:
+        kind: ref
+        required: true
+        target:
+        - ExperimentRun
+        - AgentExecution
+      used_at:
+        kind: datetime
+        required: true
+      usage_kind:
+        kind: enum
+        required: true
+        values:
+        - operated
+        - tested
+        - reviewed
+      assertion_status: *id004
+      source_ref: *id005
+      evidence_refs: *id006
+      rationale: *id007
+  Requirement:
+    description: Workload 분석 등에서 도출한 시험 가능한 요구사항.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      statement:
+        kind: string
+        required: true
+      requirement_kind:
+        kind: enum
+        required: true
+        values:
+        - capacity
+        - bandwidth
+        - latency
+        - qos
+        - functional
+        - compatibility
+        - other
+      conditions:
+        kind: mapping
+        required: false
+      source_ref:
+        kind: ref
+        required: true
+        target:
+        - SourceRecord
+  Artifact:
+    description: 파일·모델·Trace·보고서·Git Commit 등의 참조.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      artifact_kind:
+        kind: enum
+        required: true
+        values:
+        - git_commit
+        - rtl
+        - firmware
+        - trace
+        - report
+        - model
+        - configuration
+        - document
+      locator:
+        kind: string
+        required: true
+      revision:
+        kind: string
+        required: false
+      checksum:
+        kind: string
+        required: false
+      source_ref:
+        kind: ref
+        required: true
+        target:
+        - SourceRecord
+  Measurement:
+    description: 특정 실행에서 나온 실제 값. 지표 정의와 분리한다.
+    fields:
+      run_ref:
+        kind: ref
+        required: true
+        target:
+        - ExperimentRun
+        - AgentExecution
+      metric_ref:
+        kind: ref
+        required: true
+        target:
+        - EvaluationMetric
+      value:
+        kind: value
+        required: true
+      unit:
+        kind: string
+        required: true
+      aggregation:
+        kind: string
+        required: true
+      conditions:
+        kind: mapping
+        required: true
+      benchmark_ref:
+        kind: ref
+        required: false
+        target:
+        - Benchmark
+      evidence_refs:
+        kind: refs
+        required: true
+        target:
+        - Evidence
+        min_items: 1
+  Evidence:
+    description: 권위 있는 원본 또는 검토 결과에서 관찰한 근거.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      evidence_kind:
+        kind: enum
+        required: true
+        values:
+        - hr_record
+        - formal_designation
+        - approved_project_record
+        - reviewed_assessment
+        - execution_log
+        - experiment_result
+        - git_commit
+        - technical_document
+      source_ref:
+        kind: ref
+        required: true
+        target:
+        - SourceRecord
+      observed_at:
+        kind: datetime
+        required: true
+      artifact_ref:
+        kind: ref
+        required: false
+        target:
+        - Artifact
+      limitations:
+        kind: string
+        required: false
+  SourceRecord:
+    description: 원본 시스템의 최소 참조와 권위 범위.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      source_kind:
+        kind: enum
+        required: true
+        values:
+        - hr
+        - project_registry
+        - skills_review
+        - git
+        - execution
+        - ci
+        - scheduler
+        - document
+      authority_domains:
+        kind: strings
+        required: true
+      locator:
+        kind: string
+        required: true
+      retrieved_at:
+        kind: datetime
+        required: true
+      is_synthetic:
+        kind: boolean
+        required: true
+  RelationAssertion:
+    description: 직접 속성에 없는 기술적 관계의 근거 있는 주장.
+    fields:
+      subject_ref:
+        kind: ref
+        required: true
+        target:
+        - '*'
+      predicate:
+        kind: string
+        required: true
+      object_ref:
+        kind: ref
+        required: true
+        target:
+        - '*'
+      asserted_at:
+        kind: datetime
+        required: true
+      asserted_by:
+        kind: string
+        required: true
+      valid_from: *id002
+      valid_to: *id003
+      assertion_status: *id004
+      source_ref: *id005
+      evidence_refs: *id006
+      rationale: *id007
+relation_predicates:
+  STUDIES:
+    from:
+    - ResearchProject
+    to:
+    - ResearchSubject
+  USES_KNOWLEDGE_FROM:
+    from:
+    - ResearchProject
+    to:
+    - ResearchProject
+  DERIVES_REQUIREMENT:
+    from:
+    - ResearchProject
+    to:
+    - Requirement
+  ADDRESSES_REQUIREMENT:
+    from:
+    - ResearchProject
+    to:
+    - Requirement
+  COMPATIBLE_WITH:
+    from:
+    - Asset
+    to:
+    - Asset
+  SUPERSEDES:
+    from:
+    - Organization
+    to:
+    - Organization
+projected_links:
+  OrganizationMembership:
+  - person_ref
+  - organization_ref
+  ProjectMembership:
+  - person_ref
+  - project_ref
+  RoleAssignment:
+  - membership_ref
+  - role_ref
+  ExpertiseAssertion:
+  - person_ref
+  - expertise_ref
+  AssetUsage:
+  - person_ref
+  - asset_ref
+  - execution_ref

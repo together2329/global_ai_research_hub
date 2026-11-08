@@ -1,0 +1,18 @@
+# Template only; not loaded by the example manifest.
+# Replace placeholder IDs with authorized source-system mappings.
+id: research_replace_me
+type: ResearchProject
+access_scope: internal
+name: Replace with research name
+objective: Replace with the research question and acceptance outcome
+primary_area_ref: ai_native_storage
+topic_refs:
+  - kv_cache_offloading_optimization
+workload_refs:
+  - workload_long_context_llm_inference
+technique_refs:
+  - tech_kv_cache_offloading
+lifecycle_status: proposed
+source_ref: src_replace_with_approved_project_registry
+# Owner is a verified RoleAssignment linked through ProjectMembership.
+# planned_asset_refs describe intent; use AssetUsage for observed execution.

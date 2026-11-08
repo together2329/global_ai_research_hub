@@ -1,0 +1,1546 @@
+dataset_kind: taxonomy
+status: proposed
+version: 0.3.0
+source: User-supplied Memory Solutions Research Taxonomy v0.2, extended 2026-11-08
+entities:
+- id: memory_solutions_research
+  type: ResearchPortfolio
+  access_scope: public
+  name: Memory Solutions Research
+  description: Connected Research Intelligence 연구 포트폴리오
+  term_status: proposed
+- id: ai_domain
+  type: ResearchArea
+  access_scope: public
+  name: AI Domain
+  description: Research on AI models, inference systems, and AI application software.
+  portfolio_ref: memory_solutions_research
+  core_question: How can AI systems themselves be made more capable, efficient, and useful?
+  term_status: proposed
+- id: topic_group_ai_model_architecture
+  type: ResearchTopic
+  access_scope: public
+  name: AI Model & Architecture
+  area_ref: ai_domain
+  topic_level: group
+  term_status: proposed
+- id: large_language_models
+  type: ResearchTopic
+  access_scope: public
+  name: Large Language Models
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_model_architecture
+  topic_level: topic
+  term_status: proposed
+- id: small_language_models
+  type: ResearchTopic
+  access_scope: public
+  name: Small Language Models
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_model_architecture
+  topic_level: topic
+  term_status: proposed
+- id: multimodal_models
+  type: ResearchTopic
+  access_scope: public
+  name: Multimodal Models
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_model_architecture
+  topic_level: topic
+  term_status: proposed
+- id: model_architecture_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: Model Architecture Optimization
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_model_architecture
+  topic_level: topic
+  term_status: proposed
+- id: model_compression_quantization
+  type: ResearchTopic
+  access_scope: public
+  name: Model Compression & Quantization
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_model_architecture
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_ai_inference_system
+  type: ResearchTopic
+  access_scope: public
+  name: AI Inference System
+  area_ref: ai_domain
+  topic_level: group
+  term_status: proposed
+- id: llm_inference_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: LLM Inference Optimization
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_inference_system
+  topic_level: topic
+  term_status: proposed
+- id: prefill_decode_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: Prefill / Decode Optimization
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_inference_system
+  topic_level: topic
+  term_status: proposed
+- id: continuous_batching
+  type: ResearchTopic
+  access_scope: public
+  name: Continuous Batching
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_inference_system
+  topic_level: topic
+  term_status: proposed
+- id: inference_scheduling
+  type: ResearchTopic
+  access_scope: public
+  name: Inference Scheduling
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_inference_system
+  topic_level: topic
+  term_status: proposed
+- id: distributed_inference
+  type: ResearchTopic
+  access_scope: public
+  name: Distributed Inference
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_inference_system
+  topic_level: topic
+  term_status: proposed
+- id: model_serving_runtime
+  type: ResearchTopic
+  access_scope: public
+  name: Model Serving Runtime
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_inference_system
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_agentic_ai_systems
+  type: ResearchTopic
+  access_scope: public
+  name: Agentic AI Systems
+  area_ref: ai_domain
+  topic_level: group
+  term_status: proposed
+- id: ai_agent_architecture
+  type: ResearchTopic
+  access_scope: public
+  name: AI Agent Architecture
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_agentic_ai_systems
+  topic_level: topic
+  term_status: proposed
+- id: multi_agent_orchestration
+  type: ResearchTopic
+  access_scope: public
+  name: Multi-Agent Orchestration
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_agentic_ai_systems
+  topic_level: topic
+  term_status: proposed
+- id: tool_calling_execution
+  type: ResearchTopic
+  access_scope: public
+  name: Tool Calling & Execution
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_agentic_ai_systems
+  topic_level: topic
+  term_status: proposed
+- id: long_context_agent_systems
+  type: ResearchTopic
+  access_scope: public
+  name: Long-context Agent Systems
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_agentic_ai_systems
+  topic_level: topic
+  term_status: proposed
+- id: rag_external_memory_integration
+  type: ResearchTopic
+  access_scope: public
+  name: RAG & External Memory Integration
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_agentic_ai_systems
+  topic_level: topic
+  term_status: proposed
+- id: agent_memory_management
+  type: ResearchTopic
+  access_scope: public
+  name: Agent Memory Management
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_agentic_ai_systems
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_ai_system_integration
+  type: ResearchTopic
+  access_scope: public
+  name: AI System Integration
+  area_ref: ai_domain
+  topic_level: group
+  term_status: proposed
+- id: ai_application_architecture
+  type: ResearchTopic
+  access_scope: public
+  name: AI Application Architecture
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: model_runtime_integration
+  type: ResearchTopic
+  access_scope: public
+  name: Model / Runtime Integration
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: ai_framework_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: AI Framework Optimization
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: inference_api_serving_integration
+  type: ResearchTopic
+  access_scope: public
+  name: Inference API & Serving Integration
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: end_to_end_ai_system_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: End-to-End AI System Optimization
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: ax_engineering
+  type: ResearchArea
+  access_scope: public
+  name: AX Engineering
+  description: Research using AI to automate semiconductor and software engineering and improve productivity
+    or design quality.
+  portfolio_ref: memory_solutions_research
+  core_question: How can AI help engineers complete engineering work faster and more accurately?
+  term_status: proposed
+- id: topic_group_specification_architecture_agent
+  type: ResearchTopic
+  access_scope: public
+  name: Specification & Architecture Agent
+  area_ref: ax_engineering
+  topic_level: group
+  term_status: proposed
+- id: specification_understanding
+  type: ResearchTopic
+  access_scope: public
+  name: Specification Understanding
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_specification_architecture_agent
+  topic_level: topic
+  term_status: proposed
+- id: requirement_extraction
+  type: ResearchTopic
+  access_scope: public
+  name: Requirement Extraction
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_specification_architecture_agent
+  topic_level: topic
+  term_status: proposed
+- id: architecture_exploration
+  type: ResearchTopic
+  access_scope: public
+  name: Architecture Exploration
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_specification_architecture_agent
+  topic_level: topic
+  term_status: proposed
+- id: spec_to_intermediate_representation
+  type: ResearchTopic
+  access_scope: public
+  name: Spec-to-Intermediate Representation
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_specification_architecture_agent
+  topic_level: topic
+  term_status: proposed
+- id: requirement_traceability
+  type: ResearchTopic
+  access_scope: public
+  name: Requirement Traceability
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_specification_architecture_agent
+  topic_level: topic
+  term_status: proposed
+- id: design_decision_support
+  type: ResearchTopic
+  access_scope: public
+  name: Design Decision Support
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_specification_architecture_agent
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_rtl_development_agent
+  type: ResearchTopic
+  access_scope: public
+  name: RTL Development Agent
+  area_ref: ax_engineering
+  topic_level: group
+  term_status: proposed
+- id: spec_to_rtl_generation
+  type: ResearchTopic
+  access_scope: public
+  name: Spec-to-RTL Generation
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_rtl_development_agent
+  topic_level: topic
+  term_status: proposed
+- id: rtl_code_generation
+  type: ResearchTopic
+  access_scope: public
+  name: RTL Code Generation
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_rtl_development_agent
+  topic_level: topic
+  term_status: proposed
+- id: rtl_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: RTL Optimization
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_rtl_development_agent
+  topic_level: topic
+  term_status: proposed
+- id: rtl_debugging
+  type: ResearchTopic
+  access_scope: public
+  name: RTL Debugging
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_rtl_development_agent
+  topic_level: topic
+  term_status: proposed
+- id: rtl_repair
+  type: ResearchTopic
+  access_scope: public
+  name: RTL Repair
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_rtl_development_agent
+  topic_level: topic
+  term_status: proposed
+- id: multi_module_rtl_generation
+  type: ResearchTopic
+  access_scope: public
+  name: Multi-module RTL Generation
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_rtl_development_agent
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_verification_agent
+  type: ResearchTopic
+  access_scope: public
+  name: Verification Agent
+  area_ref: ax_engineering
+  topic_level: group
+  term_status: proposed
+- id: testbench_generation
+  type: ResearchTopic
+  access_scope: public
+  name: Testbench Generation
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_verification_agent
+  topic_level: topic
+  term_status: proposed
+- id: assertion_generation
+  type: ResearchTopic
+  access_scope: public
+  name: Assertion Generation
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_verification_agent
+  topic_level: topic
+  term_status: proposed
+- id: simulation_automation
+  type: ResearchTopic
+  access_scope: public
+  name: Simulation Automation
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_verification_agent
+  topic_level: topic
+  term_status: proposed
+- id: failure_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Failure Analysis
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_verification_agent
+  topic_level: topic
+  term_status: proposed
+- id: coverage_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Coverage Analysis
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_verification_agent
+  topic_level: topic
+  term_status: proposed
+- id: formal_verification_assistance
+  type: ResearchTopic
+  access_scope: public
+  name: Formal Verification Assistance
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_verification_agent
+  topic_level: topic
+  term_status: proposed
+- id: regression_management
+  type: ResearchTopic
+  access_scope: public
+  name: Regression Management
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_verification_agent
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_firmware_engineering_agent
+  type: ResearchTopic
+  access_scope: public
+  name: Firmware Engineering Agent
+  area_ref: ax_engineering
+  topic_level: group
+  term_status: proposed
+- id: firmware_code_generation
+  type: ResearchTopic
+  access_scope: public
+  name: Firmware Code Generation
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_firmware_engineering_agent
+  topic_level: topic
+  term_status: proposed
+- id: firmware_debugging
+  type: ResearchTopic
+  access_scope: public
+  name: Firmware Debugging
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_firmware_engineering_agent
+  topic_level: topic
+  term_status: proposed
+- id: unit_test_generation
+  type: ResearchTopic
+  access_scope: public
+  name: Unit Test Generation
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_firmware_engineering_agent
+  topic_level: topic
+  term_status: proposed
+- id: firmware_regression
+  type: ResearchTopic
+  access_scope: public
+  name: Firmware Regression
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_firmware_engineering_agent
+  topic_level: topic
+  term_status: proposed
+- id: driver_development_assistance
+  type: ResearchTopic
+  access_scope: public
+  name: Driver Development Assistance
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_firmware_engineering_agent
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_eda_physical_design_agent
+  type: ResearchTopic
+  access_scope: public
+  name: EDA & Physical Design Agent
+  area_ref: ax_engineering
+  topic_level: group
+  term_status: proposed
+- id: synthesis_automation
+  type: ResearchTopic
+  access_scope: public
+  name: Synthesis Automation
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_eda_physical_design_agent
+  topic_level: topic
+  term_status: proposed
+- id: ppa_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: PPA Optimization
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_eda_physical_design_agent
+  topic_level: topic
+  term_status: proposed
+- id: dft_workflow_assistance
+  type: ResearchTopic
+  access_scope: public
+  name: DFT Workflow Assistance
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_eda_physical_design_agent
+  topic_level: topic
+  term_status: proposed
+- id: place_route_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: Place & Route Optimization
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_eda_physical_design_agent
+  topic_level: topic
+  term_status: proposed
+- id: timing_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Timing Analysis
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_eda_physical_design_agent
+  topic_level: topic
+  term_status: proposed
+- id: design_space_exploration
+  type: ResearchTopic
+  access_scope: public
+  name: Design Space Exploration
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_eda_physical_design_agent
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_engineering_knowledge_workflow
+  type: ResearchTopic
+  access_scope: public
+  name: Engineering Knowledge & Workflow
+  area_ref: ax_engineering
+  topic_level: group
+  term_status: proposed
+- id: engineering_document_agent
+  type: ResearchTopic
+  access_scope: public
+  name: Engineering Document Agent
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_engineering_knowledge_workflow
+  topic_level: topic
+  term_status: proposed
+- id: design_knowledge_retrieval
+  type: ResearchTopic
+  access_scope: public
+  name: Design Knowledge Retrieval
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_engineering_knowledge_workflow
+  topic_level: topic
+  term_status: proposed
+- id: git_issue_ci_integration
+  type: ResearchTopic
+  access_scope: public
+  name: Git / Issue / CI Integration
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_engineering_knowledge_workflow
+  topic_level: topic
+  term_status: proposed
+- id: engineering_workflow_orchestration
+  type: ResearchTopic
+  access_scope: public
+  name: Engineering Workflow Orchestration
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_engineering_knowledge_workflow
+  topic_level: topic
+  term_status: proposed
+- id: automated_design_review
+  type: ResearchTopic
+  access_scope: public
+  name: Automated Design Review
+  area_ref: ax_engineering
+  parent_topic_ref: topic_group_engineering_knowledge_workflow
+  topic_level: topic
+  term_status: proposed
+- id: ai_workload
+  type: ResearchArea
+  access_scope: public
+  name: AI Workload
+  description: Research characterizing compute, memory, storage, and network behavior of AI execution
+    and deriving system requirements.
+  portfolio_ref: memory_solutions_research
+  core_question: What do real AI workloads require from hardware and memory systems?
+  term_status: proposed
+- id: topic_group_ai_workload_characterization
+  type: ResearchTopic
+  access_scope: public
+  name: AI Workload Characterization
+  area_ref: ai_workload
+  topic_level: group
+  term_status: proposed
+- id: llm_inference_workload_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: LLM Inference Workload Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_ai_workload_characterization
+  topic_level: topic
+  term_status: proposed
+- id: training_workload_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Training Workload Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_ai_workload_characterization
+  topic_level: topic
+  term_status: proposed
+- id: agentic_ai_workload_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Agentic AI Workload Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_ai_workload_characterization
+  topic_level: topic
+  term_status: proposed
+- id: multimodal_workload_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Multimodal Workload Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_ai_workload_characterization
+  topic_level: topic
+  term_status: proposed
+- id: long_context_workload_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Long-context Workload Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_ai_workload_characterization
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_memory_behavior_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Memory Behavior Analysis
+  area_ref: ai_workload
+  topic_level: group
+  term_status: proposed
+- id: gpu_memory_usage_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: GPU Memory Usage Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_memory_behavior_analysis
+  topic_level: topic
+  term_status: proposed
+- id: hbm_capacity_bandwidth_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: HBM Capacity / Bandwidth Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_memory_behavior_analysis
+  topic_level: topic
+  term_status: proposed
+- id: memory_access_pattern_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Memory Access Pattern Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_memory_behavior_analysis
+  topic_level: topic
+  term_status: proposed
+- id: memory_locality_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Memory Locality Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_memory_behavior_analysis
+  topic_level: topic
+  term_status: proposed
+- id: memory_traffic_characterization
+  type: ResearchTopic
+  access_scope: public
+  name: Memory Traffic Characterization
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_memory_behavior_analysis
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_kv_cache_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Analysis
+  area_ref: ai_workload
+  topic_level: group
+  term_status: proposed
+- id: kv_cache_size_growth_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Size / Growth Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_kv_cache_analysis
+  topic_level: topic
+  term_status: proposed
+- id: kv_cache_access_pattern
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Access Pattern
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_kv_cache_analysis
+  topic_level: topic
+  term_status: proposed
+- id: kv_cache_reuse_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Reuse Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_kv_cache_analysis
+  topic_level: topic
+  term_status: proposed
+- id: kv_cache_sharing_behavior
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Sharing Behavior
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_kv_cache_analysis
+  topic_level: topic
+  term_status: proposed
+- id: kv_cache_lifetime_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Lifetime Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_kv_cache_analysis
+  topic_level: topic
+  term_status: proposed
+- id: kv_cache_read_write_profiling
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Read / Write Profiling
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_kv_cache_analysis
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_storage_io_characterization
+  type: ResearchTopic
+  access_scope: public
+  name: Storage I/O Characterization
+  area_ref: ai_workload
+  topic_level: group
+  term_status: proposed
+- id: ai_storage_io_pattern
+  type: ResearchTopic
+  access_scope: public
+  name: AI Storage I/O Pattern
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_storage_io_characterization
+  topic_level: topic
+  term_status: proposed
+- id: storage_bandwidth_requirement
+  type: ResearchTopic
+  access_scope: public
+  name: Storage Bandwidth Requirement
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_storage_io_characterization
+  topic_level: topic
+  term_status: proposed
+- id: latency_sensitivity_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Latency Sensitivity Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_storage_io_characterization
+  topic_level: topic
+  term_status: proposed
+- id: tail_latency_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Tail Latency Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_storage_io_characterization
+  topic_level: topic
+  term_status: proposed
+- id: storage_traffic_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Storage Traffic Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_storage_io_characterization
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_workload_benchmark_modeling
+  type: ResearchTopic
+  access_scope: public
+  name: Workload Benchmark & Modeling
+  area_ref: ai_workload
+  topic_level: group
+  term_status: proposed
+- id: benchmark_workload_development
+  type: ResearchTopic
+  access_scope: public
+  name: Benchmark Workload Development
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_workload_benchmark_modeling
+  topic_level: topic
+  term_status: proposed
+- id: trace_collection
+  type: ResearchTopic
+  access_scope: public
+  name: Trace Collection
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_workload_benchmark_modeling
+  topic_level: topic
+  term_status: proposed
+- id: trace_replay
+  type: ResearchTopic
+  access_scope: public
+  name: Trace Replay
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_workload_benchmark_modeling
+  topic_level: topic
+  term_status: proposed
+- id: workload_modeling
+  type: ResearchTopic
+  access_scope: public
+  name: Workload Modeling
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_workload_benchmark_modeling
+  topic_level: topic
+  term_status: proposed
+- id: performance_modeling
+  type: ResearchTopic
+  access_scope: public
+  name: Performance Modeling
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_workload_benchmark_modeling
+  topic_level: topic
+  term_status: proposed
+- id: synthetic_workload_generation
+  type: ResearchTopic
+  access_scope: public
+  name: Synthetic Workload Generation
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_workload_benchmark_modeling
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_memory_storage_requirement
+  type: ResearchTopic
+  access_scope: public
+  name: Memory & Storage Requirement
+  area_ref: ai_workload
+  topic_level: group
+  term_status: proposed
+- id: ai_memory_capacity_requirement
+  type: ResearchTopic
+  access_scope: public
+  name: AI Memory Capacity Requirement
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_memory_storage_requirement
+  topic_level: topic
+  term_status: proposed
+- id: bandwidth_requirement_modeling
+  type: ResearchTopic
+  access_scope: public
+  name: Bandwidth Requirement Modeling
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_memory_storage_requirement
+  topic_level: topic
+  term_status: proposed
+- id: latency_qos_requirement
+  type: ResearchTopic
+  access_scope: public
+  name: Latency / QoS Requirement
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_memory_storage_requirement
+  topic_level: topic
+  term_status: proposed
+- id: memory_tiering_requirement
+  type: ResearchTopic
+  access_scope: public
+  name: Memory Tiering Requirement
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_memory_storage_requirement
+  topic_level: topic
+  term_status: proposed
+- id: storage_architecture_requirement
+  type: ResearchTopic
+  access_scope: public
+  name: Storage Architecture Requirement
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_memory_storage_requirement
+  topic_level: topic
+  term_status: proposed
+- id: ai_native_storage
+  type: ResearchArea
+  access_scope: public
+  name: AI Native Storage
+  description: Research on systems, architectures, controllers, firmware, and data-management techniques
+    for AI memory and storage requirements.
+  portfolio_ref: memory_solutions_research
+  core_question: How should memory and storage systems be designed and optimized for AI workloads?
+  term_status: proposed
+- id: topic_group_ai_storage_architecture
+  type: ResearchTopic
+  access_scope: public
+  name: AI Storage Architecture
+  area_ref: ai_native_storage
+  topic_level: group
+  term_status: proposed
+- id: ai_native_storage_system
+  type: ResearchTopic
+  access_scope: public
+  name: AI-Native Storage System
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_ai_storage_architecture
+  topic_level: topic
+  term_status: proposed
+- id: context_memory_storage_architecture
+  type: ResearchTopic
+  access_scope: public
+  name: Context Memory Storage Architecture
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_ai_storage_architecture
+  topic_level: topic
+  term_status: proposed
+- id: ai_storage_hierarchy
+  type: ResearchTopic
+  access_scope: public
+  name: AI Storage Hierarchy
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_ai_storage_architecture
+  topic_level: topic
+  term_status: proposed
+- id: storage_memory_codesign
+  type: ResearchTopic
+  access_scope: public
+  name: Storage / Memory Co-design
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_ai_storage_architecture
+  topic_level: topic
+  term_status: proposed
+- id: high_performance_storage_architecture
+  type: ResearchTopic
+  access_scope: public
+  name: High-performance Storage Architecture
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_ai_storage_architecture
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_kv_cache_storage
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Storage
+  area_ref: ai_native_storage
+  topic_level: group
+  term_status: proposed
+- id: kv_cache_offloading_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Offloading Optimization
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_kv_cache_storage
+  topic_level: topic
+  term_status: proposed
+- id: kv_cache_sharing_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Sharing Optimization
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_kv_cache_storage
+  topic_level: topic
+  term_status: proposed
+- id: kv_cache_persistence
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Persistence
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_kv_cache_storage
+  topic_level: topic
+  term_status: proposed
+- id: kv_cache_prefetching
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Prefetching
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_kv_cache_storage
+  topic_level: topic
+  term_status: proposed
+- id: kv_cache_placement
+  type: ResearchTopic
+  access_scope: public
+  name: KV Cache Placement
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_kv_cache_storage
+  topic_level: topic
+  term_status: proposed
+- id: cache_aware_storage_scheduling
+  type: ResearchTopic
+  access_scope: public
+  name: Cache-aware Storage Scheduling
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_kv_cache_storage
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_cmx_storage_research
+  type: ResearchTopic
+  access_scope: public
+  name: CMX-related Storage Research
+  area_ref: ai_native_storage
+  topic_level: group
+  term_status: proposed
+- id: cmx_platform_evaluation
+  type: ResearchTopic
+  access_scope: public
+  name: CMX Platform Evaluation
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cmx_storage_research
+  topic_level: topic
+  term_status: proposed
+- id: cmx_storage_performance_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: CMX Storage Performance Analysis
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cmx_storage_research
+  topic_level: topic
+  term_status: proposed
+- id: cmx_oriented_ssd_requirement
+  type: ResearchTopic
+  access_scope: public
+  name: CMX-oriented SSD Requirement
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cmx_storage_research
+  topic_level: topic
+  term_status: proposed
+- id: context_memory_storage_integration
+  type: ResearchTopic
+  access_scope: public
+  name: Context Memory Storage Integration
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cmx_storage_research
+  topic_level: topic
+  term_status: proposed
+- id: cmx_workload_benchmark
+  type: ResearchTopic
+  access_scope: public
+  name: CMX Workload Benchmark
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cmx_storage_research
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_hbf_advanced_memory
+  type: ResearchTopic
+  access_scope: public
+  name: HBF & Advanced Memory
+  area_ref: ai_native_storage
+  topic_level: group
+  term_status: proposed
+- id: hbf_architecture_exploration
+  type: ResearchTopic
+  access_scope: public
+  name: HBF Architecture Exploration
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_hbf_advanced_memory
+  topic_level: topic
+  term_status: proposed
+- id: high_bandwidth_flash_integration
+  type: ResearchTopic
+  access_scope: public
+  name: High-bandwidth Flash Integration
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_hbf_advanced_memory
+  topic_level: topic
+  term_status: proposed
+- id: hbf_data_placement
+  type: ResearchTopic
+  access_scope: public
+  name: HBF Data Placement
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_hbf_advanced_memory
+  topic_level: topic
+  term_status: proposed
+- id: hbf_performance_modeling
+  type: ResearchTopic
+  access_scope: public
+  name: HBF Performance Modeling
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_hbf_advanced_memory
+  topic_level: topic
+  term_status: proposed
+- id: hbf_memory_tiering
+  type: ResearchTopic
+  access_scope: public
+  name: HBF-based Memory Tiering
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_hbf_advanced_memory
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_ai_optimized_ssd
+  type: ResearchTopic
+  access_scope: public
+  name: AI-Optimized SSD
+  area_ref: ai_native_storage
+  topic_level: group
+  term_status: proposed
+- id: ai_ssd_controller_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: AI SSD Controller Optimization
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_ai_optimized_ssd
+  topic_level: topic
+  term_status: proposed
+- id: firmware_io_scheduling
+  type: ResearchTopic
+  access_scope: public
+  name: Firmware I/O Scheduling
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_ai_optimized_ssd
+  topic_level: topic
+  term_status: proposed
+- id: storage_qos_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: Storage QoS Optimization
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_ai_optimized_ssd
+  topic_level: topic
+  term_status: proposed
+- id: high_throughput_read_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: High-throughput Read Optimization
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_ai_optimized_ssd
+  topic_level: topic
+  term_status: proposed
+- id: storage_tail_latency_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: Tail Latency Optimization
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_ai_optimized_ssd
+  topic_level: topic
+  term_status: proposed
+- id: ssd_endurance_reliability_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: SSD Endurance / Reliability Analysis
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_ai_optimized_ssd
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_cxl_memory_expansion
+  type: ResearchTopic
+  access_scope: public
+  name: CXL & Memory Expansion
+  area_ref: ai_native_storage
+  topic_level: group
+  term_status: proposed
+- id: cxl_memory_expansion
+  type: ResearchTopic
+  access_scope: public
+  name: CXL Memory Expansion
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cxl_memory_expansion
+  topic_level: topic
+  term_status: proposed
+- id: cxl_memory_pooling
+  type: ResearchTopic
+  access_scope: public
+  name: CXL Memory Pooling
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cxl_memory_expansion
+  topic_level: topic
+  term_status: proposed
+- id: cxl_memory_tiering_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: CXL Memory Tiering Optimization
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cxl_memory_expansion
+  topic_level: topic
+  term_status: proposed
+- id: host_device_memory_management
+  type: ResearchTopic
+  access_scope: public
+  name: Host / Device Memory Management
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cxl_memory_expansion
+  topic_level: topic
+  term_status: proposed
+- id: cxl_controller_architecture
+  type: ResearchTopic
+  access_scope: public
+  name: CXL Controller Architecture
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cxl_memory_expansion
+  topic_level: topic
+  term_status: proposed
+- id: cxl_performance_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: CXL Performance Optimization
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cxl_memory_expansion
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_storage_protocol_system_integration
+  type: ResearchTopic
+  access_scope: public
+  name: Storage Protocol & System Integration
+  area_ref: ai_native_storage
+  topic_level: group
+  term_status: proposed
+- id: pcie_cxl_interface_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: PCIe / CXL Interface Optimization
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_storage_protocol_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: storage_data_path_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: Storage Data Path Optimization
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_storage_protocol_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: dma_buffer_management
+  type: ResearchTopic
+  access_scope: public
+  name: DMA / Buffer Management
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_storage_protocol_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: storage_security_reliability
+  type: ResearchTopic
+  access_scope: public
+  name: Storage Security & Reliability
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_storage_protocol_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: host_device_protocol_integration
+  type: ResearchTopic
+  access_scope: public
+  name: Host / Device Protocol Integration
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_storage_protocol_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: shared_infra
+  type: ResearchArea
+  access_scope: public
+  name: Shared Infra
+  description: Shared compute, model-serving, development, verification, and research-data infrastructure
+    used by multiple projects.
+  portfolio_ref: memory_solutions_research
+  core_question: How can shared research resources be used reliably and efficiently across the organization?
+  term_status: proposed
+- id: topic_group_gpu_compute_infrastructure
+  type: ResearchTopic
+  access_scope: public
+  name: GPU Compute Infrastructure
+  area_ref: shared_infra
+  topic_level: group
+  term_status: proposed
+- id: gpu_cluster_management
+  type: ResearchTopic
+  access_scope: public
+  name: GPU Cluster Management
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_gpu_compute_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: gpu_resource_scheduling
+  type: ResearchTopic
+  access_scope: public
+  name: GPU Resource Scheduling
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_gpu_compute_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: multi_user_gpu_allocation
+  type: ResearchTopic
+  access_scope: public
+  name: Multi-user GPU Allocation
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_gpu_compute_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: gpu_usage_monitoring
+  type: ResearchTopic
+  access_scope: public
+  name: GPU Usage Monitoring
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_gpu_compute_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: compute_capacity_planning
+  type: ResearchTopic
+  access_scope: public
+  name: Compute Capacity Planning
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_gpu_compute_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: gpu_cost_attribution
+  type: ResearchTopic
+  access_scope: public
+  name: GPU Cost Attribution
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_gpu_compute_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_ai_model_serving_infrastructure
+  type: ResearchTopic
+  access_scope: public
+  name: AI Model Serving Infrastructure
+  area_ref: shared_infra
+  topic_level: group
+  term_status: proposed
+- id: internal_llm_serving
+  type: ResearchTopic
+  access_scope: public
+  name: Internal LLM Serving
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_ai_model_serving_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: model_deployment_platform
+  type: ResearchTopic
+  access_scope: public
+  name: Model Deployment Platform
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_ai_model_serving_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: shared_inference_api
+  type: ResearchTopic
+  access_scope: public
+  name: Shared Inference API
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_ai_model_serving_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: model_version_management
+  type: ResearchTopic
+  access_scope: public
+  name: Model Version Management
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_ai_model_serving_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: model_serving_monitoring
+  type: ResearchTopic
+  access_scope: public
+  name: Model Serving Monitoring
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_ai_model_serving_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: shared_model_access_control
+  type: ResearchTopic
+  access_scope: public
+  name: Shared Model Access Control
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_ai_model_serving_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_engineering_infrastructure
+  type: ResearchTopic
+  access_scope: public
+  name: Engineering Infrastructure
+  area_ref: shared_infra
+  topic_level: group
+  term_status: proposed
+- id: git_repository_infrastructure
+  type: ResearchTopic
+  access_scope: public
+  name: Git Repository Infrastructure
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_engineering_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: build_infrastructure
+  type: ResearchTopic
+  access_scope: public
+  name: Build Infrastructure
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_engineering_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: ci_cd_platform
+  type: ResearchTopic
+  access_scope: public
+  name: CI / CD Platform
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_engineering_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: simulation_farm
+  type: ResearchTopic
+  access_scope: public
+  name: Simulation Farm
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_engineering_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: verification_compute_infrastructure
+  type: ResearchTopic
+  access_scope: public
+  name: Verification Compute Infrastructure
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_engineering_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: artifact_repository
+  type: ResearchTopic
+  access_scope: public
+  name: Artifact Repository
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_engineering_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_eda_infrastructure
+  type: ResearchTopic
+  access_scope: public
+  name: EDA Infrastructure
+  area_ref: shared_infra
+  topic_level: group
+  term_status: proposed
+- id: eda_license_management
+  type: ResearchTopic
+  access_scope: public
+  name: EDA License Management
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_eda_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: eda_compute_scheduling
+  type: ResearchTopic
+  access_scope: public
+  name: EDA Compute Scheduling
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_eda_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: tool_environment_management
+  type: ResearchTopic
+  access_scope: public
+  name: Tool Environment Management
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_eda_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: shared_eda_workflow
+  type: ResearchTopic
+  access_scope: public
+  name: Shared EDA Workflow
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_eda_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: eda_usage_monitoring
+  type: ResearchTopic
+  access_scope: public
+  name: EDA Usage Monitoring
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_eda_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_research_data_infrastructure
+  type: ResearchTopic
+  access_scope: public
+  name: Research Data Infrastructure
+  area_ref: shared_infra
+  topic_level: group
+  term_status: proposed
+- id: research_registry
+  type: ResearchTopic
+  access_scope: public
+  name: Research Registry
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_research_data_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: experiment_tracking
+  type: ResearchTopic
+  access_scope: public
+  name: Experiment Tracking
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_research_data_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: benchmark_data_repository
+  type: ResearchTopic
+  access_scope: public
+  name: Benchmark Data Repository
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_research_data_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: knowledge_graph_infrastructure
+  type: ResearchTopic
+  access_scope: public
+  name: Knowledge Graph Infrastructure
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_research_data_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: metadata_management
+  type: ResearchTopic
+  access_scope: public
+  name: Metadata Management
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_research_data_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: research_data_catalog
+  type: ResearchTopic
+  access_scope: public
+  name: Research Data Catalog
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_research_data_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_resource_operational_intelligence
+  type: ResearchTopic
+  access_scope: public
+  name: Resource & Operational Intelligence
+  area_ref: shared_infra
+  topic_level: group
+  term_status: proposed
+- id: gpu_utilization_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: GPU Utilization Analysis
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_resource_operational_intelligence
+  topic_level: topic
+  term_status: proposed
+- id: resource_usage_attribution
+  type: ResearchTopic
+  access_scope: public
+  name: Resource Usage Attribution
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_resource_operational_intelligence
+  topic_level: topic
+  term_status: proposed
+- id: research_cost_monitoring
+  type: ResearchTopic
+  access_scope: public
+  name: Research Cost Monitoring
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_resource_operational_intelligence
+  topic_level: topic
+  term_status: proposed
+- id: license_utilization_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: License Utilization Analysis
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_resource_operational_intelligence
+  topic_level: topic
+  term_status: proposed
+- id: infrastructure_capacity_planning
+  type: ResearchTopic
+  access_scope: public
+  name: Infrastructure Capacity Planning
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_resource_operational_intelligence
+  topic_level: topic
+  term_status: proposed

@@ -1,0 +1,11 @@
+schema_version: 1
+ontology_version: 0.3.0
+status: proposed
+updated_at: '2026-11-08'
+schema_file: ontology/schema.yaml
+data_files:
+  - taxonomy/research_taxonomy.yaml
+  - taxonomy/vocabularies.yaml
+  - examples/graph.yaml
+source_basis: User-supplied Memory Solutions Research Taxonomy v0.2 and Organization & People extension
+data_boundary: Bundled organization, person, execution, and measurement records are synthetic examples.

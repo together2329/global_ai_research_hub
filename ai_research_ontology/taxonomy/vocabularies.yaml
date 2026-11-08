@@ -1,0 +1,703 @@
+dataset_kind: vocabulary
+status: proposed
+version: 0.3.0
+entities:
+- id: workload_llm_training
+  type: WorkloadUseCase
+  access_scope: public
+  name: LLM Training
+  term_status: proposed
+- id: workload_llm_inference
+  type: WorkloadUseCase
+  access_scope: public
+  name: LLM Inference
+  term_status: proposed
+- id: workload_long_context_llm_inference
+  type: WorkloadUseCase
+  access_scope: public
+  name: Long-context LLM Inference
+  term_status: proposed
+- id: workload_agentic_ai
+  type: WorkloadUseCase
+  access_scope: public
+  name: Agentic AI
+  term_status: proposed
+- id: workload_multimodal_inference
+  type: WorkloadUseCase
+  access_scope: public
+  name: Multimodal Inference
+  term_status: proposed
+- id: workload_distributed_inference
+  type: WorkloadUseCase
+  access_scope: public
+  name: Distributed Inference
+  term_status: proposed
+- id: workload_spec_to_rtl_development
+  type: WorkloadUseCase
+  access_scope: public
+  name: Spec-to-RTL Development
+  term_status: proposed
+- id: workload_rtl_verification
+  type: WorkloadUseCase
+  access_scope: public
+  name: RTL Verification
+  term_status: proposed
+- id: workload_ssd_firmware_development
+  type: WorkloadUseCase
+  access_scope: public
+  name: SSD Firmware Development
+  term_status: proposed
+- id: workload_soc_architecture_design
+  type: WorkloadUseCase
+  access_scope: public
+  name: SoC Architecture Design
+  term_status: proposed
+- id: workload_physical_design_optimization
+  type: WorkloadUseCase
+  access_scope: public
+  name: Physical Design Optimization
+  term_status: proposed
+- id: workload_gpu_model_training
+  type: WorkloadUseCase
+  access_scope: public
+  name: GPU Model Training
+  term_status: proposed
+- id: workload_shared_llm_inference
+  type: WorkloadUseCase
+  access_scope: public
+  name: Shared LLM Inference
+  term_status: proposed
+- id: workload_eda_regression
+  type: WorkloadUseCase
+  access_scope: public
+  name: EDA Regression
+  term_status: proposed
+- id: workload_research_benchmark_execution
+  type: WorkloadUseCase
+  access_scope: public
+  name: Research Benchmark Execution
+  term_status: proposed
+- id: workload_ai_inference_memory_access
+  type: WorkloadUseCase
+  access_scope: public
+  name: AI Inference Memory Access
+  term_status: proposed
+- id: workload_memory_intensive_server_application
+  type: WorkloadUseCase
+  access_scope: public
+  name: Memory-intensive Server Application
+  term_status: proposed
+- id: workload_ai_training
+  type: WorkloadUseCase
+  access_scope: public
+  name: AI Training
+  term_status: proposed
+- id: workload_ai_inference
+  type: WorkloadUseCase
+  access_scope: public
+  name: AI Inference
+  term_status: proposed
+- id: workload_benchmark_execution
+  type: WorkloadUseCase
+  access_scope: public
+  name: Benchmark Execution
+  term_status: proposed
+- id: tech_prompt_engineering
+  type: Technique
+  access_scope: public
+  name: Prompt Engineering
+  term_status: proposed
+- id: tech_rag
+  type: Technique
+  access_scope: public
+  name: RAG
+  term_status: proposed
+- id: tech_sft
+  type: Technique
+  access_scope: public
+  name: Supervised Fine-Tuning
+  term_status: proposed
+- id: tech_lora
+  type: Technique
+  access_scope: public
+  name: LoRA
+  term_status: proposed
+- id: tech_dpo
+  type: Technique
+  access_scope: public
+  name: DPO
+  term_status: proposed
+- id: tech_grpo
+  type: Technique
+  access_scope: public
+  name: GRPO
+  term_status: proposed
+- id: tech_rlvr
+  type: Technique
+  access_scope: public
+  name: RLVR
+  term_status: proposed
+- id: tech_tool_calling
+  type: Technique
+  access_scope: public
+  name: Tool Calling
+  term_status: proposed
+- id: tech_multi_agent_workflow
+  type: Technique
+  access_scope: public
+  name: Multi-Agent Workflow
+  term_status: proposed
+- id: tech_deterministic_verification
+  type: Technique
+  access_scope: public
+  name: Deterministic Verification
+  term_status: proposed
+- id: tech_formal_verification
+  type: Technique
+  access_scope: public
+  name: Formal Verification
+  term_status: proposed
+- id: tech_rtl_repair_loop
+  type: Technique
+  access_scope: public
+  name: RTL Repair Loop
+  term_status: proposed
+- id: tech_profiling
+  type: Technique
+  access_scope: public
+  name: Profiling
+  term_status: proposed
+- id: tech_trace_analysis
+  type: Technique
+  access_scope: public
+  name: Trace Analysis
+  term_status: proposed
+- id: tech_kv_cache_offloading
+  type: Technique
+  access_scope: public
+  name: KV Cache Offloading
+  term_status: proposed
+- id: tech_kv_cache_sharing
+  type: Technique
+  access_scope: public
+  name: KV Cache Sharing
+  term_status: proposed
+- id: tech_prefetching
+  type: Technique
+  access_scope: public
+  name: Prefetching
+  term_status: proposed
+- id: tech_memory_tiering
+  type: Technique
+  access_scope: public
+  name: Memory Tiering
+  term_status: proposed
+- id: tech_data_placement
+  type: Technique
+  access_scope: public
+  name: Data Placement
+  term_status: proposed
+- id: tech_io_scheduling
+  type: Technique
+  access_scope: public
+  name: I/O Scheduling
+  term_status: proposed
+- id: tech_gpu_scheduling
+  type: Technique
+  access_scope: public
+  name: GPU Scheduling
+  term_status: proposed
+- id: tech_resource_pooling
+  type: Technique
+  access_scope: public
+  name: Resource Pooling
+  term_status: proposed
+- id: tech_usage_attribution
+  type: Technique
+  access_scope: public
+  name: Usage Attribution
+  term_status: proposed
+- id: tech_automated_deployment
+  type: Technique
+  access_scope: public
+  name: Automated Deployment
+  term_status: proposed
+- id: tech_ci_cd_automation
+  type: Technique
+  access_scope: public
+  name: CI / CD Automation
+  term_status: proposed
+- id: tech_quantization
+  type: Technique
+  access_scope: public
+  name: Quantization
+  term_status: proposed
+- id: tech_model_distillation
+  type: Technique
+  access_scope: public
+  name: Model Distillation
+  term_status: proposed
+- id: capability_rtl_generation
+  type: Capability
+  access_scope: public
+  name: RTL Generation
+  term_status: proposed
+- id: capability_rtl_repair
+  type: Capability
+  access_scope: public
+  name: RTL Repair
+  term_status: proposed
+- id: capability_firmware_generation
+  type: Capability
+  access_scope: public
+  name: Firmware Generation
+  term_status: proposed
+- id: capability_automated_verification
+  type: Capability
+  access_scope: public
+  name: Automated Verification
+  term_status: proposed
+- id: capability_kv_cache_storage
+  type: Capability
+  access_scope: public
+  name: KV Cache Storage
+  term_status: proposed
+- id: capability_memory_expansion
+  type: Capability
+  access_scope: public
+  name: Memory Expansion
+  term_status: proposed
+- id: capability_workload_profiling
+  type: Capability
+  access_scope: public
+  name: Workload Profiling
+  term_status: proposed
+- id: capability_llm_model_serving
+  type: Capability
+  access_scope: public
+  name: LLM Model Serving
+  term_status: proposed
+- id: metric_ttft
+  type: EvaluationMetric
+  access_scope: public
+  name: TTFT
+  definition: 요청 수신부터 첫 출력 토큰까지 걸린 시간.
+  contract_status: ready
+  value_kind: number
+  term_status: proposed
+  unit: ms
+  required_conditions:
+  - model_version
+  - request_profile
+  - load
+- id: metric_tpot
+  type: EvaluationMetric
+  access_scope: public
+  name: TPOT
+  definition: 첫 토큰 이후 생성 구간의 토큰당 시간.
+  contract_status: ready
+  value_kind: number
+  term_status: proposed
+  unit: ms/token
+  required_conditions:
+  - model_version
+  - output_tokens
+  - load
+- id: metric_tokens_per_second
+  type: EvaluationMetric
+  access_scope: public
+  name: Tokens per Second
+  definition: 명시된 측정 구간에서 생성한 출력 토큰 수/시간.
+  contract_status: ready
+  value_kind: number
+  term_status: proposed
+  unit: tokens/s
+  required_conditions:
+  - model_version
+  - measurement_window
+  - load
+- id: metric_request_latency
+  type: EvaluationMetric
+  access_scope: public
+  name: Request Latency
+  definition: 요청 수신부터 응답 완료까지의 시간. 시작·종료 지점과 집계 방식을 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_throughput
+  type: EvaluationMetric
+  access_scope: public
+  name: Throughput
+  definition: 단위 시간에 완료한 요청·토큰·작업량. 작업 단위와 부하 조건을 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_model_quality
+  type: EvaluationMetric
+  access_scope: public
+  name: Model Quality
+  definition: 명시된 Task·Dataset·평가 절차에서 측정한 모델 결과 품질. 하나의 공통 점수로 합치지 않는다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_serving_efficiency
+  type: EvaluationMetric
+  access_scope: public
+  name: Serving Efficiency
+  definition: 품질·지연 SLO를 만족하면서 사용한 자원 또는 비용 대비 처리량.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_rtl_compile_pass_rate
+  type: EvaluationMetric
+  access_scope: public
+  name: RTL Compile Pass Rate
+  definition: 동일 평가 집합에서 컴파일 성공한 설계 수/전체 설계 수.
+  contract_status: ready
+  value_kind: number
+  term_status: proposed
+  unit: ratio
+  required_conditions:
+  - passed_count
+  - total_count
+  - design_revision
+  - tool_version
+- id: metric_simulation_pass_rate
+  type: EvaluationMetric
+  access_scope: public
+  name: Simulation Pass Rate
+  definition: 동일 회귀 집합에서 통과한 테스트 수/전체 테스트 수.
+  contract_status: ready
+  value_kind: number
+  term_status: proposed
+  unit: ratio
+  required_conditions:
+  - passed_count
+  - total_count
+  - design_revision
+  - tool_version
+- id: metric_functional_correctness
+  type: EvaluationMetric
+  access_scope: public
+  name: Functional Correctness
+  definition: 명세된 동작과의 일치 여부. 적용한 테스트·형식 검증의 범위를 함께 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_rtl_repair_success_rate
+  type: EvaluationMetric
+  access_scope: public
+  name: RTL Repair Success Rate
+  definition: 정해진 시도 횟수와 검증 기준 안에서 수정 성공한 실패 사례 수/평가한 실패 사례 수.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_ppa
+  type: EvaluationMetric
+  access_scope: public
+  name: PPA
+  definition: Power, Performance, Area의 묶음. 하나의 단위 없는 점수로 기록하지 않고 각 지표를 분리한다.
+  contract_status: candidate
+  value_kind: family
+  term_status: proposed
+- id: metric_verification_coverage
+  type: EvaluationMetric
+  access_scope: public
+  name: Verification Coverage
+  definition: 명시된 Coverage 종류와 대상에서 검증된 항목의 비율. 코드·기능·Assertion Coverage를 구분한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_development_lead_time
+  type: EvaluationMetric
+  access_scope: public
+  name: Development Lead Time
+  definition: 정의된 개발 시작 사건부터 수용된 결과까지의 경과 시간. 실제 작업 시간과 달력 시간을 구분한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_memory_footprint
+  type: EvaluationMetric
+  access_scope: public
+  name: Memory Footprint
+  definition: 명시된 구성요소·시점·구간의 할당 또는 상주 메모리 양. Peak·평균과 장치 범위를 구분한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_kv_cache_size
+  type: EvaluationMetric
+  access_scope: public
+  name: KV Cache Size
+  definition: 명시된 모델·Context·동시 요청 조건에서 KV Cache가 차지하는 데이터 양.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_cache_reuse_rate
+  type: EvaluationMetric
+  access_scope: public
+  name: Cache Reuse Rate
+  definition: 재사용 가능한 후보 중 실제 재사용된 Cache 항목의 비율. 항목·토큰·Byte 중 분모를 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_read_write_ratio
+  type: EvaluationMetric
+  access_scope: public
+  name: Read / Write Ratio
+  definition: 같은 측정 구간의 Read와 Write 양의 비. 요청 수 기준인지 Byte 기준인지 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_io_size_distribution
+  type: EvaluationMetric
+  access_scope: public
+  name: I/O Size Distribution
+  definition: 평가한 I/O 요청별 데이터 크기의 분포. 요청 유형과 표본 구간을 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_traffic_volume
+  type: EvaluationMetric
+  access_scope: public
+  name: Traffic Volume
+  definition: 정의한 경로와 측정 구간에서 이동한 누적 데이터 양.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_memory_traffic
+  type: EvaluationMetric
+  access_scope: public
+  name: Memory Traffic
+  definition: 특정 메모리 인터페이스·계층에서 관찰한 데이터 이동량. 방향과 구간을 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_bandwidth_demand
+  type: EvaluationMetric
+  access_scope: public
+  name: Bandwidth Demand
+  definition: 명시된 Workload SLO를 만족하기 위해 요구되는 전송률. 장치의 최대 실측 대역폭과 구분한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_latency_sensitivity
+  type: EvaluationMetric
+  access_scope: public
+  name: Latency Sensitivity
+  definition: 지연 조건의 변화에 따른 Workload 성능 또는 SLO 변화. 변화량과 기준 조건을 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_latency
+  type: EvaluationMetric
+  access_scope: public
+  name: Latency
+  definition: 정의된 작업의 시작부터 완료까지의 시간. 개별 값과 평균·백분위 집계를 구분한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_bandwidth
+  type: EvaluationMetric
+  access_scope: public
+  name: Bandwidth
+  definition: 지정된 경로에서 전송한 데이터 양/시간.
+  contract_status: ready
+  value_kind: number
+  term_status: proposed
+  unit: bytes/s
+  required_conditions:
+  - path
+  - measurement_window
+  - io_profile
+- id: metric_iops
+  type: EvaluationMetric
+  access_scope: public
+  name: IOPS
+  definition: 지정된 Workload 조건과 측정 구간에서 초당 완료된 I/O 요청 수.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_tail_latency
+  type: EvaluationMetric
+  access_scope: public
+  name: Tail Latency
+  definition: 명시된 요청 집합에서 특정 백분위의 지연 시간.
+  contract_status: ready
+  value_kind: number
+  term_status: proposed
+  unit: ms
+  required_conditions:
+  - percentile
+  - sample_count
+  - io_profile
+- id: metric_energy_efficiency
+  type: EvaluationMetric
+  access_scope: public
+  name: Energy Efficiency
+  definition: 에너지 대비 유효 작업량 또는 작업당 에너지. 산식과 방향을 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_capacity_efficiency
+  type: EvaluationMetric
+  access_scope: public
+  name: Capacity Efficiency
+  definition: 물리적 용량 대비 사용 가능한 유효 데이터 용량. Metadata·복제·압축 조건을 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_endurance
+  type: EvaluationMetric
+  access_scope: public
+  name: Endurance
+  definition: 정의된 Workload와 실패 기준까지 허용되는 누적 쓰기 또는 사용량. 수명 추정과 실측을 구분한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_compatibility
+  type: EvaluationMetric
+  access_scope: public
+  name: Compatibility
+  definition: 명시된 Protocol·Version·Host·Device 조합에서 요구 기능 또는 적합성 테스트를 만족하는지 여부.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_gpu_utilization
+  type: EvaluationMetric
+  access_scope: public
+  name: GPU Utilization
+  definition: 명시된 장치·측정 구간의 GPU 사용률.
+  contract_status: ready
+  value_kind: number
+  term_status: proposed
+  unit: percent
+  required_conditions:
+  - device
+  - measurement_window
+  - sampling_method
+- id: metric_queue_time
+  type: EvaluationMetric
+  access_scope: public
+  name: Queue Time
+  definition: Job 제출 또는 대기 진입부터 자원 할당 후 실행 시작까지의 시간.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_service_availability
+  type: EvaluationMetric
+  access_scope: public
+  name: Service Availability
+  definition: 정의된 관찰 구간 또는 요청 집합에서 서비스가 사용 가능했던 비율. 분모와 제외 조건을 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_model_serving_latency
+  type: EvaluationMetric
+  access_scope: public
+  name: Model Serving Latency
+  definition: 모델 서비스의 지정된 API 경계에서 측정한 요청 지연. TTFT와 전체 응답 지연을 구분한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_job_success_rate
+  type: EvaluationMetric
+  access_scope: public
+  name: Job Success Rate
+  definition: 정의된 상태 기준에서 성공한 Job 수/평가 대상 Job 수. 재시도 집계 정책을 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_eda_license_utilization
+  type: EvaluationMetric
+  access_scope: public
+  name: EDA License Utilization
+  definition: 평가 구간의 사용 또는 할당된 EDA License 양/가용 License 양. Token과 시간 기준을 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: metric_compute_cost
+  type: EvaluationMetric
+  access_scope: public
+  name: Compute Cost
+  definition: 지정된 기간·Job·프로젝트에 귀속한 Compute 비용. 통화·가격 기준·실제/추정 여부를 명시한다.
+  contract_status: candidate
+  value_kind: number
+  term_status: proposed
+- id: role_project_owner
+  type: Role
+  access_scope: public
+  name: Project Owner
+  description: 프로젝트 목표와 주요 결과에 책임을 갖는 공식 지정 역할.
+  role_scope: project
+  term_status: proposed
+- id: role_developer
+  type: Role
+  access_scope: public
+  name: Developer
+  description: 프로젝트 개발 업무를 수행하는 공식 참여 역할.
+  role_scope: project
+  term_status: proposed
+- id: role_reviewer
+  type: Role
+  access_scope: public
+  name: Reviewer
+  description: 프로젝트 결과를 검토하는 공식 지정 역할.
+  role_scope: project
+  term_status: proposed
+- id: expertise_pcie
+  type: Expertise
+  access_scope: public
+  name: PCIe
+  description: PCIe 관련 기술 전문성의 분류 용어. 사람의 보유 여부는 ExpertiseAssertion으로 별도 판단한다.
+  term_status: proposed
+- id: expertise_rtl
+  type: Expertise
+  access_scope: public
+  name: RTL
+  description: RTL 관련 기술 전문성의 분류 용어. 사람의 보유 여부는 ExpertiseAssertion으로 별도 판단한다.
+  term_status: proposed
+- id: expertise_cxl
+  type: Expertise
+  access_scope: public
+  name: CXL
+  description: CXL 관련 기술 전문성의 분류 용어. 사람의 보유 여부는 ExpertiseAssertion으로 별도 판단한다.
+  term_status: proposed
+- id: expertise_llm
+  type: Expertise
+  access_scope: public
+  name: LLM
+  description: LLM 관련 기술 전문성의 분류 용어. 사람의 보유 여부는 ExpertiseAssertion으로 별도 판단한다.
+  term_status: proposed
+- id: expertise_ssd
+  type: Expertise
+  access_scope: public
+  name: SSD
+  description: SSD 관련 기술 전문성의 분류 용어. 사람의 보유 여부는 ExpertiseAssertion으로 별도 판단한다.
+  term_status: proposed
+- id: expertise_hbf
+  type: Expertise
+  access_scope: public
+  name: HBF
+  description: HBF 관련 기술 전문성의 분류 용어. 사람의 보유 여부는 ExpertiseAssertion으로 별도 판단한다.
+  term_status: proposed
+- id: expertise_kv_cache
+  type: Expertise
+  access_scope: public
+  name: KV Cache
+  description: KV Cache 관련 기술 전문성의 분류 용어. 사람의 보유 여부는 ExpertiseAssertion으로 별도 판단한다.
+  term_status: proposed
+- id: subject_kv_cache
+  type: ResearchSubject
+  access_scope: public
+  name: KV Cache
+  term_status: proposed
+- id: subject_hbf
+  type: ResearchSubject
+  access_scope: public
+  name: HBF
+  term_status: proposed
+- id: subject_cxl
+  type: ResearchSubject
+  access_scope: public
+  name: CXL
+  term_status: proposed

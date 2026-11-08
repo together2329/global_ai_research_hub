@@ -1,0 +1,10 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.*
+ai_research_ontology/private_data/
+ai_research_ontology/imports/hr/
+*.local.yaml
