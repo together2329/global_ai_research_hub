@@ -1,7 +1,7 @@
 dataset_kind: taxonomy
 status: proposed
-version: 0.3.0
-source: User-supplied Memory Solutions Research Taxonomy v0.2, extended 2026-11-08
+version: 0.4.0
+source: User proposal plus curated public research reviewed 2026-11-08; all additions remain proposed.
 entities:
 - id: memory_solutions_research
   type: ResearchPortfolio
@@ -1542,5 +1542,524 @@ entities:
   name: Infrastructure Capacity Planning
   area_ref: shared_infra
   parent_topic_ref: topic_group_resource_operational_intelligence
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_retrieval_memory_systems
+  type: ResearchTopic
+  access_scope: public
+  name: Retrieval & Agent Memory Systems
+  area_ref: ai_domain
+  topic_level: group
+  term_status: proposed
+- id: dense_vector_retrieval_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: Dense Vector Retrieval Optimization
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_retrieval_memory_systems
+  topic_level: topic
+  term_status: proposed
+- id: filtered_hybrid_retrieval_optimization
+  type: ResearchTopic
+  access_scope: public
+  name: Filtered & Hybrid Retrieval Optimization
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_retrieval_memory_systems
+  topic_level: topic
+  term_status: proposed
+- id: retrieval_quality_latency_codesign
+  type: ResearchTopic
+  access_scope: public
+  name: Retrieval Quality / Latency Co-design
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_retrieval_memory_systems
+  topic_level: topic
+  term_status: proposed
+- id: multimodal_retrieval_integration
+  type: ResearchTopic
+  access_scope: public
+  name: Multimodal Retrieval Integration
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_retrieval_memory_systems
+  topic_level: topic
+  term_status: proposed
+- id: persistent_agent_memory_architecture
+  type: ResearchTopic
+  access_scope: public
+  name: Persistent Agent Memory Architecture
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_retrieval_memory_systems
+  topic_level: topic
+  term_status: proposed
+- id: agent_memory_consolidation_evaluation
+  type: ResearchTopic
+  access_scope: public
+  name: Agent Memory Consolidation & Evaluation
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_retrieval_memory_systems
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_vector_retrieval_characterization
+  type: ResearchTopic
+  access_scope: public
+  name: Vector Retrieval Workload Characterization
+  area_ref: ai_workload
+  topic_level: group
+  term_status: proposed
+- id: ann_query_access_characterization
+  type: ResearchTopic
+  access_scope: public
+  name: ANN Query Access Characterization
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_vector_retrieval_characterization
+  topic_level: topic
+  term_status: proposed
+- id: vector_filter_selectivity_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Vector Filter Selectivity Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_vector_retrieval_characterization
+  topic_level: topic
+  term_status: proposed
+- id: vector_index_update_freshness_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Vector Index Update / Freshness Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_vector_retrieval_characterization
+  topic_level: topic
+  term_status: proposed
+- id: vector_index_build_workload_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Vector Index Build Workload Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_vector_retrieval_characterization
+  topic_level: topic
+  term_status: proposed
+- id: vector_quality_latency_tradeoff_modeling
+  type: ResearchTopic
+  access_scope: public
+  name: Vector Quality / Latency Tradeoff Modeling
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_vector_retrieval_characterization
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_ai_data_lifecycle_characterization
+  type: ResearchTopic
+  access_scope: public
+  name: AI Data Lifecycle & Recovery Characterization
+  area_ref: ai_workload
+  topic_level: group
+  term_status: proposed
+- id: training_data_ingestion_io_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Training Data Ingestion I/O Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_ai_data_lifecycle_characterization
+  topic_level: topic
+  term_status: proposed
+- id: checkpoint_write_pattern_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Checkpoint Write Pattern Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_ai_data_lifecycle_characterization
+  topic_level: topic
+  term_status: proposed
+- id: checkpoint_restore_stall_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Checkpoint Restore / Stall Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_ai_data_lifecycle_characterization
+  topic_level: topic
+  term_status: proposed
+- id: model_state_data_movement_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Model / Optimizer State Data Movement Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_ai_data_lifecycle_characterization
+  topic_level: topic
+  term_status: proposed
+- id: agent_persistent_state_access_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Agent Persistent State Access Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_ai_data_lifecycle_characterization
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_accelerator_storage_io_characterization
+  type: ResearchTopic
+  access_scope: public
+  name: Accelerator–Storage I/O Characterization
+  area_ref: ai_workload
+  topic_level: group
+  term_status: proposed
+- id: gpu_initiated_small_io_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: GPU-Initiated Small I/O Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_accelerator_storage_io_characterization
+  topic_level: topic
+  term_status: proposed
+- id: accelerator_storage_queue_tail_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Accelerator–Storage Queue / Tail Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_accelerator_storage_io_characterization
+  topic_level: topic
+  term_status: proposed
+- id: storage_control_data_path_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Storage Control / Data Path Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_accelerator_storage_io_characterization
+  topic_level: topic
+  term_status: proposed
+- id: disaggregated_data_fabric_traffic_analysis
+  type: ResearchTopic
+  access_scope: public
+  name: Disaggregated Data Fabric Traffic Analysis
+  area_ref: ai_workload
+  parent_topic_ref: topic_group_accelerator_storage_io_characterization
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_vector_retrieval_storage
+  type: ResearchTopic
+  access_scope: public
+  name: Vector & Retrieval Storage Systems
+  area_ref: ai_native_storage
+  topic_level: group
+  term_status: proposed
+- id: disk_based_ann_architecture
+  type: ResearchTopic
+  access_scope: public
+  name: Disk-based ANN Architecture
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_vector_retrieval_storage
+  topic_level: topic
+  term_status: proposed
+- id: gpu_ssd_vector_search_codesign
+  type: ResearchTopic
+  access_scope: public
+  name: GPU / SSD Vector Search Co-design
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_vector_retrieval_storage
+  topic_level: topic
+  term_status: proposed
+- id: filtered_hybrid_index_storage
+  type: ResearchTopic
+  access_scope: public
+  name: Filtered / Hybrid Index Storage
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_vector_retrieval_storage
+  topic_level: topic
+  term_status: proposed
+- id: vector_index_update_compaction
+  type: ResearchTopic
+  access_scope: public
+  name: Vector Index Update / Compaction
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_vector_retrieval_storage
+  topic_level: topic
+  term_status: proposed
+- id: vector_index_data_placement
+  type: ResearchTopic
+  access_scope: public
+  name: Vector / Index Data Placement
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_vector_retrieval_storage
+  topic_level: topic
+  term_status: proposed
+- id: distributed_vector_storage_architecture
+  type: ResearchTopic
+  access_scope: public
+  name: Distributed Vector Storage Architecture
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_vector_retrieval_storage
+  topic_level: topic
+  term_status: proposed
+- id: vector_index_compression_tradeoffs
+  type: ResearchTopic
+  access_scope: public
+  name: Vector / Index Compression Tradeoffs
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_vector_retrieval_storage
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_gpu_initiated_storage
+  type: ResearchTopic
+  access_scope: public
+  name: GPU-Initiated Storage Architecture
+  area_ref: ai_native_storage
+  topic_level: group
+  term_status: proposed
+- id: gpu_initiated_storage_architecture
+  type: ResearchTopic
+  access_scope: public
+  name: GPU-Initiated Storage Architecture
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_gpu_initiated_storage
+  topic_level: topic
+  term_status: proposed
+- id: fine_grained_high_iops_storage
+  type: ResearchTopic
+  access_scope: public
+  name: Fine-grained High-IOPS Storage
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_gpu_initiated_storage
+  topic_level: topic
+  term_status: proposed
+- id: scada_storage_service_integration
+  type: ResearchTopic
+  access_scope: public
+  name: SCADA Storage Service Integration
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_gpu_initiated_storage
+  topic_level: topic
+  term_status: proposed
+- id: gpu_storage_control_plane_codesign
+  type: ResearchTopic
+  access_scope: public
+  name: GPU–Storage Control Plane Co-design
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_gpu_initiated_storage
+  topic_level: topic
+  term_status: proposed
+- id: gpu_storage_io_isolation
+  type: ResearchTopic
+  access_scope: public
+  name: GPU–Storage I/O Isolation
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_gpu_initiated_storage
+  topic_level: topic
+  term_status: proposed
+- id: gpu_storage_command_scheduling
+  type: ResearchTopic
+  access_scope: public
+  name: GPU–Storage Command Scheduling
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_gpu_initiated_storage
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_training_checkpoint_storage
+  type: ResearchTopic
+  access_scope: public
+  name: Training Data & Checkpoint / Recovery Storage
+  area_ref: ai_native_storage
+  topic_level: group
+  term_status: proposed
+- id: training_data_storage_pipeline
+  type: ResearchTopic
+  access_scope: public
+  name: Training Data Storage Pipeline
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_training_checkpoint_storage
+  topic_level: topic
+  term_status: proposed
+- id: asynchronous_checkpoint_storage
+  type: ResearchTopic
+  access_scope: public
+  name: Asynchronous Checkpoint Storage
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_training_checkpoint_storage
+  topic_level: topic
+  term_status: proposed
+- id: checkpoint_state_serialization
+  type: ResearchTopic
+  access_scope: public
+  name: Checkpoint State Serialization
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_training_checkpoint_storage
+  topic_level: topic
+  term_status: proposed
+- id: checkpoint_durability_recovery
+  type: ResearchTopic
+  access_scope: public
+  name: Checkpoint Durability / Recovery
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_training_checkpoint_storage
+  topic_level: topic
+  term_status: proposed
+- id: checkpoint_multilevel_placement
+  type: ResearchTopic
+  access_scope: public
+  name: Checkpoint Multi-level Placement
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_training_checkpoint_storage
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_persistent_agent_memory_storage
+  type: ResearchTopic
+  access_scope: public
+  name: Persistent Agent Memory & Data Management
+  area_ref: ai_native_storage
+  topic_level: group
+  term_status: proposed
+- id: agent_memory_storage_retrieval
+  type: ResearchTopic
+  access_scope: public
+  name: Agent Memory Storage / Retrieval
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_persistent_agent_memory_storage
+  topic_level: topic
+  term_status: proposed
+- id: agent_memory_update_consistency
+  type: ResearchTopic
+  access_scope: public
+  name: Agent Memory Update / Consistency
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_persistent_agent_memory_storage
+  topic_level: topic
+  term_status: proposed
+- id: agent_memory_retention_forgetting
+  type: ResearchTopic
+  access_scope: public
+  name: Agent Memory Retention / Forgetting
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_persistent_agent_memory_storage
+  topic_level: topic
+  term_status: proposed
+- id: agent_memory_provenance_isolation
+  type: ResearchTopic
+  access_scope: public
+  name: Agent Memory Provenance / Isolation
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_persistent_agent_memory_storage
+  topic_level: topic
+  term_status: proposed
+- id: topic_group_computational_storage_near_data
+  type: ResearchTopic
+  access_scope: public
+  name: Computational Storage & Near-data Processing
+  area_ref: ai_native_storage
+  topic_level: group
+  term_status: proposed
+- id: computational_storage_service_architecture
+  type: ResearchTopic
+  access_scope: public
+  name: Computational Storage Service Architecture
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_computational_storage_near_data
+  topic_level: topic
+  term_status: proposed
+- id: near_data_filter_search_offload
+  type: ResearchTopic
+  access_scope: public
+  name: Near-data Filter / Search Offload
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_computational_storage_near_data
+  topic_level: topic
+  term_status: proposed
+- id: computational_storage_api_interoperability
+  type: ResearchTopic
+  access_scope: public
+  name: Computational Storage API Interoperability
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_computational_storage_near_data
+  topic_level: topic
+  term_status: proposed
+- id: compute_data_movement_energy_tradeoff
+  type: ResearchTopic
+  access_scope: public
+  name: Compute / Data Movement / Energy Tradeoff
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_computational_storage_near_data
+  topic_level: topic
+  term_status: proposed
+- id: multi_workload_storage_benchmark_platform
+  type: ResearchTopic
+  access_scope: public
+  name: Multi-workload Storage Benchmark Platform
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_research_data_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: external_research_evidence_registry
+  type: ResearchTopic
+  access_scope: public
+  name: External Research Evidence Registry
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_research_data_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: reproducibility_lineage_tracking
+  type: ResearchTopic
+  access_scope: public
+  name: Reproducibility / Lineage Tracking
+  area_ref: shared_infra
+  parent_topic_ref: topic_group_research_data_infrastructure
+  topic_level: topic
+  term_status: proposed
+- id: rdma_object_storage_integration
+  type: ResearchTopic
+  access_scope: public
+  name: RDMA Object Storage Integration
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_storage_protocol_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: nvme_fabrics_ai_data_path
+  type: ResearchTopic
+  access_scope: public
+  name: NVMe-oF AI Data Path
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_storage_protocol_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: multi_tenant_storage_interference
+  type: ResearchTopic
+  access_scope: public
+  name: Multi-tenant Storage Interference Analysis
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_storage_protocol_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: storage_io_integrity_security
+  type: ResearchTopic
+  access_scope: public
+  name: Storage I/O Integrity & Security
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_storage_protocol_system_integration
+  topic_level: topic
+  term_status: proposed
+- id: moe_weight_expert_memory_management
+  type: ResearchTopic
+  access_scope: public
+  name: MoE Weight / Expert Memory Management
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_inference_system
+  topic_level: topic
+  term_status: proposed
+- id: activation_offload_execution
+  type: ResearchTopic
+  access_scope: public
+  name: Activation Offload Execution
+  area_ref: ai_domain
+  parent_topic_ref: topic_group_ai_inference_system
+  topic_level: topic
+  term_status: proposed
+- id: cxl_pooled_memory_qos
+  type: ResearchTopic
+  access_scope: public
+  name: CXL Pooled Memory QoS
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cxl_memory_expansion
+  topic_level: topic
+  term_status: proposed
+- id: compute_near_memory_long_context
+  type: ResearchTopic
+  access_scope: public
+  name: Compute-near-memory Long-context Execution
+  area_ref: ai_native_storage
+  parent_topic_ref: topic_group_cxl_memory_expansion
   topic_level: topic
   term_status: proposed

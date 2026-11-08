@@ -1,4 +1,4 @@
-"""Validate the repository's proposed vocabulary and synthetic graph."""
+"""Validate the proposed ontology, public literature and synthetic internal graph."""
 import sys
 from ontology import load_bundle, validate
 
@@ -14,7 +14,7 @@ def main():
         for error in errors:
             print(f"INVALID: {error}", file=sys.stderr)
         return 1
-    print(f"VALID: {len(bundle.entities)} entities, {len(bundle.schema['classes'])} types; example as_of={bundle.as_of}")
+    print(f"VALID: {len(bundle.entities)} entities, {len(bundle.schema['classes'])} types; snapshot as_of={bundle.as_of}")
     return 0
 
 

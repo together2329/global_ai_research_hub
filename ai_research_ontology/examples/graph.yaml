@@ -1,5 +1,5 @@
 dataset_kind: synthetic_example
-version: 0.3.0
+version: 0.4.0
 as_of: '2026-11-08'
 notice: 모든 사람·조직·프로젝트·실행·수치는 가상 데이터이며 실제 HR 또는 연구 결과가 아니다.
 entities:
@@ -830,3 +830,67 @@ entities:
   - ev_document
   valid_from: '2026-08-01'
   valid_to: null
+- id: research_vector_storage_demo
+  type: ResearchProject
+  access_scope: public
+  name: Vector Retrieval Storage Pilot (synthetic)
+  objective: 가상 연구를 실제 공개 논문·벤치마크에 분류 연결하는 예시.
+  primary_area_ref: ai_native_storage
+  related_area_refs:
+  - ai_workload
+  topic_refs:
+  - disk_based_ann_architecture
+  - vector_quality_latency_tradeoff_modeling
+  workload_refs:
+  - workload_vector_search
+  - workload_filtered_vector_search
+  technique_refs:
+  - tech_diskann_vamana
+  - tech_filtered_ann
+  data_object_refs:
+  - data_embedding_vector
+  - data_ann_index
+  system_layer_refs:
+  - layer_vector_database
+  - layer_local_flash
+  - layer_host_memory
+  bottleneck_refs:
+  - bottleneck_capacity
+  - bottleneck_quality
+  - bottleneck_tail_latency
+  external_research_refs:
+  - external_aisaq
+  - external_mlperf_storage_v3
+  work_kind: scientific_research
+  lifecycle_status: proposed
+  source_ref: src_projects
+- id: research_gpu_storage_demo
+  type: ResearchProject
+  access_scope: public
+  name: GPU-Initiated Storage Pilot (synthetic)
+  objective: 생태계 구상과 내부 개발·검증 상태를 혼동하지 않는 분류 연결 예시.
+  primary_area_ref: ai_native_storage
+  topic_refs:
+  - gpu_initiated_storage_architecture
+  - fine_grained_high_iops_storage
+  workload_refs:
+  - workload_gpu_initiated_storage_io
+  technique_refs:
+  - tech_gpu_initiated_io
+  data_object_refs:
+  - data_ann_index
+  system_layer_refs:
+  - layer_network_fabric
+  - layer_storage_controller
+  - layer_local_flash
+  bottleneck_refs:
+  - bottleneck_random_iops
+  - bottleneck_tail_latency
+  external_research_refs:
+  - external_storage_next_scada
+  - external_kioxia_gp
+  initiative_refs:
+  - initiative_nvidia_storage_next
+  work_kind: solution_engineering
+  lifecycle_status: proposed
+  source_ref: src_projects

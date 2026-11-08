@@ -12,6 +12,19 @@ workload_refs:
   - workload_long_context_llm_inference
 technique_refs:
   - tech_kv_cache_offloading
+data_object_refs:
+  - data_kv_cache
+system_layer_refs:
+  - layer_gpu_memory
+  - layer_local_flash
+bottleneck_refs:
+  - bottleneck_capacity
+  - bottleneck_recomputation
+external_research_refs:
+  - external_mooncake
+work_kind: scientific_research
+# Set validation_stage_ref only to the project's actual stage with supporting evidence.
+# initiative_refs may reference a vendor program; it does not establish compatibility.
 lifecycle_status: proposed
 source_ref: src_replace_with_approved_project_registry
 # Owner is a verified RoleAssignment linked through ProjectMembership.

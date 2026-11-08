@@ -1,0 +1,280 @@
+dataset_kind: vocabulary
+version: 0.4.0
+entities:
+- id: data_kv_cache
+  type: DataObjectKind
+  access_scope: public
+  name: KV Cache
+  description: 모델·토큰·Attention 구현에 종속된 추론 중간 상태.
+  term_status: proposed
+  subject_ref: subject_kv_cache
+- id: data_embedding_vector
+  type: DataObjectKind
+  access_scope: public
+  name: Embedding Vector
+  description: 검색·추천의 표현 벡터.
+  term_status: proposed
+- id: data_ann_index
+  type: DataObjectKind
+  access_scope: public
+  name: ANN Index
+  description: Vector 검색용 Graph·Cluster·보조 인덱스.
+  term_status: proposed
+- id: data_model_weights
+  type: DataObjectKind
+  access_scope: public
+  name: Model Weights
+  description: 모델 파라미터와 MoE Expert 가중치.
+  term_status: proposed
+- id: data_activations
+  type: DataObjectKind
+  access_scope: public
+  name: Activations
+  description: 실행 중 생성되는 중간 Tensor.
+  term_status: proposed
+- id: data_training_samples
+  type: DataObjectKind
+  access_scope: public
+  name: Training Samples
+  description: 학습용 원본·가공 데이터와 읽기 Profile.
+  term_status: proposed
+- id: data_checkpoint
+  type: DataObjectKind
+  access_scope: public
+  name: Checkpoint
+  description: 복구를 위해 일관되게 저장한 모델·학습 상태.
+  term_status: proposed
+- id: data_optimizer_state
+  type: DataObjectKind
+  access_scope: public
+  name: Optimizer State
+  description: Optimizer Tensor·Sharding·Serialization 상태.
+  term_status: proposed
+- id: data_agent_memory
+  type: DataObjectKind
+  access_scope: public
+  name: Persistent Agent Memory
+  description: 세션을 넘어 재사용되는 경험·지식 기록. KV Cache와 구분.
+  term_status: proposed
+- id: data_metadata
+  type: DataObjectKind
+  access_scope: public
+  name: Metadata
+  description: 이름공간·인덱스·추적·접근제어에 필요한 메타데이터.
+  term_status: proposed
+- id: layer_gpu_memory
+  type: SystemLayer
+  access_scope: public
+  name: GPU HBM / Device Memory
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: layer_host_memory
+  type: SystemLayer
+  access_scope: public
+  name: Host DRAM
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: layer_cxl_memory
+  type: SystemLayer
+  access_scope: public
+  name: CXL-attached / Pooled Memory
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: layer_hbf_memory
+  type: SystemLayer
+  access_scope: public
+  name: HBF Memory Tier
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: layer_local_flash
+  type: SystemLayer
+  access_scope: public
+  name: Local NVMe / Flash
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: layer_shared_storage
+  type: SystemLayer
+  access_scope: public
+  name: Shared File / NVMe-oF Storage
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: layer_object_storage
+  type: SystemLayer
+  access_scope: public
+  name: Object Storage
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: layer_network_fabric
+  type: SystemLayer
+  access_scope: public
+  name: NIC / DPU / Network Fabric
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: layer_inference_runtime
+  type: SystemLayer
+  access_scope: public
+  name: Inference Runtime / Scheduler
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: layer_storage_controller
+  type: SystemLayer
+  access_scope: public
+  name: Storage Controller / Firmware
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: layer_vector_database
+  type: SystemLayer
+  access_scope: public
+  name: Vector Database / Index Engine
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: layer_agent_memory
+  type: SystemLayer
+  access_scope: public
+  name: Agent Memory Service
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: layer_training_runtime
+  type: SystemLayer
+  access_scope: public
+  name: Training / Checkpoint Runtime
+  description: 서로 다른 구현을 비교하기 위한 시스템 위치 분류.
+  term_status: proposed
+- id: bottleneck_capacity
+  type: Bottleneck
+  access_scope: public
+  name: Capacity
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_bandwidth
+  type: Bottleneck
+  access_scope: public
+  name: Bandwidth
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_random_iops
+  type: Bottleneck
+  access_scope: public
+  name: Random / Small-I/O Rate
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_tail_latency
+  type: Bottleneck
+  access_scope: public
+  name: Tail Latency
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_network
+  type: Bottleneck
+  access_scope: public
+  name: Network Transfer
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_data_movement
+  type: Bottleneck
+  access_scope: public
+  name: Data Movement
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_recomputation
+  type: Bottleneck
+  access_scope: public
+  name: Recomputation
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_index_build
+  type: Bottleneck
+  access_scope: public
+  name: Index Build Time
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_freshness
+  type: Bottleneck
+  access_scope: public
+  name: Index / Memory Freshness
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_consistency
+  type: Bottleneck
+  access_scope: public
+  name: Consistency / Isolation
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_power
+  type: Bottleneck
+  access_scope: public
+  name: Power / Energy
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_cost
+  type: Bottleneck
+  access_scope: public
+  name: Cost
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_endurance
+  type: Bottleneck
+  access_scope: public
+  name: Endurance
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_quality
+  type: Bottleneck
+  access_scope: public
+  name: Retrieval / Task Quality
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: bottleneck_recovery_stall
+  type: Bottleneck
+  access_scope: public
+  name: Checkpoint / Recovery Stall
+  description: 실험 조건과 기준선으로 확인해야 하는 제약 후보.
+  term_status: proposed
+- id: stage_research_agenda
+  type: ValidationStage
+  access_scope: public
+  name: Research Agenda
+  description: 문제 정의·관점·향후 연구 제안.
+  term_status: proposed
+- id: stage_analytical_model
+  type: ValidationStage
+  access_scope: public
+  name: Analytical Model
+  description: 가정과 분석 모델에 근거한 평가.
+  term_status: proposed
+- id: stage_simulation
+  type: ValidationStage
+  access_scope: public
+  name: Simulation
+  description: 시뮬레이터 조건 안의 결과.
+  term_status: proposed
+- id: stage_prototype
+  type: ValidationStage
+  access_scope: public
+  name: Prototype / Demonstration
+  description: 시제품·에뮬레이터·데모 범위.
+  term_status: proposed
+- id: stage_system_evaluation
+  type: ValidationStage
+  access_scope: public
+  name: System Evaluation
+  description: 명시한 시스템·Workload에서의 평가.
+  term_status: proposed
+- id: stage_production_report
+  type: ValidationStage
+  access_scope: public
+  name: Production Report
+  description: 저자 또는 업체가 보고한 운영 사례.
+  term_status: proposed
+- id: stage_official_specification
+  type: ValidationStage
+  access_scope: public
+  name: Official Specification
+  description: 문서·프로토콜 정의의 공개 상태. 제품 출시와 구분.
+  term_status: proposed
+- id: stage_product_release
+  type: ValidationStage
+  access_scope: public
+  name: Product / Software Release
+  description: 출처에서 발표한 제품·소프트웨어 제공 상태.
+  term_status: proposed

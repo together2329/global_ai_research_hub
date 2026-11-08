@@ -1,10 +1,10 @@
-"""Executable competency questions over public, synthetic example records."""
+"""Query public research sources and synthetic organization examples."""
 import argparse
 from datetime import date, datetime
 import json
 from zoneinfo import ZoneInfo
 
-from ontology import active_on, index_entities, load_bundle, validate, verified
+from ontology import active_on, index_entities, load_bundle, publication_window, validate, verified
 
 
 def local_day(timestamp):
@@ -82,6 +82,46 @@ def person_history(bundle, person_ref, as_of):
     }
 
 
+def research_landscape(bundle, as_of, direction_ref=None):
+    index = index_entities(bundle.entities)
+    if direction_ref and (direction_ref not in index or index[direction_ref]["type"] != "ResearchDirection"):
+        raise ValueError("Unknown research direction: " + direction_ref)
+    result = []
+    for direction in bundle.entities:
+        if direction["type"] != "ResearchDirection" or (direction_ref and direction["id"] != direction_ref):
+            continue
+        literature = []
+        for reference in direction["external_research_refs"]:
+            record = index[reference]
+            source = index[record["source_ref"]]
+            window = publication_window(source)
+            # A month-only date is not treated as a known publication on day one.
+            if window is None or window[1] > as_of:
+                continue
+            literature.append({
+                "id": reference, "name": record["name"], "url": source["locator"],
+                "publisher": source["publisher"], "published_on": source.get("published_on"),
+                "date_precision": source["date_precision"], "checked_on": record["checked_on"],
+                "inspection_scope": record["inspection_scope"],
+                "retrieved_at": source["retrieved_at"], "review_status": record["review_status"],
+                "evidence_basis": record["evidence_basis"],
+                "validation_stage_ref": record["validation_stage_ref"],
+                "availability_at_publication": record["availability_at_publication"],
+                "internal_reproduction_status": record["internal_reproduction_status"],
+                "key_findings": record["key_findings"], "limitations": record["limitations"],
+                "event_started_on": record.get("event_started_on"),
+                "event_ended_on": record.get("event_ended_on"),
+                "explicitly_linked_project_refs": [p["id"] for p in bundle.entities
+                    if p["type"] == "ResearchProject" and reference in p.get("external_research_refs", [])],
+            })
+        if literature:
+            result.append({key: direction[key] for key in (
+                "id", "name", "topic_refs", "data_object_refs", "system_layer_refs",
+                "bottleneck_refs", "metric_refs", "as_of", "coverage_notes"
+            )} | {"initiative_refs": direction.get("initiative_refs", []), "external_research": literature})
+    return result
+
+
 def answers(bundle, as_of):
     return {
         "cxl-experts": experts(bundle, ["expertise_cxl"], as_of),
@@ -89,13 +129,15 @@ def answers(bundle, as_of):
         "asset-users": asset_users(bundle, "asset_rtl_agent_v1", as_of),
         "dual-expertise": experts(bundle, ["expertise_hbf", "expertise_kv_cache"], as_of),
         "person-history": person_history(bundle, "person_engineer_a", as_of),
+        "research-landscape": research_landscape(bundle, as_of),
     }
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--as-of", help="YYYY-MM-DD; defaults to the example snapshot date")
-    parser.add_argument("--query", default="all", choices=["all", "cxl-experts", "project-people", "asset-users", "dual-expertise", "person-history"])
+    parser.add_argument("--as-of", help="YYYY-MM-DD; validity date or literature publication cutoff, not a known-at history")
+    parser.add_argument("--query", default="all", choices=["all", "cxl-experts", "project-people", "asset-users", "dual-expertise", "person-history", "research-landscape"])
+    parser.add_argument("--direction", help="Research direction ID or suffix, e.g. vector_search or storage_next")
     args = parser.parse_args()
     bundle = load_bundle()
     problems = validate(bundle)
@@ -103,7 +145,7 @@ def main():
         parser.error("Ontology validation failed: " + "; ".join(problems))
     # This CLI is an example reader, not an HR authorization service.
     if any(e["access_scope"] != "public" for e in bundle.entities):
-        parser.error("Demo query accepts public synthetic data only")
+        parser.error("Demo query accepts public records only")
     as_of = args.as_of or bundle.as_of
     try:
         date.fromisoformat(as_of)
@@ -112,9 +154,17 @@ def main():
     except ValueError:
         parser.error("--as-of must be YYYY-MM-DD")
     result = answers(bundle, as_of)
+    if args.direction:
+        if args.query not in {"all", "research-landscape"}:
+            parser.error("--direction applies to research-landscape")
+        reference = args.direction if args.direction.startswith("direction_") else "direction_" + args.direction
+        try:
+            result["research-landscape"] = research_landscape(bundle, as_of, reference)
+        except ValueError as error:
+            parser.error(str(error))
     if args.query != "all":
         result = {args.query: result[args.query]}
-    print(json.dumps({"notice": "Synthetic examples only; no real HR or research results", "as_of": as_of, "results": result}, ensure_ascii=False, indent=2))
+    print(json.dumps({"notice": "Public literature is real; organization, people and internal execution examples are synthetic. Source claims are not internal reproductions.", "as_of": as_of, "curation_snapshot": bundle.as_of, "results": result}, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

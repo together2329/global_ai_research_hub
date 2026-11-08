@@ -1,0 +1,792 @@
+dataset_kind: public_research_registry
+version: 0.4.0
+as_of: '2026-11-08'
+coverage: Curated primary-source sample, not a worldwide exhaustive census. Publication-time claims are
+  distinguished from internal reproduction.
+entities:
+- id: source_mlperf_storage_v3
+  type: SourceRecord
+  access_scope: public
+  name: MLPerf Storage v3.0 Results
+  source_kind: official_benchmark
+  authority_domains:
+  - public_research
+  locator: https://mlcommons.org/2026/09/mlperf-storage-v3-0-results/
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: MLCommons
+  published_on: '2026-09-01'
+  date_precision: day
+- id: external_mlperf_storage_v3
+  type: ExternalResearch
+  access_scope: public
+  name: MLPerf Storage v3.0 Results
+  source_ref: source_mlperf_storage_v3
+  record_kind: benchmark
+  review_status: official_benchmark
+  evidence_basis: protocol_definition
+  validation_stage_ref: stage_official_specification
+  availability_at_publication: available
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - multi_workload_storage_benchmark_platform
+  - training_data_storage_pipeline
+  - disk_based_ann_architecture
+  - kv_cache_offloading_optimization
+  workload_refs:
+  - workload_training_data_ingestion
+  - workload_training_checkpoint
+  - workload_vector_search
+  - workload_long_context_llm_inference
+  data_object_refs:
+  - data_training_samples
+  - data_checkpoint
+  - data_embedding_vector
+  - data_ann_index
+  - data_kv_cache
+  system_layer_refs:
+  - layer_local_flash
+  - layer_shared_storage
+  - layer_object_storage
+  bottleneck_refs:
+  - bottleneck_bandwidth
+  - bottleneck_random_iops
+  - bottleneck_tail_latency
+  - bottleneck_quality
+  metric_refs:
+  - metric_vector_qps
+  - metric_vector_recall_at_k
+  - metric_vector_p99_latency
+  - metric_checkpoint_durable_write
+  key_findings:
+  - v3.0은 Training·Checkpoint와 함께 KV Cache·Vector Database 테스트를 제공한다.
+  - S3 접근 계층을 POSIX와 함께 지원한다.
+  limitations:
+  - 서로 다른 Workload의 수치를 직접 비교할 수 없다.
+  - 제출 시스템과 부하·품질·단위를 함께 확인해야 한다.
+  inspection_scope: benchmark_release
+- id: source_storage_next_scada
+  type: SourceRecord
+  access_scope: public
+  name: NVIDIA cuObject and SCADA Server SDK
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://developer.nvidia.com/blog/expanding-ai-storage-access-with-nvidia-cuobject-and-the-nvidia-scada-server-sdk/
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: NVIDIA
+  published_on: '2026-09-30'
+  date_precision: day
+- id: external_storage_next_scada
+  type: ExternalResearch
+  access_scope: public
+  name: NVIDIA cuObject and SCADA Server SDK
+  source_ref: source_storage_next_scada
+  record_kind: vendor_release
+  review_status: official_publication
+  evidence_basis: architecture_description
+  validation_stage_ref: stage_prototype
+  availability_at_publication: mixed
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - gpu_initiated_storage_architecture
+  - scada_storage_service_integration
+  - rdma_object_storage_integration
+  workload_refs:
+  - workload_gpu_initiated_storage_io
+  - workload_rdma_object_access
+  data_object_refs:
+  - data_embedding_vector
+  - data_ann_index
+  - data_metadata
+  system_layer_refs:
+  - layer_network_fabric
+  - layer_local_flash
+  - layer_shared_storage
+  - layer_object_storage
+  bottleneck_refs:
+  - bottleneck_data_movement
+  - bottleneck_random_iops
+  - bottleneck_tail_latency
+  metric_refs:
+  - metric_small_io_iops
+  - metric_storage_p99_latency
+  key_findings:
+  - Storage-Next는 GPU 주도·작은 단위 접근의 생태계 구상이며 SCADA가 관련 소프트웨어 경로를 제공한다.
+  - cuObject의 RDMA 접근과 SCADA Server SDK·업체 시제품을 구분해 설명한다.
+  limitations:
+  - 구상·SDK 공개·업체 시제품은 모든 SSD의 호환·출시 또는 검증된 성능을 뜻하지 않는다.
+  - SCADA, cuObject, GPUDirect Storage는 같은 API나 같은 제어 경로로 취급하지 않는다.
+  initiative_refs:
+  - initiative_nvidia_storage_next
+  inspection_scope: technical_article
+- id: source_kioxia_gp
+  type: SourceRecord
+  access_scope: public
+  name: KIOXIA GP Series for GPU-Initiated Workloads
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://apac.kioxia.com/en-apac/business/news/2026/20260317-1.html
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: KIOXIA
+  published_on: '2026-03-17'
+  date_precision: day
+- id: external_kioxia_gp
+  type: ExternalResearch
+  access_scope: public
+  name: KIOXIA GP Series for GPU-Initiated Workloads
+  source_ref: source_kioxia_gp
+  record_kind: vendor_release
+  review_status: product_announcement
+  evidence_basis: architecture_description
+  validation_stage_ref: stage_prototype
+  availability_at_publication: under_development
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - fine_grained_high_iops_storage
+  - gpu_ssd_vector_search_codesign
+  workload_refs:
+  - workload_gpu_initiated_storage_io
+  - workload_vector_search
+  data_object_refs:
+  - data_embedding_vector
+  - data_ann_index
+  system_layer_refs:
+  - layer_gpu_memory
+  - layer_local_flash
+  - layer_storage_controller
+  bottleneck_refs:
+  - bottleneck_capacity
+  - bottleneck_random_iops
+  - bottleneck_tail_latency
+  metric_refs:
+  - metric_small_io_iops
+  - metric_storage_p99_latency
+  key_findings:
+  - XL-FLASH를 사용한 GPU 접근용 SSD 개발과 작은 I/O 단위를 설명한다.
+  - 발표 당시 에뮬레이터를 전시하고 평가 샘플의 향후 일정을 제시했다.
+  limitations:
+  - 발표 당시 개발 중인 제품이며 향후 샘플 계획을 실제 출하로 기록하지 않는다.
+  - HBM과 Flash의 지연·주소·일관성 특성이 같다는 의미가 아니다.
+  initiative_refs:
+  - initiative_nvidia_storage_next
+  inspection_scope: official_release
+- id: source_aisaq
+  type: SourceRecord
+  access_scope: public
+  name: KIOXIA AiSAQ GPU-assisted Vector Indexing
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://www.kioxia.com/en-jp/business/news/2026/20260317-2.html
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: KIOXIA
+  published_on: '2026-03-17'
+  date_precision: day
+- id: external_aisaq
+  type: ExternalResearch
+  access_scope: public
+  name: KIOXIA AiSAQ GPU-assisted Vector Indexing
+  source_ref: source_aisaq
+  record_kind: vendor_release
+  review_status: official_publication
+  evidence_basis: vendor_reported_evaluation
+  validation_stage_ref: stage_system_evaluation
+  availability_at_publication: mixed
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - disk_based_ann_architecture
+  - gpu_ssd_vector_search_codesign
+  - vector_index_build_workload_analysis
+  workload_refs:
+  - workload_vector_search
+  - workload_vector_index_build
+  data_object_refs:
+  - data_embedding_vector
+  - data_ann_index
+  system_layer_refs:
+  - layer_host_memory
+  - layer_local_flash
+  - layer_vector_database
+  - layer_gpu_memory
+  bottleneck_refs:
+  - bottleneck_capacity
+  - bottleneck_index_build
+  - bottleneck_quality
+  metric_refs:
+  - metric_vector_index_build_time
+  - metric_vector_recall_at_k
+  - metric_vector_qps
+  key_findings:
+  - AiSAQ는 SSD 기반 검색과 낮은 DRAM 사용을 지향하고 cuVS로 Index Build를 가속하는 사례를 제시한다.
+  limitations:
+  - 업체가 선택한 Vector·차원·하드웨어·인덱스 조건의 결과이며 일반 우열을 보장하지 않는다.
+  - Index Build 성능과 Online Query 성능을 별도 지표로 기록한다.
+  inspection_scope: official_release
+- id: source_diskann_sql
+  type: SourceRecord
+  access_scope: public
+  name: DiskANN Vector Index and Search GA in Azure SQL
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://devblogs.microsoft.com/azure-sql/diskann-vector-index-search-are-now-generally-available-in-azure-sql/
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: Microsoft
+  published_on: '2026-09-29'
+  date_precision: day
+- id: external_diskann_sql
+  type: ExternalResearch
+  access_scope: public
+  name: DiskANN Vector Index and Search GA in Azure SQL
+  source_ref: source_diskann_sql
+  record_kind: product_release
+  review_status: product_announcement
+  evidence_basis: architecture_description
+  validation_stage_ref: stage_product_release
+  availability_at_publication: available
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - filtered_hybrid_index_storage
+  - filtered_hybrid_retrieval_optimization
+  - disk_based_ann_architecture
+  workload_refs:
+  - workload_filtered_vector_search
+  - workload_hybrid_retrieval
+  data_object_refs:
+  - data_embedding_vector
+  - data_ann_index
+  - data_metadata
+  system_layer_refs:
+  - layer_vector_database
+  - layer_local_flash
+  bottleneck_refs:
+  - bottleneck_quality
+  - bottleneck_freshness
+  - bottleneck_tail_latency
+  metric_refs:
+  - metric_vector_recall_at_k
+  - metric_vector_qps
+  - metric_vector_p99_latency
+  key_findings:
+  - Vector Index를 관계형 Filter·Join·보안 정책과 조합하는 제품 제공을 발표했다.
+  limitations:
+  - 제품 제공 발표이며 특정 SSD 성능 또는 모든 DB에서의 동일 동작을 입증하지 않는다.
+  - Recall·Filter 선택도·Index Version을 고정해 비교해야 한다.
+  inspection_scope: official_release
+- id: source_cuvs
+  type: SourceRecord
+  access_scope: public
+  name: NVIDIA cuVS Indexing and Real-time Retrieval
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://developer.nvidia.com/blog/optimizing-vector-search-for-indexing-and-real-time-retrieval-with-nvidia-cuvs/
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: NVIDIA
+  published_on: '2025-07-24'
+  date_precision: day
+- id: external_cuvs
+  type: ExternalResearch
+  access_scope: public
+  name: NVIDIA cuVS Indexing and Real-time Retrieval
+  source_ref: source_cuvs
+  record_kind: technical_report
+  review_status: official_publication
+  evidence_basis: vendor_reported_evaluation
+  validation_stage_ref: stage_product_release
+  availability_at_publication: available
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - gpu_ssd_vector_search_codesign
+  - vector_index_build_workload_analysis
+  - filtered_hybrid_retrieval_optimization
+  workload_refs:
+  - workload_vector_index_build
+  - workload_filtered_vector_search
+  data_object_refs:
+  - data_embedding_vector
+  - data_ann_index
+  system_layer_refs:
+  - layer_gpu_memory
+  - layer_host_memory
+  - layer_vector_database
+  bottleneck_refs:
+  - bottleneck_index_build
+  - bottleneck_quality
+  - bottleneck_tail_latency
+  metric_refs:
+  - metric_vector_index_build_time
+  - metric_vector_recall_at_k
+  - metric_vector_qps
+  key_findings:
+  - GPU에서 인덱스를 만들고 CPU 검색 형식으로 변환하는 경로와 Filter·Quantization 기법을 설명한다.
+  limitations:
+  - 알고리즘·하드웨어·Batch·Recall 조건마다 Tradeoff가 다르며 발표의 배수를 일반화하지 않는다.
+  inspection_scope: technical_article
+- id: source_turboquant
+  type: SourceRecord
+  access_scope: public
+  name: TurboQuant Vector and KV Compression
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: Google Research
+  published_on: '2026-03-24'
+  date_precision: day
+- id: external_turboquant
+  type: ExternalResearch
+  access_scope: public
+  name: TurboQuant Vector and KV Compression
+  source_ref: source_turboquant
+  record_kind: technical_report
+  review_status: official_publication
+  evidence_basis: authors_reported_evaluation
+  validation_stage_ref: stage_system_evaluation
+  availability_at_publication: not_applicable
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - vector_index_compression_tradeoffs
+  - model_compression_quantization
+  - kv_cache_offloading_optimization
+  workload_refs:
+  - workload_vector_search
+  - workload_long_context_llm_inference
+  data_object_refs:
+  - data_embedding_vector
+  - data_kv_cache
+  system_layer_refs:
+  - layer_gpu_memory
+  - layer_host_memory
+  - layer_vector_database
+  bottleneck_refs:
+  - bottleneck_capacity
+  - bottleneck_quality
+  - bottleneck_bandwidth
+  metric_refs:
+  - metric_vector_recall_at_k
+  - metric_memory_footprint
+  key_findings:
+  - Vector Quantization을 검색과 KV Cache 메모리 최적화 양쪽에 적용하는 연구를 설명한다.
+  limitations:
+  - Source의 무손실 표현을 모든 모델·Task에서 품질 보장으로 일반화하지 않는다.
+  - 같은 Quantization을 사용해도 검색 Vector와 Attention KV는 별개 데이터 의미를 가진다.
+  inspection_scope: technical_article
+- id: source_datastates_2026
+  type: SourceRecord
+  access_scope: public
+  name: DataStates-LLM with Composable State Providers
+  source_kind: public_paper
+  authority_domains:
+  - public_research
+  locator: https://arxiv.org/abs/2601.16956
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: arXiv / authors
+  published_on: '2026-01-23'
+  date_precision: day
+- id: external_datastates_2026
+  type: ExternalResearch
+  access_scope: public
+  name: DataStates-LLM with Composable State Providers
+  source_ref: source_datastates_2026
+  record_kind: paper
+  review_status: preprint
+  evidence_basis: authors_reported_evaluation
+  validation_stage_ref: stage_system_evaluation
+  availability_at_publication: not_applicable
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - asynchronous_checkpoint_storage
+  - checkpoint_state_serialization
+  - model_state_data_movement_analysis
+  workload_refs:
+  - workload_training_checkpoint
+  - workload_checkpoint_restore
+  data_object_refs:
+  - data_model_weights
+  - data_optimizer_state
+  - data_checkpoint
+  - data_metadata
+  system_layer_refs:
+  - layer_gpu_memory
+  - layer_host_memory
+  - layer_training_runtime
+  - layer_shared_storage
+  bottleneck_refs:
+  - bottleneck_recovery_stall
+  - bottleneck_data_movement
+  - bottleneck_bandwidth
+  metric_refs:
+  - metric_checkpoint_pause
+  - metric_checkpoint_durable_write
+  - metric_checkpoint_restore
+  key_findings:
+  - State Provider로 상태 추상화와 이동을 분리하고 비동기 Snapshot·Serialization 중첩을 제안한다.
+  limitations:
+  - 이 등록은 arXiv 원문 기준이며 동료 심사 또는 내부 재현을 가정하지 않는다.
+  - 학습 정지 시간·내구성 보장·복구 시간을 구분해야 한다.
+  inspection_scope: paper_abstract
+  authors:
+  - Avinash Maurya
+  - M. Mustafa Rafique
+  - Franck Cappello
+  - Bogdan Nicolae
+- id: source_snia_cs_v12
+  type: SourceRecord
+  access_scope: public
+  name: SNIA Computational Storage Architecture v1.2
+  source_kind: official_standard
+  authority_domains:
+  - public_research
+  locator: https://www.snia.org/educational-library/computational-storage-architecture-and-programming-model-v12-2026
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: SNIA
+  published_on: '2026-04-21'
+  date_precision: day
+- id: external_snia_cs_v12
+  type: ExternalResearch
+  access_scope: public
+  name: SNIA Computational Storage Architecture v1.2
+  source_ref: source_snia_cs_v12
+  record_kind: standard
+  review_status: official_standard
+  evidence_basis: protocol_definition
+  validation_stage_ref: stage_official_specification
+  availability_at_publication: available
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - computational_storage_service_architecture
+  - computational_storage_api_interoperability
+  - compute_data_movement_energy_tradeoff
+  data_object_refs:
+  - data_embedding_vector
+  - data_metadata
+  system_layer_refs:
+  - layer_storage_controller
+  - layer_local_flash
+  - layer_network_fabric
+  bottleneck_refs:
+  - bottleneck_data_movement
+  - bottleneck_power
+  - bottleneck_consistency
+  metric_refs:
+  - metric_bandwidth
+  key_findings:
+  - Computational Storage의 하드웨어·소프트웨어 동작과 프로그래밍 모델을 정의한다.
+  limitations:
+  - 표준 문서 공개는 특정 제품 구현이나 성능의 증거가 아니다.
+  - GPU-Initiated I/O와 장치 내 연산 Offload를 같은 기능으로 간주하지 않는다.
+  inspection_scope: specification_landing_page
+- id: source_agent_memory_2026
+  type: SourceRecord
+  access_scope: public
+  name: Agentic Memory Management as an IR Research Agenda
+  source_kind: public_perspective
+  authority_domains:
+  - public_research
+  locator: https://arxiv.org/abs/2610.32464
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: Qingyao Ai / arXiv
+  published_on: '2026-10-23'
+  date_precision: day
+- id: external_agent_memory_2026
+  type: ExternalResearch
+  access_scope: public
+  name: Agentic Memory Management as an IR Research Agenda
+  source_ref: source_agent_memory_2026
+  record_kind: perspective
+  review_status: perspective_preprint
+  evidence_basis: research_agenda
+  validation_stage_ref: stage_research_agenda
+  availability_at_publication: not_applicable
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - persistent_agent_memory_architecture
+  - agent_memory_storage_retrieval
+  - agent_memory_retention_forgetting
+  workload_refs:
+  - workload_persistent_agent_memory
+  data_object_refs:
+  - data_agent_memory
+  - data_embedding_vector
+  - data_metadata
+  system_layer_refs:
+  - layer_agent_memory
+  - layer_vector_database
+  - layer_object_storage
+  bottleneck_refs:
+  - bottleneck_quality
+  - bottleneck_freshness
+  - bottleneck_consistency
+  metric_refs:
+  - metric_agent_memory_utility
+  key_findings:
+  - Agent Memory의 저장·검색·활용을 IR 연구 의제로 연결하는 관점과 분류를 제안한다.
+  limitations:
+  - 관점 논문이며 산업 합의나 검증된 제품 결과로 해석하지 않는다.
+  - Agent의 장기 기억을 KV Cache와 동일 객체로 취급하지 않는다.
+  inspection_scope: paper_abstract
+  authors:
+  - Qingyao Ai
+- id: source_nvidia_memory_codesign
+  type: SourceRecord
+  access_scope: public
+  name: NVIDIA Memory Co-design Across the AI Factory
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://developer.nvidia.com/blog/five-ways-nvidia-co-design-maximizes-the-value-of-every-byte-in-the-ai-factory/
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: NVIDIA
+  published_on: '2026-11-05'
+  date_precision: day
+- id: external_nvidia_memory_codesign
+  type: ExternalResearch
+  access_scope: public
+  name: NVIDIA Memory Co-design Across the AI Factory
+  source_ref: source_nvidia_memory_codesign
+  record_kind: technical_report
+  review_status: official_publication
+  evidence_basis: vendor_reported_evaluation
+  validation_stage_ref: stage_system_evaluation
+  availability_at_publication: mixed
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - moe_weight_expert_memory_management
+  - kv_cache_offloading_optimization
+  - context_memory_storage_architecture
+  workload_refs:
+  - workload_agentic_ai
+  - workload_long_context_llm_inference
+  data_object_refs:
+  - data_model_weights
+  - data_kv_cache
+  system_layer_refs:
+  - layer_gpu_memory
+  - layer_host_memory
+  - layer_network_fabric
+  - layer_inference_runtime
+  - layer_shared_storage
+  bottleneck_refs:
+  - bottleneck_capacity
+  - bottleneck_data_movement
+  - bottleneck_recomputation
+  - bottleneck_power
+  metric_refs:
+  - metric_ttft
+  - metric_tpot
+  - metric_tokens_per_second
+  key_findings:
+  - Weight 배치·KV Routing·Prefill/Decode·CPU 메모리·CMX를 공동 설계하는 구조를 설명한다.
+  limitations:
+  - 업체 설명과 선택한 평가 조건의 결과이며 내부 재현 자료가 아니다.
+  - CMX와 HBF 또는 Storage-Next를 동일 기술·호환 관계로 추론하지 않는다.
+  inspection_scope: technical_article
+- id: source_hbf_spec
+  type: SourceRecord
+  access_scope: public
+  name: SK hynix / Sandisk HBF Specification Announcement
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://news.skhynix.com/en/hbf-at-fms-2026/
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: SK hynix
+  published_on: '2026-08-04'
+  date_precision: day
+- id: external_hbf_spec
+  type: ExternalResearch
+  access_scope: public
+  name: SK hynix / Sandisk HBF Specification Announcement
+  source_ref: source_hbf_spec
+  record_kind: vendor_release
+  review_status: official_publication
+  evidence_basis: architecture_description
+  validation_stage_ref: stage_official_specification
+  availability_at_publication: announced
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - hbf_architecture_exploration
+  - high_bandwidth_flash_integration
+  - storage_memory_codesign
+  workload_refs:
+  - workload_ai_inference_memory_access
+  data_object_refs:
+  - data_model_weights
+  - data_kv_cache
+  system_layer_refs:
+  - layer_hbf_memory
+  - layer_gpu_memory
+  bottleneck_refs:
+  - bottleneck_capacity
+  - bottleneck_bandwidth
+  - bottleneck_power
+  metric_refs:
+  - metric_bandwidth
+  - metric_latency
+  key_findings:
+  - HBF 규격 공개와 메모리·스토리지 경계를 확장하는 설계 방향을 발표했다.
+  limitations:
+  - 업체의 규격 발표를 개별 제품의 양산·범용 호환·워크로드 성능 확인으로 바꾸지 않는다.
+  inspection_scope: official_release
+- id: source_mooncake
+  type: SourceRecord
+  access_scope: public
+  name: Mooncake KVCache-centric LLM Serving
+  source_kind: public_paper
+  authority_domains:
+  - public_research
+  locator: https://www.usenix.org/conference/fast25/presentation/qin
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: USENIX / Moonshot AI / Tsinghua University
+  published_on: 2025-02
+  date_precision: month
+- id: external_mooncake
+  type: ExternalResearch
+  access_scope: public
+  name: Mooncake KVCache-centric LLM Serving
+  source_ref: source_mooncake
+  record_kind: paper
+  review_status: peer_reviewed
+  evidence_basis: authors_reported_evaluation
+  validation_stage_ref: stage_production_report
+  availability_at_publication: not_applicable
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - kv_cache_offloading_optimization
+  - distributed_inference
+  - context_memory_storage_architecture
+  workload_refs:
+  - workload_long_context_llm_inference
+  data_object_refs:
+  - data_kv_cache
+  system_layer_refs:
+  - layer_host_memory
+  - layer_local_flash
+  - layer_network_fabric
+  - layer_inference_runtime
+  bottleneck_refs:
+  - bottleneck_recomputation
+  - bottleneck_capacity
+  - bottleneck_network
+  metric_refs:
+  - metric_ttft
+  - metric_tpot
+  - metric_throughput
+  key_findings:
+  - Prefill/Decode 분리와 CPU·DRAM·SSD·NIC를 이용한 KV Cache 및 Scheduling을 연구했다.
+  limitations:
+  - 논문 저자가 보고한 Workload·Hardware·Baseline과 운영 설명이며 내부 재현과 구분한다.
+  venue: FAST 2025
+  inspection_scope: paper_abstract
+- id: source_skhynix_fms
+  type: SourceRecord
+  access_scope: public
+  name: SK hynix Tiered-memory AI Systems at FMS 2026
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://news.skhynix.com/en/fms-2026/
+  retrieved_at: '2026-11-08T19:44:35+09:00'
+  is_synthetic: false
+  publisher: SK hynix
+  published_on: '2026-08-07'
+  date_precision: day
+- id: external_skhynix_fms
+  type: ExternalResearch
+  access_scope: public
+  name: SK hynix Tiered-memory AI Systems at FMS 2026
+  source_ref: source_skhynix_fms
+  record_kind: vendor_release
+  review_status: official_publication
+  evidence_basis: architecture_description
+  validation_stage_ref: stage_prototype
+  availability_at_publication: mixed
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  topic_refs:
+  - storage_memory_codesign
+  - cxl_pooled_memory_qos
+  - compute_near_memory_long_context
+  workload_refs:
+  - workload_agentic_ai
+  - workload_long_context_llm_inference
+  data_object_refs:
+  - data_kv_cache
+  - data_model_weights
+  system_layer_refs:
+  - layer_gpu_memory
+  - layer_host_memory
+  - layer_cxl_memory
+  - layer_hbf_memory
+  - layer_local_flash
+  bottleneck_refs:
+  - bottleneck_data_movement
+  - bottleneck_capacity
+  - bottleneck_power
+  metric_refs:
+  - metric_ttft
+  - metric_bandwidth
+  key_findings:
+  - 이종 메모리 계층 연결과 CXL 기반 Agent·Long-context Serving 데모를 설명했다.
+  limitations:
+  - 공식 행사 보도이며 데모 조건·논문·제품 상태를 별도로 확인해야 한다.
+  - 회사 방향으로부터 특정 내부 조직 과제나 개인의 지시를 추론하지 않는다.
+  event_started_on: '2026-08-04'
+  event_ended_on: '2026-08-06'
+  inspection_scope: official_release
+- id: initiative_nvidia_storage_next
+  type: TechnologyInitiative
+  access_scope: public
+  name: NVIDIA Storage-Next
+  aliases:
+  - Storage Next
+  - Storage-Next
+  description: GPU 주도·작은 단위 Storage Access를 위한 업체 생태계 프로그램. 하나의 확정된 SSD 제품 또는 단일 프로토콜이 아니다.
+  initiative_kind: ecosystem_program
+  owner_name: NVIDIA
+  source_refs:
+  - source_storage_next_scada
+  - source_kioxia_gp

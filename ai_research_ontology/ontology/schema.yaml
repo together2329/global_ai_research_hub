@@ -1,5 +1,5 @@
 schema_version: 1
-ontology_version: 0.3.0
+ontology_version: 0.4.0
 status: proposed
 updated_at: '2026-11-08'
 purpose: Memory Solutions Research Intelligence ontology
@@ -456,6 +456,49 @@ classes:
         required: true
         target:
         - SourceRecord
+      data_object_refs:
+        kind: refs
+        required: false
+        target:
+        - DataObjectKind
+        min_items: 0
+      system_layer_refs:
+        kind: refs
+        required: false
+        target:
+        - SystemLayer
+        min_items: 0
+      bottleneck_refs:
+        kind: refs
+        required: false
+        target:
+        - Bottleneck
+        min_items: 0
+      external_research_refs:
+        kind: refs
+        required: false
+        target:
+        - ExternalResearch
+        min_items: 0
+      initiative_refs:
+        kind: refs
+        required: false
+        target:
+        - TechnologyInitiative
+        min_items: 0
+      validation_stage_ref:
+        kind: ref
+        required: false
+        target:
+        - ValidationStage
+      work_kind:
+        kind: enum
+        required: false
+        values:
+        - scientific_research
+        - solution_engineering
+        - platform_development
+        - operation
   Asset:
     description: 실제 모델, 플랫폼, Agent, 도구, 컨트롤러, 펌웨어, 시제품.
     fields:
@@ -566,6 +609,12 @@ classes:
         kind: strings
         required: false
       term_status: *id001
+      required_companion_metric_refs:
+        kind: refs
+        required: false
+        target:
+        - EvaluationMetric
+        min_items: 0
   Benchmark:
     description: 재현 가능한 평가 workload 또는 task set의 특정 버전.
     fields:
@@ -907,6 +956,11 @@ classes:
         - ci
         - scheduler
         - document
+        - public_paper
+        - official_benchmark
+        - official_vendor_publication
+        - official_standard
+        - public_perspective
       authority_domains:
         kind: strings
         required: true
@@ -919,6 +973,20 @@ classes:
       is_synthetic:
         kind: boolean
         required: true
+      publisher:
+        kind: string
+        required: false
+      published_on:
+        kind: string
+        required: false
+      date_precision:
+        kind: enum
+        required: false
+        values:
+        - day
+        - month
+        - year
+        - not_reported
   RelationAssertion:
     description: 직접 속성에 없는 기술적 관계의 근거 있는 주장.
     fields:
@@ -947,6 +1015,337 @@ classes:
       source_ref: *id005
       evidence_refs: *id006
       rationale: *id007
+  DataObjectKind:
+    description: 시스템이 이동·저장·재사용하는 데이터 종류. 기술명이나 실제 자산과 구분한다.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      term_status:
+        kind: enum
+        required: true
+        values:
+        - proposed
+        - accepted
+        - deprecated
+      subject_ref:
+        kind: ref
+        required: false
+        target:
+        - ResearchSubject
+  SystemLayer:
+    description: 연구 대상 메모리 계층·데이터 경로·Runtime의 위치.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      term_status:
+        kind: enum
+        required: true
+        values:
+        - proposed
+        - accepted
+        - deprecated
+  Bottleneck:
+    description: 해결하려는 자원·지연·품질·운영 제약.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      term_status:
+        kind: enum
+        required: true
+        values:
+        - proposed
+        - accepted
+        - deprecated
+  ValidationStage:
+    description: 출처가 제시한 검증 범위. 양산 또는 내부 재현 여부를 자동 판정하지 않는다.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      term_status:
+        kind: enum
+        required: true
+        values:
+        - proposed
+        - accepted
+        - deprecated
+  TechnologyInitiative:
+    description: 업체·생태계의 기술 프로그램 또는 참조 구조. 연구 Topic이나 확정된 상호운용 표준과 구분한다.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      aliases:
+        kind: strings
+        required: false
+      initiative_kind:
+        kind: enum
+        required: true
+        values:
+        - ecosystem_program
+        - reference_architecture
+        - standardization_effort
+      owner_name:
+        kind: string
+        required: true
+      source_refs:
+        kind: refs
+        required: true
+        target:
+        - SourceRecord
+        min_items: 1
+  ExternalResearch:
+    description: 원문을 확인한 공개 논문·표준·벤치마크·업체 발표. 내부 실험 성과와 분리한다.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      topic_refs:
+        kind: refs
+        required: true
+        target:
+        - ResearchTopic
+        min_items: 1
+      workload_refs:
+        kind: refs
+        required: false
+        target:
+        - WorkloadUseCase
+        min_items: 0
+      technique_refs:
+        kind: refs
+        required: false
+        target:
+        - Technique
+        min_items: 0
+      data_object_refs:
+        kind: refs
+        required: false
+        target:
+        - DataObjectKind
+        min_items: 0
+      system_layer_refs:
+        kind: refs
+        required: false
+        target:
+        - SystemLayer
+        min_items: 0
+      bottleneck_refs:
+        kind: refs
+        required: false
+        target:
+        - Bottleneck
+        min_items: 0
+      metric_refs:
+        kind: refs
+        required: false
+        target:
+        - EvaluationMetric
+        min_items: 0
+      initiative_refs:
+        kind: refs
+        required: false
+        target:
+        - TechnologyInitiative
+        min_items: 0
+      source_ref:
+        kind: ref
+        required: true
+        target:
+        - SourceRecord
+      authors:
+        kind: strings
+        required: false
+      venue:
+        kind: string
+        required: false
+      record_kind:
+        kind: enum
+        required: true
+        values:
+        - paper
+        - benchmark
+        - vendor_release
+        - technical_report
+        - perspective
+        - standard
+        - product_release
+      review_status:
+        kind: enum
+        required: true
+        values:
+        - peer_reviewed
+        - preprint
+        - official_publication
+        - official_standard
+        - official_benchmark
+        - perspective_preprint
+        - product_announcement
+      evidence_basis:
+        kind: enum
+        required: true
+        values:
+        - authors_reported_evaluation
+        - vendor_reported_evaluation
+        - protocol_definition
+        - architecture_description
+        - research_agenda
+      validation_stage_ref:
+        kind: ref
+        required: true
+        target:
+        - ValidationStage
+      availability_at_publication:
+        kind: enum
+        required: true
+        values:
+        - not_applicable
+        - available
+        - announced
+        - under_development
+        - mixed
+        - unspecified
+      internal_reproduction_status:
+        kind: enum
+        required: true
+        values:
+        - not_reproduced
+        - partially_reproduced
+        - reproduced
+      reproduction_evidence_refs:
+        kind: refs
+        required: false
+        target:
+        - Evidence
+        min_items: 0
+      verification_scope:
+        kind: enum
+        required: true
+        values:
+        - source_content_checked
+      checked_on:
+        kind: date
+        required: true
+      key_findings:
+        kind: strings
+        required: true
+        min_items: 1
+      limitations:
+        kind: strings
+        required: true
+        min_items: 1
+      event_started_on:
+        kind: date
+        required: false
+      event_ended_on:
+        kind: date
+        required: false
+      inspection_scope:
+        kind: enum
+        required: true
+        values:
+        - technical_article
+        - official_release
+        - paper_abstract
+        - specification_landing_page
+        - benchmark_release
+  ResearchDirection:
+    description: 확인한 공개 자료와 기술 분류를 연결한 시점별 연구 방향. 전 세계 연구의 완전 목록이라는 의미는 아니다.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: false
+      topic_refs:
+        kind: refs
+        required: true
+        target:
+        - ResearchTopic
+        min_items: 1
+      workload_refs:
+        kind: refs
+        required: false
+        target:
+        - WorkloadUseCase
+        min_items: 0
+      technique_refs:
+        kind: refs
+        required: false
+        target:
+        - Technique
+        min_items: 0
+      data_object_refs:
+        kind: refs
+        required: false
+        target:
+        - DataObjectKind
+        min_items: 0
+      system_layer_refs:
+        kind: refs
+        required: false
+        target:
+        - SystemLayer
+        min_items: 0
+      bottleneck_refs:
+        kind: refs
+        required: false
+        target:
+        - Bottleneck
+        min_items: 0
+      metric_refs:
+        kind: refs
+        required: false
+        target:
+        - EvaluationMetric
+        min_items: 0
+      initiative_refs:
+        kind: refs
+        required: false
+        target:
+        - TechnologyInitiative
+        min_items: 0
+      external_research_refs:
+        kind: refs
+        required: true
+        target:
+        - ExternalResearch
+        min_items: 1
+      as_of:
+        kind: date
+        required: true
+      curation_status:
+        kind: enum
+        required: true
+        values:
+        - curated
+        - watchlist
+      coverage_notes:
+        kind: strings
+        required: true
+        min_items: 1
 relation_predicates:
   STUDIES:
     from:

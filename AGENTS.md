@@ -8,6 +8,9 @@
 - Use stable IDs, `*_ref` / `*_refs`, ISO dates, and timezone-aware timestamps. Intervals use an exclusive end date.
 - Keep original source references, assertion status, and evidence. Candidate relationships must remain distinguishable from verified facts.
 - Keep all bundled examples synthetic. Real HR exports and private research records belong in authorized, access-controlled source systems.
+- Public literature in `research/public_research_registry.yaml` is real source metadata, separate from `examples/graph.yaml`. Preserve publication precision, inspection scope, availability at publication, limitations and internal reproduction status.
+- Keep vendor initiatives such as NVIDIA Storage-Next distinct from generic technical topics, implemented assets and adopted standards. A source review does not establish interoperability or internal reproduction.
+- Research directions are dated, curated coverage. Do not imply exhaustive global coverage or automatic ongoing collection. Extend the evidence registry alongside the taxonomy when adding trends.
 - Access-scope metadata and the static validator are not a production authorization service.
 - Keep this repository lightweight. Introduce an application, database, or service only for an explicit task.
 - Validate changes with the module validator and relevant unit tests. Add focused regression cases for material modeling rules.

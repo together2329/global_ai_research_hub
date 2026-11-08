@@ -1,11 +1,16 @@
 schema_version: 1
-ontology_version: 0.3.0
+ontology_version: 0.4.0
 status: proposed
 updated_at: '2026-11-08'
 schema_file: ontology/schema.yaml
 data_files:
-  - taxonomy/research_taxonomy.yaml
-  - taxonomy/vocabularies.yaml
-  - examples/graph.yaml
-source_basis: User-supplied Memory Solutions Research Taxonomy v0.2 and Organization & People extension
-data_boundary: Bundled organization, person, execution, and measurement records are synthetic examples.
+- taxonomy/research_taxonomy.yaml
+- taxonomy/vocabularies.yaml
+- taxonomy/research_facets.yaml
+- research/public_research_registry.yaml
+- research/research_directions.yaml
+- examples/graph.yaml
+source_basis: User-supplied Memory Solutions Research Taxonomy v0.2, Organization & People extension,
+  and the dated primary-source research registry checked on 2026-11-08
+data_boundary: Public literature records are real source references; all organization, person, internal
+  project, execution, and measurement examples remain synthetic.

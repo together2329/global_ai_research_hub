@@ -1,6 +1,6 @@
 dataset_kind: vocabulary
 status: proposed
-version: 0.3.0
+version: 0.4.0
 entities:
 - id: workload_llm_training
   type: WorkloadUseCase
@@ -701,3 +701,376 @@ entities:
   access_scope: public
   name: CXL
   term_status: proposed
+- id: workload_vector_search
+  type: WorkloadUseCase
+  access_scope: public
+  name: Vector Search
+  term_status: proposed
+- id: workload_filtered_vector_search
+  type: WorkloadUseCase
+  access_scope: public
+  name: Filtered Vector Search
+  term_status: proposed
+- id: workload_hybrid_retrieval
+  type: WorkloadUseCase
+  access_scope: public
+  name: Hybrid Retrieval
+  term_status: proposed
+- id: workload_vector_index_build
+  type: WorkloadUseCase
+  access_scope: public
+  name: Vector Index Build
+  term_status: proposed
+- id: workload_streaming_vector_updates
+  type: WorkloadUseCase
+  access_scope: public
+  name: Streaming Vector Updates
+  term_status: proposed
+- id: workload_training_data_ingestion
+  type: WorkloadUseCase
+  access_scope: public
+  name: Training Data Ingestion
+  term_status: proposed
+- id: workload_training_checkpoint
+  type: WorkloadUseCase
+  access_scope: public
+  name: Training Checkpoint
+  term_status: proposed
+- id: workload_checkpoint_restore
+  type: WorkloadUseCase
+  access_scope: public
+  name: Checkpoint Restore
+  term_status: proposed
+- id: workload_gpu_initiated_storage_io
+  type: WorkloadUseCase
+  access_scope: public
+  name: GPU-Initiated Storage I/O
+  term_status: proposed
+- id: workload_persistent_agent_memory
+  type: WorkloadUseCase
+  access_scope: public
+  name: Persistent Agent Memory
+  term_status: proposed
+- id: workload_multimodal_retrieval
+  type: WorkloadUseCase
+  access_scope: public
+  name: Multimodal Retrieval
+  term_status: proposed
+- id: workload_rdma_object_access
+  type: WorkloadUseCase
+  access_scope: public
+  name: RDMA Object Access
+  term_status: proposed
+- id: tech_graph_ann
+  type: Technique
+  access_scope: public
+  name: Graph-based ANN
+  term_status: proposed
+- id: tech_diskann_vamana
+  type: Technique
+  access_scope: public
+  name: DiskANN / Vamana
+  term_status: proposed
+- id: tech_gpu_cagra_indexing
+  type: Technique
+  access_scope: public
+  name: GPU CAGRA Indexing
+  term_status: proposed
+- id: tech_product_quantization
+  type: Technique
+  access_scope: public
+  name: Product Quantization
+  term_status: proposed
+- id: tech_vector_quantization
+  type: Technique
+  access_scope: public
+  name: Vector Quantization
+  term_status: proposed
+- id: tech_filtered_ann
+  type: Technique
+  access_scope: public
+  name: Filtered ANN
+  term_status: proposed
+- id: tech_hybrid_retrieval
+  type: Technique
+  access_scope: public
+  name: Hybrid Retrieval
+  term_status: proposed
+- id: tech_incremental_index_update
+  type: Technique
+  access_scope: public
+  name: Incremental Index Update
+  term_status: proposed
+- id: tech_index_partitioning
+  type: Technique
+  access_scope: public
+  name: Index Partitioning
+  term_status: proposed
+- id: tech_gpu_initiated_io
+  type: Technique
+  access_scope: public
+  name: GPU-Initiated I/O
+  term_status: proposed
+- id: tech_gpudirect_dma
+  type: Technique
+  access_scope: public
+  name: GPUDirect Storage DMA
+  term_status: proposed
+- id: tech_rdma_transfer
+  type: Technique
+  access_scope: public
+  name: RDMA Transfer
+  term_status: proposed
+- id: tech_async_checkpoint
+  type: Technique
+  access_scope: public
+  name: Asynchronous Checkpointing
+  term_status: proposed
+- id: tech_state_aware_serialization
+  type: Technique
+  access_scope: public
+  name: State-aware Serialization
+  term_status: proposed
+- id: tech_near_data_compute
+  type: Technique
+  access_scope: public
+  name: Near-data Compute
+  term_status: proposed
+- id: tech_memory_retention_policy
+  type: Technique
+  access_scope: public
+  name: Memory Retention Policy
+  term_status: proposed
+- id: expertise_vector_search
+  type: Expertise
+  access_scope: public
+  name: Vector Search
+  description: 전문성 용어이며 사람의 보유 여부는 별도 근거로 판단한다.
+  term_status: proposed
+- id: expertise_gpu_storage_io
+  type: Expertise
+  access_scope: public
+  name: GPU–Storage I/O
+  description: 전문성 용어이며 사람의 보유 여부는 별도 근거로 판단한다.
+  term_status: proposed
+- id: expertise_checkpoint_recovery
+  type: Expertise
+  access_scope: public
+  name: Checkpoint / Recovery
+  description: 전문성 용어이며 사람의 보유 여부는 별도 근거로 판단한다.
+  term_status: proposed
+- id: expertise_storage_architecture
+  type: Expertise
+  access_scope: public
+  name: Storage Architecture
+  description: 전문성 용어이며 사람의 보유 여부는 별도 근거로 판단한다.
+  term_status: proposed
+- id: expertise_ai_storage_benchmarking
+  type: Expertise
+  access_scope: public
+  name: AI Storage Benchmarking
+  description: 전문성 용어이며 사람의 보유 여부는 별도 근거로 판단한다.
+  term_status: proposed
+- id: capability_vector_retrieval
+  type: Capability
+  access_scope: public
+  name: Vector Retrieval
+  term_status: proposed
+- id: capability_gpu_storage_access
+  type: Capability
+  access_scope: public
+  name: GPU-Initiated Storage Access
+  term_status: proposed
+- id: capability_checkpoint_recovery
+  type: Capability
+  access_scope: public
+  name: Checkpoint / Recovery
+  term_status: proposed
+- id: capability_persistent_memory_management
+  type: Capability
+  access_scope: public
+  name: Persistent Agent Memory Management
+  term_status: proposed
+- id: metric_vector_recall_at_k
+  type: EvaluationMetric
+  access_scope: public
+  name: Vector Recall@k
+  term_status: proposed
+  definition: 반환한 최근접 결과가 정확한 Ground Truth와 일치하는 비율. k·Query Set·Filter·Index 버전을 고정한다.
+  contract_status: ready
+  value_kind: number
+  unit: ratio
+  required_conditions:
+  - k
+  - vector_count
+  - dimension
+  - distance_metric
+  - filter_selectivity
+  - index_version
+  - query_set_ref
+  - ground_truth_ref
+  - hardware_profile
+  - concurrency
+- id: metric_vector_qps
+  type: EvaluationMetric
+  access_scope: public
+  name: Vector Search QPS
+  term_status: proposed
+  definition: 명시된 검색 품질과 Tail Latency 조건에서 완료한 초당 Query 수.
+  contract_status: ready
+  value_kind: number
+  unit: queries/s
+  required_conditions:
+  - k
+  - vector_count
+  - dimension
+  - distance_metric
+  - filter_selectivity
+  - index_version
+  - query_set_ref
+  - min_recall
+  - concurrency
+  - hardware_profile
+  required_companion_metric_refs:
+  - metric_vector_recall_at_k
+  - metric_vector_p99_latency
+- id: metric_vector_p99_latency
+  type: EvaluationMetric
+  access_scope: public
+  name: Vector Search p99 Latency
+  term_status: proposed
+  definition: 같은 Query Profile과 Recall 조건에서 측정한 p99 응답 시간.
+  contract_status: ready
+  value_kind: number
+  unit: ms
+  required_conditions:
+  - k
+  - vector_count
+  - dimension
+  - distance_metric
+  - filter_selectivity
+  - index_version
+  - query_set_ref
+  - sample_count
+  - hardware_profile
+  - concurrency
+- id: metric_vector_index_build_time
+  type: EvaluationMetric
+  access_scope: public
+  name: Vector Index Build Time
+  term_status: proposed
+  definition: 원본 Vector에서 검색 가능한 인덱스까지의 경과 시간. End-to-end 범위를 명시한다.
+  contract_status: ready
+  value_kind: number
+  unit: seconds
+  required_conditions:
+  - vector_count
+  - dimension
+  - distance_metric
+  - index_version
+  - hardware_profile
+  - build_parameters
+- id: metric_index_update_visibility
+  type: EvaluationMetric
+  access_scope: public
+  name: Index Update Visibility Delay
+  term_status: proposed
+  definition: 승인된 데이터 갱신이 Query 결과에 반영되기까지의 지연.
+  contract_status: ready
+  value_kind: number
+  unit: seconds
+  required_conditions:
+  - update_policy
+  - consistency_model
+  - update_rate
+  - index_version
+- id: metric_small_io_iops
+  type: EvaluationMetric
+  access_scope: public
+  name: Small-I/O IOPS
+  term_status: proposed
+  definition: 정의된 작은 I/O 크기·경로·부하에서 완료한 초당 I/O 수.
+  contract_status: ready
+  value_kind: number
+  unit: ops/s
+  required_conditions:
+  - io_size_bytes
+  - read_write_mix
+  - queue_depth
+  - initiator
+  - io_path
+  - hardware_profile
+  required_companion_metric_refs:
+  - metric_storage_p99_latency
+- id: metric_storage_p99_latency
+  type: EvaluationMetric
+  access_scope: public
+  name: Storage p99 Latency
+  term_status: proposed
+  definition: 동일한 요청 크기·부하·I/O 경로에서 측정한 p99 지연.
+  contract_status: ready
+  value_kind: number
+  unit: ms
+  required_conditions:
+  - io_size_bytes
+  - read_write_mix
+  - queue_depth
+  - initiator
+  - io_path
+  - hardware_profile
+  - sample_count
+- id: metric_checkpoint_pause
+  type: EvaluationMetric
+  access_scope: public
+  name: Checkpoint Training Pause
+  term_status: proposed
+  definition: Checkpoint 때문에 실제 학습 진행이 정지한 시간. 비동기 I/O 완료 시간과 구분한다.
+  contract_status: ready
+  value_kind: number
+  unit: seconds
+  required_conditions:
+  - checkpoint_bytes
+  - parallelism
+  - storage_backend
+  - checkpoint_strategy
+  - durability_policy
+- id: metric_checkpoint_durable_write
+  type: EvaluationMetric
+  access_scope: public
+  name: Checkpoint Durable Write Time
+  term_status: proposed
+  definition: Checkpoint 쓰기 시작부터 정해진 내구성 보장까지의 경과 시간.
+  contract_status: ready
+  value_kind: number
+  unit: seconds
+  required_conditions:
+  - checkpoint_bytes
+  - parallelism
+  - storage_backend
+  - checkpoint_strategy
+  - durability_policy
+- id: metric_checkpoint_restore
+  type: EvaluationMetric
+  access_scope: public
+  name: Checkpoint Restore Time
+  term_status: proposed
+  definition: 정의된 복구 범위에서 상태를 읽어 실행을 재개하기까지의 시간.
+  contract_status: ready
+  value_kind: number
+  unit: seconds
+  required_conditions:
+  - checkpoint_bytes
+  - parallelism
+  - storage_backend
+  - checkpoint_strategy
+  - durability_policy
+- id: metric_agent_memory_utility
+  type: EvaluationMetric
+  access_scope: public
+  name: Agent Memory Utility
+  term_status: proposed
+  definition: Task 성공·비용·기억 오류·망각 정책을 함께 평가해야 하는 후보 지표 묶음.
+  contract_status: candidate
+  value_kind: family
+  unit: workload_specific
+  required_conditions: []

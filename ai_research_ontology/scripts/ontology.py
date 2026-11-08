@@ -2,10 +2,12 @@
 from __future__ import annotations
 
 import copy
+import calendar
 from dataclasses import dataclass
 from datetime import date, datetime
 import math
 from pathlib import Path
+from urllib.parse import urlparse
 import re
 
 import yaml
@@ -73,6 +75,24 @@ def index_entities(entities: list[dict]) -> dict[str, dict]:
 
 def active_on(entity: dict, as_of: str) -> bool:
     return entity.get("valid_from", "0001-01-01") <= as_of < (entity.get("valid_to") or "9999-12-31")
+
+
+def publication_window(source: dict) -> tuple[str, str] | None:
+    """Preserve publication precision without inventing a day."""
+    value, precision = source.get("published_on"), source.get("date_precision")
+    if precision == "not_reported" and value is None:
+        return None
+    patterns = {"day": r"\d{4}-\d{2}-\d{2}", "month": r"\d{4}-\d{2}", "year": r"\d{4}"}
+    if precision not in patterns or not isinstance(value, str) or not re.fullmatch(patterns[precision], value):
+        raise ValueError("publication date does not match its precision")
+    if precision == "day":
+        date.fromisoformat(value)
+        return value, value
+    if precision == "month":
+        start = date.fromisoformat(value + "-01")
+        return start.isoformat(), f"{value}-{calendar.monthrange(start.year, start.month)[1]:02d}"
+    date.fromisoformat(value + "-01-01")
+    return value + "-01-01", value + "-12-31"
 
 
 def verified(entity: dict) -> bool:
@@ -198,6 +218,50 @@ def validate(bundle: Bundle) -> list[str]:
         if kind == "SourceRecord" and bundle.origins.get(entity["id"]) == "synthetic_example":
             if not entity["is_synthetic"] or not entity["locator"].startswith("example://"):
                 fail(entity, "synthetic examples must not contain real source locators")
+        if kind == "SourceRecord" and (entity.get("date_precision") or entity.get("published_on")):
+            try:
+                window = publication_window(entity)
+                if window and window[0] > bundle.as_of:
+                    fail(entity, "publication is after the bundle snapshot")
+            except ValueError:
+                fail(entity, "publication date does not match its precision")
+        if kind == "ExternalResearch":
+            source = index[entity["source_ref"]]
+            if source["is_synthetic"] or "public_research" not in source["authority_domains"] or urlparse(source["locator"]).scheme != "https":
+                fail(entity, "external research requires a real HTTPS public-research source")
+            if not source.get("publisher") or not source.get("date_precision"):
+                fail(entity, "external research source needs publisher and publication precision")
+            try:
+                window = publication_window(source)
+                if window and window[0] > entity["checked_on"]:
+                    fail(entity, "publication is after the source check")
+            except ValueError:
+                pass  # The SourceRecord reports the malformed date.
+            if entity["checked_on"] > bundle.as_of:
+                fail(entity, "source check is after the bundle snapshot")
+            if entity["record_kind"] == "perspective" or source["source_kind"] == "public_perspective":
+                if (entity["record_kind"], entity["review_status"], entity["evidence_basis"], entity["validation_stage_ref"]) != (
+                    "perspective", "perspective_preprint", "research_agenda", "stage_research_agenda"
+                ):
+                    fail(entity, "perspective source must retain its research-agenda evidence status")
+            if entity["review_status"] == "peer_reviewed" and (source["source_kind"] != "public_paper" or entity["record_kind"] != "paper" or not entity.get("venue")):
+                fail(entity, "peer-reviewed record requires a paper source and venue")
+            reproduction = entity.get("reproduction_evidence_refs", [])
+            if entity["internal_reproduction_status"] == "not_reproduced" and reproduction:
+                fail(entity, "not_reproduced record cannot claim reproduction evidence")
+            if entity["internal_reproduction_status"] != "not_reproduced" and not any(
+                index[ref]["evidence_kind"] == "experiment_result"
+                and not index[index[ref]["source_ref"]]["is_synthetic"]
+                and authority(index[ref]["source_ref"], "execution", {"execution", "ci"})
+                for ref in reproduction
+            ):
+                fail(entity, "internal reproduction requires non-synthetic experiment evidence")
+            if entity.get("event_ended_on") and (not entity.get("event_started_on") or entity["event_ended_on"] < entity["event_started_on"]):
+                fail(entity, "event end requires an earlier or equal event start")
+        if kind == "ResearchDirection" and entity["as_of"] > bundle.as_of:
+            fail(entity, "direction curation is after the bundle snapshot")
+        if kind in {"ExternalResearch", "ResearchDirection"} and any(index[ref]["topic_level"] != "topic" for ref in entity["topic_refs"]):
+            fail(entity, "research mappings require leaf topics")
         if kind == "Person" and not authority(entity["source_ref"], "employment_affiliation", {"hr"}):
             fail(entity, "Person identity requires an HR-authoritative source")
         if kind == "Organization" and not authority(entity["source_ref"], "organization_structure", {"hr"}):
@@ -299,11 +363,30 @@ def validate(bundle: Bundle) -> list[str]:
             ):
                 fail(entity, "measurement value must be a finite number")
             if entity["unit"] == "ratio":
-                p, n = entity["conditions"].get("passed_count"), entity["conditions"].get("total_count")
-                if isinstance(p, bool) or isinstance(n, bool) or not isinstance(p, int) or not isinstance(n, int) or n <= 0 or not 0 <= p <= n:
-                    fail(entity, "ratio requires valid passed_count and total_count")
-                elif not isinstance(entity["value"], (int, float)) or not math.isclose(entity["value"], p / n):
-                    fail(entity, "ratio value differs from numerator/denominator")
+                value = entity["value"]
+                if isinstance(value, bool) or not isinstance(value, (int, float)) or not 0 <= value <= 1:
+                    fail(entity, "ratio value must be between zero and one")
+                if {"passed_count", "total_count"} & set(metric.get("required_conditions", [])):
+                    p, n = entity["conditions"].get("passed_count"), entity["conditions"].get("total_count")
+                    if isinstance(p, bool) or isinstance(n, bool) or not isinstance(p, int) or not isinstance(n, int) or n <= 0 or not 0 <= p <= n:
+                        fail(entity, "ratio requires valid passed_count and total_count")
+                    elif not isinstance(value, (int, float)) or not math.isclose(value, p / n):
+                        fail(entity, "ratio value differs from numerator/denominator")
+            for companion_ref in metric.get("required_companion_metric_refs", []):
+                companions = [m for m in by_type("Measurement") if m["metric_ref"] == companion_ref
+                              and m["run_ref"] == entity["run_ref"] and m.get("benchmark_ref") == entity.get("benchmark_ref")]
+                matching = [m for m in companions if all(
+                    entity["conditions"][key] == m["conditions"][key]
+                    for key in set(entity["conditions"]) & set(m["conditions"])
+                )]
+                if not matching:
+                    fail(entity, f"requires companion {companion_ref} with matching run, benchmark and conditions")
+                if companion_ref == "metric_vector_recall_at_k":
+                    floor = entity["conditions"].get("min_recall")
+                    if isinstance(floor, bool) or not isinstance(floor, (int, float)) or not 0 <= floor <= 1:
+                        fail(entity, "min_recall must be between zero and one")
+                    elif matching and not any(isinstance(m["value"], (int, float)) and not isinstance(m["value"], bool) and m["value"] >= floor for m in matching):
+                        fail(entity, "vector throughput does not meet its declared recall floor")
         if kind == "RelationAssertion":
             signature = bundle.schema["relation_predicates"].get(entity["predicate"])
             if not signature or index[entity["subject_ref"]]["type"] not in signature["from"] or index[entity["object_ref"]]["type"] not in signature["to"]:
