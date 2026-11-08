@@ -37,6 +37,7 @@ flowchart LR
 | [docs/research-landscape-20261108.ko.md](docs/research-landscape-20261108.ko.md) | 동향을 분류에 반영한 이유, 원문 URL·공개일·조회일과 남은 범위 |
 | [docs/executive-taxonomy-brief.ko.md](docs/executive-taxonomy-brief.ko.md) | 부문장 보고용 제안, 연구 경계, 프로젝트 보고 항목과 검토 요청 |
 | [docs/executive-taxonomy-evidence.ko.md](docs/executive-taxonomy-evidence.ko.md) | 추가 근거 11건, 조사 공백, 실제 프로젝트로 확인할 분류 품질 |
+| [docs/global-trend-validation-20261108.ko.md](docs/global-trend-validation-20261108.ko.md) | 국제 학회 프로그램·논문 초록과 독립 대조한 정합성·대표성의 한계 |
 | [docs/modeling-guide.ko.md](docs/modeling-guide.ko.md) | 객체와 관계를 등록하는 기준 |
 | [docs/competency-questions.ko.md](docs/competency-questions.ko.md) | 모델이 답해야 할 질문과 실행 예시 |
 | [docs/operations.ko.md](docs/operations.ko.md) | 원본 권위, 접근 범위, 운영 책임, 변경 원칙 |
