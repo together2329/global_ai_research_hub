@@ -1,5 +1,5 @@
 schema_version: 1
-ontology_version: 0.4.0
+ontology_version: 0.5.0
 status: proposed
 updated_at: '2026-11-08'
 purpose: Memory Solutions Research Intelligence ontology
@@ -91,6 +91,23 @@ classes:
         target:
         - ResearchTopic
       term_status: *id001
+      primary_domain_ref:
+        kind: ref
+        required: false
+        target:
+        - TechnologyDomain
+      related_domain_refs:
+        kind: refs
+        required: false
+        target:
+        - TechnologyDomain
+        min_items: 0
+      concern_refs:
+        kind: refs
+        required: false
+        target:
+        - ResearchConcern
+        min_items: 0
   WorkloadUseCase:
     description: 연구가 적용되는 실행 환경 또는 엔지니어링 업무.
     fields:
@@ -499,6 +516,38 @@ classes:
         - solution_engineering
         - platform_development
         - operation
+      primary_domain_ref:
+        kind: ref
+        required: false
+        target:
+        - TechnologyDomain
+      related_domain_refs:
+        kind: refs
+        required: false
+        target:
+        - TechnologyDomain
+        min_items: 0
+      concern_refs:
+        kind: refs
+        required: false
+        target:
+        - ResearchConcern
+        min_items: 0
+      problem_statement:
+        kind: string
+        required: false
+      success_criteria:
+        kind: strings
+        required: false
+        min_items: 1
+      beneficiary_kind:
+        kind: enum
+        required: false
+        values:
+        - customer_system
+        - internal_engineering
+        - shared_platform
+        - ecosystem
   Asset:
     description: 실제 모델, 플랫폼, Agent, 도구, 컨트롤러, 펌웨어, 시제품.
     fields:
@@ -961,6 +1010,7 @@ classes:
         - official_vendor_publication
         - official_standard
         - public_perspective
+        - official_organization_publication
       authority_domains:
         kind: strings
         required: true
@@ -987,6 +1037,9 @@ classes:
         - month
         - year
         - not_reported
+      publication_date_locator:
+        kind: string
+        required: false
   RelationAssertion:
     description: 직접 속성에 없는 기술적 관계의 근거 있는 주장.
     fields:
@@ -1191,6 +1244,7 @@ classes:
         - perspective
         - standard
         - product_release
+        - research_program
       review_status:
         kind: enum
         required: true
@@ -1211,6 +1265,7 @@ classes:
         - protocol_definition
         - architecture_description
         - research_agenda
+        - publication_metadata
       validation_stage_ref:
         kind: ref
         required: true
@@ -1270,6 +1325,12 @@ classes:
         - paper_abstract
         - specification_landing_page
         - benchmark_release
+      concern_refs:
+        kind: refs
+        required: false
+        target:
+        - ResearchConcern
+        min_items: 0
   ResearchDirection:
     description: 확인한 공개 자료와 기술 분류를 연결한 시점별 연구 방향. 전 세계 연구의 완전 목록이라는 의미는 아니다.
     fields:
@@ -1346,6 +1407,50 @@ classes:
         kind: strings
         required: true
         min_items: 1
+      concern_refs:
+        kind: refs
+        required: false
+        target:
+        - ResearchConcern
+        min_items: 0
+  TechnologyDomain:
+    description: 부문장 보고와 기술 검색을 위한 독립 기술 분야. ResearchArea의 포트폴리오 분류와 별도이다.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: true
+      core_question:
+        kind: string
+        required: true
+      term_status:
+        kind: enum
+        required: true
+        values:
+        - proposed
+        - accepted
+        - deprecated
+  ResearchConcern:
+    description: 여러 기술 분야에 공통으로 적용할 품질·제약·검증 관점. 독립 ResearchArea가 아니다.
+    fields:
+      name:
+        kind: string
+        required: true
+      description:
+        kind: string
+        required: true
+      core_question:
+        kind: string
+        required: true
+      term_status:
+        kind: enum
+        required: true
+        values:
+        - proposed
+        - accepted
+        - deprecated
 relation_predicates:
   STUDIES:
     from:

@@ -272,6 +272,10 @@ def validate(bundle: Bundle) -> list[str]:
                 not parent or parent.get("topic_level") != "group" or parent["area_ref"] != entity["area_ref"]
             ):
                 fail(entity, "leaf topic requires a group in the same area")
+            if entity["topic_level"] == "topic" and not entity.get("primary_domain_ref"):
+                fail(entity, "leaf topic requires one primary technical domain")
+        if kind in {"ResearchTopic", "ResearchProject"} and entity.get("primary_domain_ref") in entity.get("related_domain_refs", []):
+            fail(entity, "primary technical domain must not be repeated as a related domain")
         if kind == "ResearchProject":
             areas = {entity["primary_area_ref"], *entity.get("related_area_refs", [])}
             topics = [index[ref] for ref in entity["topic_refs"]]
@@ -281,6 +285,9 @@ def validate(bundle: Bundle) -> list[str]:
                 fail(entity, "project topics must be leaves in the primary or explicit related areas")
             if not any(t["area_ref"] == entity["primary_area_ref"] for t in topics):
                 fail(entity, "project requires a topic in its primary area")
+            domains = {d for t in topics for d in [t.get("primary_domain_ref"), *t.get("related_domain_refs", [])] if d}
+            if entity.get("primary_domain_ref") and entity["primary_domain_ref"] not in domains:
+                fail(entity, "project primary technical domain must appear in its mapped topics")
         rules = {
             "OrganizationRelation": ("organization_structure", {"hr"}, {"hr_record"}),
             "OrganizationMembership": ("employment_affiliation", {"hr"}, {"hr_record"}),

@@ -90,13 +90,16 @@ def research_landscape(bundle, as_of, direction_ref=None):
     for direction in bundle.entities:
         if direction["type"] != "ResearchDirection" or (direction_ref and direction["id"] != direction_ref):
             continue
-        literature = []
+        literature, unknown_publication = [], []
         for reference in direction["external_research_refs"]:
             record = index[reference]
             source = index[record["source_ref"]]
             window = publication_window(source)
             # A month-only date is not treated as a known publication on day one.
-            if window is None or window[1] > as_of:
+            if window is None:
+                unknown_publication.append(reference)
+                continue
+            if window[1] > as_of:
                 continue
             literature.append({
                 "id": reference, "name": record["name"], "url": source["locator"],
@@ -114,12 +117,40 @@ def research_landscape(bundle, as_of, direction_ref=None):
                 "explicitly_linked_project_refs": [p["id"] for p in bundle.entities
                     if p["type"] == "ResearchProject" and reference in p.get("external_research_refs", [])],
             })
-        if literature:
+        if literature or unknown_publication:
             result.append({key: direction[key] for key in (
                 "id", "name", "topic_refs", "data_object_refs", "system_layer_refs",
-                "bottleneck_refs", "metric_refs", "as_of", "coverage_notes"
-            )} | {"initiative_refs": direction.get("initiative_refs", []), "external_research": literature})
+                "bottleneck_refs", "metric_refs", "as_of", "curation_status", "coverage_notes"
+            )} | {"initiative_refs": direction.get("initiative_refs", []), "concern_refs": direction.get("concern_refs", []),
+                  "publication_date_unknown_refs": unknown_publication, "external_research": literature})
     return result
+
+
+def executive_map(bundle, as_of):
+    index = index_entities(bundle.entities)
+    result = []
+    for domain in [e for e in bundle.entities if e["type"] == "TechnologyDomain"]:
+        topics = [t for t in bundle.entities if t["type"] == "ResearchTopic" and t["topic_level"] == "topic"
+                  and t.get("primary_domain_ref") == domain["id"]]
+        topic_refs = {t["id"] for t in topics}
+        records, unknown = [], []
+        for record in [e for e in bundle.entities if e["type"] == "ExternalResearch"]:
+            if not topic_refs.intersection(record["topic_refs"]):
+                continue
+            window = publication_window(index[record["source_ref"]])
+            if window is None:
+                unknown.append(record["id"])
+            elif window[1] <= as_of:
+                records.append(record["id"])
+        result.append({"id": domain["id"], "name": domain["name"], "core_question": domain["core_question"],
+                       "primary_topic_count": len(topics), "topic_refs": sorted(topic_refs),
+                       "portfolio_area_refs": sorted({t["area_ref"] for t in topics}),
+                       "dated_source_count": len(records), "external_research_refs": sorted(records),
+                       "publication_date_unknown_refs": sorted(unknown)})
+    return {"notice": "Proposed technical view. Source counts measure curated topic links, not coverage, maturity, investment priority or verified internal outcomes. A source can occur in several domains.",
+            "technical_domains": result,
+            "cross_cutting_concerns": [{"id": e["id"], "name": e["name"], "core_question": e["core_question"]}
+                                      for e in bundle.entities if e["type"] == "ResearchConcern"]}
 
 
 def answers(bundle, as_of):
@@ -130,13 +161,14 @@ def answers(bundle, as_of):
         "dual-expertise": experts(bundle, ["expertise_hbf", "expertise_kv_cache"], as_of),
         "person-history": person_history(bundle, "person_engineer_a", as_of),
         "research-landscape": research_landscape(bundle, as_of),
+        "executive-map": executive_map(bundle, as_of),
     }
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--as-of", help="YYYY-MM-DD; validity date or literature publication cutoff, not a known-at history")
-    parser.add_argument("--query", default="all", choices=["all", "cxl-experts", "project-people", "asset-users", "dual-expertise", "person-history", "research-landscape"])
+    parser.add_argument("--query", default="all", choices=["all", "cxl-experts", "project-people", "asset-users", "dual-expertise", "person-history", "research-landscape", "executive-map"])
     parser.add_argument("--direction", help="Research direction ID or suffix, e.g. vector_search or storage_next")
     args = parser.parse_args()
     bundle = load_bundle()

@@ -1,6 +1,6 @@
 dataset_kind: vocabulary
 status: proposed
-version: 0.4.0
+version: 0.5.0
 entities:
 - id: workload_llm_training
   type: WorkloadUseCase
@@ -1074,3 +1074,105 @@ entities:
   value_kind: family
   unit: workload_specific
   required_conditions: []
+- id: metric_agent_task_success_rate
+  type: EvaluationMetric
+  access_scope: public
+  name: Agent Task Success Rate
+  definition: 독립 검토 기준을 충족한 전체 Task 비율. Step 또는 Tool 호출의 성공률과 구분.
+  contract_status: candidate
+  value_kind: number
+  unit: ratio
+  required_conditions:
+  - task_suite
+  - acceptance_protocol
+  - model_version
+  - tool_versions
+  - step_budget
+  term_status: proposed
+- id: metric_agent_coordination_overhead
+  type: EvaluationMetric
+  access_scope: public
+  name: Agent Coordination Overhead
+  definition: 동일 Task와 기준 구성 대비 Agent 조정으로 발생한 시간.
+  contract_status: candidate
+  value_kind: number
+  unit: seconds
+  required_conditions:
+  - task_suite
+  - baseline_configuration
+  - agent_configuration
+  - measurement_boundary
+  term_status: proposed
+- id: metric_energy_per_completed_task
+  type: EvaluationMetric
+  access_scope: public
+  name: Energy per Accepted Task
+  definition: 정해진 품질·SLO를 충족한 Task당 에너지.
+  contract_status: candidate
+  value_kind: number
+  unit: joules/task
+  required_conditions:
+  - acceptance_protocol
+  - latency_slo
+  - measurement_boundary
+  - power_meter
+  - task_suite
+  term_status: proposed
+- id: metric_cost_per_completed_task
+  type: EvaluationMetric
+  access_scope: public
+  name: Cost per Accepted Task
+  definition: 정해진 품질·SLO를 충족한 Task당 비용.
+  contract_status: candidate
+  value_kind: number
+  unit: currency/task
+  required_conditions:
+  - currency
+  - cost_basis_date
+  - acceptance_protocol
+  - latency_slo
+  - measurement_boundary
+  term_status: proposed
+- id: metric_collective_communication_stall
+  type: EvaluationMetric
+  access_scope: public
+  name: Collective Communication Stall Fraction
+  definition: 측정 구간 중 통신 대기로 임계 실행이 정지한 비율.
+  contract_status: candidate
+  value_kind: number
+  unit: ratio
+  required_conditions:
+  - parallelism
+  - topology
+  - model_version
+  - measurement_window
+  - stall_definition
+  term_status: proposed
+- id: metric_ras_recovery_time
+  type: EvaluationMetric
+  access_scope: public
+  name: RAS Recovery Time
+  definition: 정의한 장애부터 허용된 서비스 상태로 복구하기까지 시간.
+  contract_status: candidate
+  value_kind: number
+  unit: seconds
+  required_conditions:
+  - fault_model
+  - recovery_target
+  - data_integrity_policy
+  - hardware_profile
+  term_status: proposed
+- id: metric_engineering_workflow_acceptance
+  type: EvaluationMetric
+  access_scope: public
+  name: Engineering Workflow Acceptance Rate
+  definition: 독립 검증과 인수 조건을 충족한 전체 엔지니어링 Task 비율.
+  contract_status: candidate
+  value_kind: number
+  unit: ratio
+  required_conditions:
+  - task_suite
+  - acceptance_protocol
+  - verification_tool_versions
+  - baseline
+  term_status: proposed

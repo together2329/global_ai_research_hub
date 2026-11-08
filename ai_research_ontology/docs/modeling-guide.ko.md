@@ -1,4 +1,4 @@
-# 모델링 기준 v0.4
+# 모델링 기준 v0.5
 
 Research Taxonomy는 기술 분류를, Organization & People은 조직과 사람의 이력을, Resource & Evidence는 개발·실행·검증의 관찰 기록을 담당합니다. ResearchProject가 이 축들을 연결합니다.
 
@@ -6,6 +6,7 @@ Research Taxonomy는 기술 분류를, Organization & People은 조직과 사람
 | --- | --- | --- |
 | 연구 분류 | ResearchPortfolio, ResearchArea, ResearchTopic | 통제 용어와 분류 경계 |
 | 공통 연구 축 | WorkloadUseCase, Technique, Capability, ResearchSubject | 적용 환경·방법·기능·연구 대상을 구분 |
+| 기술 분야·공통 관점 | TechnologyDomain, ResearchConcern | 기술 내용을 6개 분야로, 보안·품질 등 제약을 독립 관점으로 구분 |
 | 교차 분류 | DataObjectKind, SystemLayer, Bottleneck, ValidationStage | 데이터 종류·시스템 위치·해결 제약·검증 범위를 구분 |
 | 외부 연구 | ExternalResearch, ResearchDirection, TechnologyInitiative | 공개 근거·분류 판단·업체 프로그램을 구분 |
 | 조직·사람 | Organization, Person | HR 원본의 안정적 식별자에 매핑 |
@@ -27,6 +28,10 @@ Research Taxonomy는 기술 분류를, Organization & People은 조직과 사람
 - Shared Infra: 여러 연구에서 반복 활용하는 자원과 공통 서비스를 제공하는 연구.
 
 하나의 팀이 여러 Area의 프로젝트를 수행할 수 있고, 하나의 프로젝트에 여러 팀이 참여할 수 있습니다. ResearchArea에는 Organization이나 Person을 자식으로 넣지 않습니다.
+
+TechnologyDomain은 기존 5개 Area와 독립된 기술 보기입니다. 모든 세부 Topic은 `primary_domain_ref` 하나를 가지며 `related_domain_refs`에 같은 분야를 반복하지 않습니다. 프로젝트가 대표 기술 분야를 명시하면 그 프로젝트 Topic에 연결된 분야여야 합니다. 모델/Agent 자체의 구조는 Models & Agents, 엔지니어링 Task를 수행하는 Agent의 산출물·인수 검증은 Engineering으로 구분합니다. [보고용 제안서](executive-taxonomy-brief.ko.md)에 경계 사례를 정리했습니다.
+
+ResearchConcern은 품질·정확성, 신뢰성·복구, 보안·개인정보, 전력·열·비용, 표준·상호운용, 평가·재현성의 공통 관점입니다. 이 태그는 해당 관점을 다룬다는 분류이며 실제 위험·성능·인증 결과를 확정하는 주장이 아닙니다. 실제 결과는 Experiment/Evidence로 연결합니다.
 
 `work_kind`는 과학적 연구·솔루션 엔지니어링·플랫폼 개발·운영을 Area와 별도로 표현합니다. 5개 Area는 포트폴리오의 시작점이며 모든 국제 연구를 배타적으로 분할하는 보편 분류는 아닙니다.
 
@@ -60,6 +65,8 @@ CMX는 Platform 종류의 Asset, RTL Agent v1은 버전이 있는 Agent Asset, R
 CMX와 HBF는 별개 개념입니다. 같은 Workload를 대상으로 연구한다는 이유로 `COMPATIBLE_WITH`를 만들지 않습니다. 검증된 호환 관계에는 실험 근거가 필요합니다.
 
 NVIDIA Storage-Next는 TechnologyInitiative이고 GPU-Initiated Storage는 일반 기술 Topic입니다. 프로그램과 연결된 프로젝트가 모든 SDK·장치와 호환된다는 의미는 아닙니다. Embedding Vector·ANN Index·KV Cache·Agent Memory는 DataObjectKind로 구분합니다. DataObjectKind는 데이터 종류이고 Artifact는 실제 파일·버전입니다. 기존 ResearchSubject와 같은 개념이면 `subject_ref`로 연결합니다.
+
+SSM 등의 Recurrent State와 Attention의 KV Cache도 별도 DataObjectKind로 구분합니다. 멀티모달 입력 Stream과 On-device 실행 위치, Package 내 연결·열 제약을 추가해 새로운 Workload를 KV/SSD 용어에 억지로 넣지 않도록 했습니다.
 
 ## 실험과 결과
 

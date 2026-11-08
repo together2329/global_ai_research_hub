@@ -1,5 +1,5 @@
 dataset_kind: research_directions
-version: 0.4.0
+version: 0.5.0
 as_of: '2026-11-08'
 entities:
 - id: direction_vector_search
@@ -320,3 +320,266 @@ entities:
   curation_status: curated
   coverage_notes:
   - Benchmark Version·Dataset·부하·품질·단위·Source Date를 보존한다.
+- id: direction_model_architecture
+  type: ResearchDirection
+  access_scope: public
+  name: Hybrid / Sparse Model Architecture
+  topic_refs:
+  - hybrid_ssm_attention_architecture
+  - sparse_moe_model_architecture
+  - reasoning_budget_adaptation
+  external_research_refs:
+  - external_nemotron_super
+  - external_kimi_k3
+  data_object_refs:
+  - data_model_weights
+  - data_kv_cache
+  - data_recurrent_state
+  system_layer_refs:
+  - layer_gpu_memory
+  - layer_host_memory
+  - layer_inference_runtime
+  bottleneck_refs:
+  - bottleneck_capacity
+  - bottleneck_bandwidth
+  - bottleneck_quality
+  metric_refs:
+  - metric_memory_footprint
+  - metric_model_quality
+  as_of: '2026-11-08'
+  curation_status: curated
+  coverage_notes:
+  - 모델 구조별 상태·Expert·통신 요구가 달라지므로 단일 Transformer 가정을 고정하지 않는다.
+  concern_refs: []
+- id: direction_agent_reliability
+  type: ResearchDirection
+  access_scope: public
+  name: Agent Coordination / Task Reliability
+  topic_refs:
+  - agent_coordination_cost_reliability
+  - engineering_agent_workflow_evaluation
+  external_research_refs:
+  - external_agent_scaling
+  - external_nist_agent_standards
+  data_object_refs:
+  - data_agent_memory
+  - data_metadata
+  - data_kv_cache
+  system_layer_refs:
+  - layer_inference_runtime
+  - layer_agent_memory
+  bottleneck_refs:
+  - bottleneck_quality
+  - bottleneck_cost
+  metric_refs:
+  - metric_agent_task_success_rate
+  - metric_agent_coordination_overhead
+  as_of: '2026-11-08'
+  curation_status: curated
+  coverage_notes:
+  - Agent 수가 늘면 항상 개선된다고 가정하지 않는다. 전체 Task 인수와 조정 비용을 평가한다.
+  concern_refs:
+  - concern_quality_correctness
+  - concern_reliability_resilience
+- id: direction_runtime_compiler
+  type: ResearchDirection
+  access_scope: public
+  name: Runtime / Compiler / Distributed Execution
+  topic_refs:
+  - inference_kernel_compiler_optimization
+  - distributed_training_execution
+  - collective_communication_overlap
+  - heterogeneous_accelerator_runtime_integration
+  external_research_refs:
+  - external_pytorch_2026
+  - external_nemotron_super
+  - external_kimi_k3
+  data_object_refs:
+  - data_model_weights
+  - data_activations
+  - data_optimizer_state
+  - data_metadata
+  system_layer_refs:
+  - layer_gpu_memory
+  - layer_training_runtime
+  - layer_network_fabric
+  bottleneck_refs:
+  - bottleneck_bandwidth
+  - bottleneck_network
+  - bottleneck_data_movement
+  metric_refs:
+  - metric_collective_communication_stall
+  - metric_tokens_per_second
+  as_of: '2026-11-08'
+  curation_status: curated
+  coverage_notes:
+  - 모델·학습/Serving Runtime·Compiler·통신을 함께 분석하고 Backend 지원 범위를 확인한다.
+  concern_refs: []
+- id: direction_world_edge
+  type: ResearchDirection
+  access_scope: public
+  name: Multimodal / World Simulation / Edge
+  topic_refs:
+  - multimodal_world_model_architecture
+  - world_model_video_workload_analysis
+  - edge_on_device_inference_codesign
+  external_research_refs:
+  - external_genie4_page
+  - external_mlperf_tiny14
+  - external_mlperf_inference61
+  data_object_refs:
+  - data_model_weights
+  - data_multimodal_stream
+  - data_activations
+  - data_recurrent_state
+  system_layer_refs:
+  - layer_gpu_memory
+  - layer_host_memory
+  - layer_inference_runtime
+  - layer_edge_device
+  bottleneck_refs:
+  - bottleneck_capacity
+  - bottleneck_power
+  - bottleneck_quality
+  metric_refs:
+  - metric_memory_footprint
+  - metric_energy_per_completed_task
+  as_of: '2026-11-08'
+  curation_status: watchlist
+  coverage_notes:
+  - Memory Solutions의 직접 개발 범위는 미확정인 관찰 영역이다. Workload와 메모리 요구로 연결되는지 우선 검토한다.
+  - Genie 4 페이지는 공개일 미확인으로 공개일 기준 CLI 조회에서 제외된다.
+  concern_refs:
+  - concern_efficiency_economics
+  - concern_quality_correctness
+- id: direction_interconnect_ras
+  type: ResearchDirection
+  access_scope: public
+  name: Memory / Chiplet Interconnect and RAS
+  topic_refs:
+  - chiplet_memory_interconnect_architecture
+  - memory_logic_package_codesign
+  - coherent_memory_ras_recovery
+  external_research_refs:
+  - external_ucie3
+  - external_cxl4_announcement
+  - external_skhynix_fms
+  data_object_refs:
+  - data_model_weights
+  - data_metadata
+  system_layer_refs:
+  - layer_gpu_memory
+  - layer_cxl_memory
+  - layer_host_memory
+  - layer_package_interconnect
+  bottleneck_refs:
+  - bottleneck_bandwidth
+  - bottleneck_power
+  - bottleneck_recovery_stall
+  - bottleneck_thermal
+  metric_refs:
+  - metric_ras_recovery_time
+  - metric_bandwidth
+  as_of: '2026-11-08'
+  curation_status: curated
+  coverage_notes:
+  - 표준 공개·상호운용·실제 제품 검증을 분리한다. RAS 상세 근거는 추가 조사 대상이다.
+  concern_refs:
+  - concern_reliability_resilience
+  - concern_interoperability_standards
+- id: direction_engineering_intelligence
+  type: ResearchDirection
+  access_scope: public
+  name: Engineering Intelligence / Evaluator-guided Design
+  topic_refs:
+  - evaluator_guided_algorithm_discovery
+  - hardware_software_optimization_agent
+  - engineering_agent_workflow_evaluation
+  external_research_refs:
+  - external_alphaevolve_2026
+  - external_kimi_k3
+  - external_agent_scaling
+  data_object_refs:
+  - data_model_weights
+  - data_metadata
+  system_layer_refs:
+  - layer_inference_runtime
+  - layer_training_runtime
+  bottleneck_refs:
+  - bottleneck_quality
+  - bottleneck_cost
+  metric_refs:
+  - metric_engineering_workflow_acceptance
+  - metric_agent_task_success_rate
+  as_of: '2026-11-08'
+  curation_status: curated
+  coverage_notes:
+  - RTL 생성뿐 아니라 알고리즘·설계·검증·Workflow 전체의 품질과 인수 기준을 다룬다.
+  - 업체의 시뮬레이션 사례와 저자 보고 실리콘 적용을 구분하며 내부 성과로 바꾸지 않는다.
+  concern_refs:
+  - concern_quality_correctness
+  - concern_evaluation_reproducibility
+- id: direction_trusted_execution
+  type: ResearchDirection
+  access_scope: public
+  name: Secure / Authorized Agent and Data Execution
+  topic_refs:
+  - agent_identity_authorization
+  - agent_tool_execution_isolation
+  - storage_io_integrity_security
+  external_research_refs:
+  - external_nist_agent_standards
+  - external_agent_scaling
+  data_object_refs:
+  - data_model_weights
+  - data_metadata
+  system_layer_refs:
+  - layer_agent_memory
+  - layer_inference_runtime
+  - layer_shared_storage
+  bottleneck_refs:
+  - bottleneck_quality
+  - bottleneck_consistency
+  metric_refs:
+  - metric_agent_task_success_rate
+  as_of: '2026-11-08'
+  curation_status: curated
+  coverage_notes:
+  - 보안·식별·위임·데이터 격리를 모든 기술 분야에 걸친 관점으로 평가한다. 표준화 Initiative는 완성된 보안 규격이 아니다.
+  concern_refs:
+  - concern_security_privacy
+  - concern_interoperability_standards
+- id: direction_energy_quality
+  type: ResearchDirection
+  access_scope: public
+  name: Quality-constrained Energy / Cost Efficiency
+  topic_refs:
+  - system_energy_cost_modeling
+  - system_energy_telemetry_attribution
+  - edge_ai_memory_energy_characterization
+  external_research_refs:
+  - external_mlperf_tiny14
+  - external_mlperf_inference61
+  - external_skhynix_fms
+  data_object_refs:
+  - data_model_weights
+  - data_metadata
+  system_layer_refs:
+  - layer_gpu_memory
+  - layer_inference_runtime
+  - layer_host_memory
+  bottleneck_refs:
+  - bottleneck_power
+  - bottleneck_cost
+  - bottleneck_quality
+  metric_refs:
+  - metric_energy_per_completed_task
+  - metric_cost_per_completed_task
+  as_of: '2026-11-08'
+  curation_status: curated
+  coverage_notes:
+  - 품질·SLO·측정 경계를 고정한다. Edge 에너지 근거로 Datacenter TCO 개선을 단정하지 않는다.
+  - Datacenter 전력·열·비용의 정량 근거는 추가 조사 대상이다.
+  concern_refs:
+  - concern_efficiency_economics
+  - concern_evaluation_reproducibility

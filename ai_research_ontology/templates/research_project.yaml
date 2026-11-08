@@ -5,7 +5,18 @@ type: ResearchProject
 access_scope: internal
 name: Replace with research name
 objective: Replace with the research question and acceptance outcome
+# Portfolio category and technical domain are independent.
 primary_area_ref: ai_native_storage
+primary_domain_ref: domain_storage_datapath
+related_domain_refs:
+  - domain_memory_interconnect
+concern_refs:
+  - concern_quality_correctness
+  - concern_efficiency_economics
+problem_statement: Replace with the observed user/system bottleneck and its evidence
+beneficiary_kind: customer_system
+success_criteria:
+  - Replace with a quality-constrained, testable acceptance criterion
 topic_refs:
   - kv_cache_offloading_optimization
 workload_refs:

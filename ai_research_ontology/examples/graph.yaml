@@ -1,5 +1,5 @@
 dataset_kind: synthetic_example
-version: 0.4.0
+version: 0.5.0
 as_of: '2026-11-08'
 notice: 모든 사람·조직·프로젝트·실행·수치는 가상 데이터이며 실제 HR 또는 연구 결과가 아니다.
 entities:
@@ -864,6 +864,11 @@ entities:
   work_kind: scientific_research
   lifecycle_status: proposed
   source_ref: src_projects
+  primary_domain_ref: domain_retrieval_data
+  beneficiary_kind: customer_system
+  problem_statement: 가상 Vector 검색 Task에서 품질을 보존하며 SSD/GPU 경로의 지연·용량 제약을 비교한다.
+  success_criteria:
+  - 동일 Query Set·Recall·Index Version·Hardware에서 QPS·p99를 함께 확인한다.
 - id: research_gpu_storage_demo
   type: ResearchProject
   access_scope: public
@@ -894,3 +899,8 @@ entities:
   work_kind: solution_engineering
   lifecycle_status: proposed
   source_ref: src_projects
+  primary_domain_ref: domain_storage_datapath
+  beneficiary_kind: customer_system
+  problem_statement: 가상 GPU 주도 작은 I/O 경로의 병목과 격리 조건을 비교한다.
+  success_criteria:
+  - 동일 I/O Size·Queue Depth·Hardware에서 IOPS와 p99를 함께 확인한다.

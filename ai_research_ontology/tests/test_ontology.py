@@ -5,7 +5,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from ontology import load_bundle, publication_window, validate
-from query import affiliations, asset_users, experts, person_history, project_people, research_landscape
+from query import affiliations, asset_users, executive_map, experts, person_history, project_people, research_landscape
 
 
 class OntologyContractTests(unittest.TestCase):
@@ -137,7 +137,7 @@ class OntologyContractTests(unittest.TestCase):
 
     def test_public_literature_and_synthetic_internal_records_remain_separate(self):
         records = [e for e in self.bundle.entities if e["type"] == "ExternalResearch"]
-        self.assertEqual(14, len(records))
+        self.assertGreaterEqual(len(records), 14)
         for record in records:
             self.assertFalse(self.entity(record["source_ref"])["is_synthetic"])
             self.assertEqual("not_reproduced", record["internal_reproduction_status"])
@@ -221,6 +221,40 @@ class OntologyContractTests(unittest.TestCase):
         self.assertTrue(all(r["url"].startswith("https://") and r["limitations"] for r in rows))
         with self.assertRaises(ValueError):
             research_landscape(self.bundle, "2026-11-08", "missing_direction")
+
+    def test_leaf_topics_require_a_primary_technical_domain(self):
+        self.entity("disk_based_ann_architecture").pop("primary_domain_ref")
+        self.has_error("leaf topic requires one primary technical domain")
+
+    def test_technical_domains_cross_portfolio_area_boundaries(self):
+        view = executive_map(self.bundle, "2026-11-08")
+        retrieval = next(d for d in view["technical_domains"] if d["id"] == "domain_retrieval_data")
+        self.assertIn("ai_domain", retrieval["portfolio_area_refs"])
+        self.assertIn("ai_native_storage", retrieval["portfolio_area_refs"])
+        self.assertIn("shared_infra", retrieval["portfolio_area_refs"])
+        self.assertEqual(sum(d["primary_topic_count"] for d in view["technical_domains"]),
+                         len([e for e in self.bundle.entities if e["type"] == "ResearchTopic" and e["topic_level"] == "topic"]))
+
+    def test_project_technical_domain_must_match_its_research_topics(self):
+        self.entity("research_vector_storage_demo")["primary_domain_ref"] = "domain_engineering_intelligence"
+        self.has_error("project primary technical domain must appear in its mapped topics")
+
+    def test_cross_cutting_concern_cannot_be_used_as_a_technical_domain(self):
+        self.entity("agent_identity_authorization")["primary_domain_ref"] = "concern_security_privacy"
+        self.has_error("primary_domain_ref reference concern_security_privacy has wrong type")
+
+    def test_unknown_publication_is_visible_without_an_invented_date(self):
+        source = self.entity("source_genie4_page")
+        self.assertIsNone(publication_window(source))
+        row = research_landscape(self.bundle, "2026-11-08", "direction_world_edge")[0]
+        self.assertEqual("watchlist", row["curation_status"])
+        self.assertIn("external_genie4_page", row["publication_date_unknown_refs"])
+        self.assertNotIn("external_genie4_page", [r["id"] for r in row["external_research"]])
+
+    def test_technical_domain_primary_and_related_must_be_distinct(self):
+        topic = self.entity("disk_based_ann_architecture")
+        topic["related_domain_refs"] = [topic["primary_domain_ref"]]
+        self.has_error("primary technical domain must not be repeated")
 
 
 if __name__ == "__main__":

@@ -3,6 +3,8 @@
 - Start with `ai_research_ontology/README.md` and `ontology/manifest.yaml` inside that module.
 - Treat the schema and vocabulary as a proposed model. Do not mark organizational adoption or real research outcomes as verified without evidence.
 - Keep ResearchArea separate from Organization. ResearchProject connects the technical and organizational axes.
+- Keep the five ResearchArea portfolio categories separate from TechnologyDomain. Leaf topics have one primary technical domain and may reference related domains; ResearchConcern supplies cross-cutting evaluation perspectives.
+- Treat the executive brief as a proposed reporting view. Topic/source counts and validator success do not establish organizational coverage, investment priority, actual productivity or the leader's internal intent.
 - Keep Person, OrganizationMembership, ProjectMembership, RoleAssignment, and ExpertiseAssertion distinct. Preserve their validity intervals and source provenance.
 - HR is authoritative for organization structure and employment affiliation. Git activity does not establish a project role or expertise.
 - Use stable IDs, `*_ref` / `*_refs`, ISO dates, and timezone-aware timestamps. Intervals use an exclusive end date.

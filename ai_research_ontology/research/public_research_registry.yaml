@@ -1,8 +1,8 @@
 dataset_kind: public_research_registry
-version: 0.4.0
+version: 0.5.0
 as_of: '2026-11-08'
-coverage: Curated primary-source sample, not a worldwide exhaustive census. Publication-time claims are
-  distinguished from internal reproduction.
+coverage: Curated source sample across AI models, agents, runtimes, interconnects, engineering and storage;
+  not an exhaustive global census. Source claims and internal reproduction are separate.
 entities:
 - id: source_mlperf_storage_v3
   type: SourceRecord
@@ -790,3 +790,417 @@ entities:
   source_refs:
   - source_storage_next_scada
   - source_kioxia_gp
+- id: source_nemotron_super
+  type: SourceRecord
+  access_scope: public
+  name: Nemotron 3 Super Hybrid Architecture
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://developer.nvidia.com/blog/introducing-nemotron-3-super-an-open-hybrid-mamba-transformer-moe-for-agentic-reasoning/
+  retrieved_at: '2026-11-08T20:04:27+09:00'
+  is_synthetic: false
+  publisher: NVIDIA
+  date_precision: day
+  published_on: '2026-03-11'
+- id: external_nemotron_super
+  type: ExternalResearch
+  access_scope: public
+  name: Nemotron 3 Super Hybrid Architecture
+  source_ref: source_nemotron_super
+  record_kind: technical_report
+  review_status: official_publication
+  evidence_basis: vendor_reported_evaluation
+  validation_stage_ref: stage_system_evaluation
+  availability_at_publication: available
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  inspection_scope: technical_article
+  topic_refs:
+  - hybrid_ssm_attention_architecture
+  - sparse_moe_model_architecture
+  - speculative_decoding_optimization
+  - reasoning_budget_adaptation
+  key_findings:
+  - 공식 기술 글은 SSM·Attention·MoE 혼합 구조와 Multi-token Prediction·저정밀 학습을 설명한다.
+  limitations:
+  - 업체가 제시한 구성·평가이며 메모리 요구와 성능을 다른 모델에 일반화하지 않는다.
+- id: source_agent_scaling
+  type: SourceRecord
+  access_scope: public
+  name: Towards a Science of Scaling Agent Systems
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/
+  retrieved_at: '2026-11-08T20:04:27+09:00'
+  is_synthetic: false
+  publisher: Google Research
+  date_precision: day
+  published_on: '2026-01-28'
+- id: external_agent_scaling
+  type: ExternalResearch
+  access_scope: public
+  name: Towards a Science of Scaling Agent Systems
+  source_ref: source_agent_scaling
+  record_kind: technical_report
+  review_status: official_publication
+  evidence_basis: authors_reported_evaluation
+  validation_stage_ref: stage_system_evaluation
+  availability_at_publication: not_applicable
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  inspection_scope: technical_article
+  topic_refs:
+  - agent_coordination_cost_reliability
+  - multi_agent_orchestration
+  - engineering_agent_workflow_evaluation
+  key_findings:
+  - Agent 협업의 효과가 Task의 병렬성·의존성과 조정 방식에 따라 달라지는 연구를 소개한다.
+  limitations:
+  - 소개 글을 확인한 범위이며 모든 Multi-Agent 시스템의 성능 법칙으로 일반화하지 않는다.
+  concern_refs:
+  - concern_quality_correctness
+  - concern_evaluation_reproducibility
+- id: source_alphaevolve_2026
+  type: SourceRecord
+  access_scope: public
+  name: AlphaEvolve Infrastructure and Engineering Update
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://deepmind.google/blog/alphaevolve-impact/
+  retrieved_at: '2026-11-08T20:04:27+09:00'
+  is_synthetic: false
+  publisher: Google DeepMind
+  date_precision: day
+  published_on: '2026-05-07'
+- id: external_alphaevolve_2026
+  type: ExternalResearch
+  access_scope: public
+  name: AlphaEvolve Infrastructure and Engineering Update
+  source_ref: source_alphaevolve_2026
+  record_kind: technical_report
+  review_status: official_publication
+  evidence_basis: vendor_reported_evaluation
+  validation_stage_ref: stage_production_report
+  availability_at_publication: not_applicable
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  inspection_scope: technical_article
+  topic_refs:
+  - evaluator_guided_algorithm_discovery
+  - hardware_software_optimization_agent
+  - engineering_agent_workflow_evaluation
+  - vector_index_update_compaction
+  key_findings:
+  - 평가기를 이용한 알고리즘 탐색의 TPU 설계·Cache 정책·Spanner Compaction 적용을 저자가 보고한다.
+  limitations:
+  - 업체가 보고한 적용 사례이며 자체 설계·검증 환경의 효과는 별도 평가해야 한다.
+  concern_refs:
+  - concern_quality_correctness
+  - concern_evaluation_reproducibility
+- id: source_nist_agent_standards
+  type: SourceRecord
+  access_scope: public
+  name: NIST AI Agent Standards Initiative
+  source_kind: official_organization_publication
+  authority_domains:
+  - public_research
+  locator: https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure
+  retrieved_at: '2026-11-08T20:04:27+09:00'
+  is_synthetic: false
+  publisher: NIST / CAISI
+  date_precision: day
+  published_on: '2026-02-17'
+- id: external_nist_agent_standards
+  type: ExternalResearch
+  access_scope: public
+  name: NIST AI Agent Standards Initiative
+  source_ref: source_nist_agent_standards
+  record_kind: research_program
+  review_status: official_publication
+  evidence_basis: research_agenda
+  validation_stage_ref: stage_research_agenda
+  availability_at_publication: announced
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  inspection_scope: official_release
+  topic_refs:
+  - agent_identity_authorization
+  - agent_tool_execution_isolation
+  key_findings:
+  - NIST는 Agent 상호운용·보안·식별 연구와 프로토콜 개발을 위한 Initiative를 발표했다.
+  limitations:
+  - 연구·표준화 Initiative 발표이며 완성된 의무 규격 또는 개별 시스템의 보안 인증이 아니다.
+  concern_refs:
+  - concern_security_privacy
+  - concern_interoperability_standards
+- id: source_pytorch_2026
+  type: SourceRecord
+  access_scope: public
+  name: PyTorch Conference 2026 Ecosystem Update
+  source_kind: official_organization_publication
+  authority_domains:
+  - public_research
+  locator: https://pytorch.org/blog/pytorch-conference-north-america-2026-accelerating-open-intelligence-together/
+  retrieved_at: '2026-11-08T20:04:27+09:00'
+  is_synthetic: false
+  publisher: PyTorch Foundation
+  date_precision: day
+  published_on: '2026-10-22'
+- id: external_pytorch_2026
+  type: ExternalResearch
+  access_scope: public
+  name: PyTorch Conference 2026 Ecosystem Update
+  source_ref: source_pytorch_2026
+  record_kind: technical_report
+  review_status: official_publication
+  evidence_basis: architecture_description
+  validation_stage_ref: stage_product_release
+  availability_at_publication: mixed
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  inspection_scope: technical_article
+  topic_refs:
+  - heterogeneous_accelerator_runtime_integration
+  - distributed_training_execution
+  - collective_communication_overlap
+  - inference_kernel_compiler_optimization
+  - edge_on_device_inference_codesign
+  key_findings:
+  - 공식 행사 정리는 가속기 Backend·Compiler·학습/생성 병렬화·통신·Edge 실행의 발전을 설명한다.
+  limitations:
+  - 여러 프로젝트의 발표를 모은 글이며 각 Backend의 지원·성능·안정성을 일괄 보장하지 않는다.
+  event_started_on: '2026-10-20'
+  event_ended_on: '2026-10-21'
+- id: source_ucie3
+  type: SourceRecord
+  access_scope: public
+  name: UCIe 3.0 Chiplet Interconnect Overview
+  source_kind: official_organization_publication
+  authority_domains:
+  - public_research
+  locator: https://www.uciexpress.org/post/ucie-3-0-specification-redefining-chiplet-interconnects
+  retrieved_at: '2026-11-08T20:04:27+09:00'
+  is_synthetic: false
+  publisher: UCIe Consortium
+  date_precision: day
+  published_on: '2025-09-03'
+- id: external_ucie3
+  type: ExternalResearch
+  access_scope: public
+  name: UCIe 3.0 Chiplet Interconnect Overview
+  source_ref: source_ucie3
+  record_kind: technical_report
+  review_status: official_publication
+  evidence_basis: architecture_description
+  validation_stage_ref: stage_official_specification
+  availability_at_publication: available
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  inspection_scope: technical_article
+  topic_refs:
+  - chiplet_memory_interconnect_architecture
+  - memory_logic_package_codesign
+  key_findings:
+  - 표준기관은 Package 내 Chiplet 연결과 전력·관리 기능의 규격 발전을 설명한다.
+  limitations:
+  - 기술 소개 글을 확인한 범위이며 규격 전체·구현 적합성·제품 간 호환을 검증하지 않았다.
+  concern_refs:
+  - concern_interoperability_standards
+  - concern_efficiency_economics
+- id: source_cxl4_announcement
+  type: SourceRecord
+  access_scope: public
+  name: CXL 4.0 Official Release Listing
+  source_kind: official_organization_publication
+  authority_domains:
+  - public_research
+  locator: https://computeexpresslink.org/news/
+  retrieved_at: '2026-11-08T20:04:27+09:00'
+  is_synthetic: false
+  publisher: CXL Consortium
+  date_precision: day
+  published_on: '2025-11-18'
+- id: external_cxl4_announcement
+  type: ExternalResearch
+  access_scope: public
+  name: CXL 4.0 Official Release Listing
+  source_ref: source_cxl4_announcement
+  record_kind: standard
+  review_status: official_standard
+  evidence_basis: publication_metadata
+  validation_stage_ref: stage_official_specification
+  availability_at_publication: available
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  inspection_scope: specification_landing_page
+  topic_refs:
+  - cxl_controller_architecture
+  - cxl_memory_pooling
+  - coherent_memory_ras_recovery
+  key_findings:
+  - 공식 Pressroom은 CXL 4.0 규격 공개일을 제시한다.
+  limitations:
+  - Pressroom의 공개 상태 확인이며 RAS·Pooling 상세 조항과 구현 성능·호환은 별도 조사 대상이다.
+  concern_refs:
+  - concern_interoperability_standards
+- id: source_mlperf_inference61
+  type: SourceRecord
+  access_scope: public
+  name: MLPerf Inference v6.1 Working Group Analysis
+  source_kind: official_benchmark
+  authority_domains:
+  - public_research
+  locator: https://mlcommons.org/2026/09/chairs-mlperf-inference-v6-1/
+  retrieved_at: '2026-11-08T20:04:27+09:00'
+  is_synthetic: false
+  publisher: MLCommons
+  date_precision: day
+  published_on: '2026-09-17'
+- id: external_mlperf_inference61
+  type: ExternalResearch
+  access_scope: public
+  name: MLPerf Inference v6.1 Working Group Analysis
+  source_ref: source_mlperf_inference61
+  record_kind: benchmark
+  review_status: official_benchmark
+  evidence_basis: protocol_definition
+  validation_stage_ref: stage_official_specification
+  availability_at_publication: available
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  inspection_scope: benchmark_release
+  topic_refs:
+  - end_to_end_ai_benchmark_platform
+  - speculative_decoding_optimization
+  - edge_on_device_inference_codesign
+  - multimodal_models
+  key_findings:
+  - 공식 분석은 End-to-end RAG·Agentic Edge와 모델·시나리오별 비교를 다룬다.
+  limitations:
+  - Benchmark 별 Task·품질·부하 조건이 다르므로 결과를 교차 비교하거나 모든 Agent 성과로 일반화하지 않는다.
+  concern_refs:
+  - concern_quality_correctness
+  - concern_evaluation_reproducibility
+- id: source_mlperf_tiny14
+  type: SourceRecord
+  access_scope: public
+  name: MLPerf Tiny v1.4 Accuracy Latency and Energy
+  source_kind: official_benchmark
+  authority_domains:
+  - public_research
+  locator: https://mlcommons.org/2026/07/mlperf-tiny-v1-4-results/
+  retrieved_at: '2026-11-08T20:04:27+09:00'
+  is_synthetic: false
+  publisher: MLCommons
+  date_precision: day
+  published_on: '2026-07-07'
+- id: external_mlperf_tiny14
+  type: ExternalResearch
+  access_scope: public
+  name: MLPerf Tiny v1.4 Accuracy Latency and Energy
+  source_ref: source_mlperf_tiny14
+  record_kind: benchmark
+  review_status: official_benchmark
+  evidence_basis: protocol_definition
+  validation_stage_ref: stage_official_specification
+  availability_at_publication: available
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  inspection_scope: benchmark_release
+  topic_refs:
+  - edge_ai_memory_energy_characterization
+  - edge_on_device_inference_codesign
+  - system_energy_cost_modeling
+  key_findings:
+  - MLPerf Tiny는 고정 품질 조건 아래 지연과 Inference당 에너지 비교를 설명한다.
+  limitations:
+  - TinyML의 Task·측정 경계를 Datacenter·LLM·전체 시스템 비용 결과로 확대하지 않는다.
+  concern_refs:
+  - concern_efficiency_economics
+  - concern_quality_correctness
+  metric_refs:
+  - metric_energy_per_completed_task
+- id: source_kimi_k3
+  type: SourceRecord
+  access_scope: public
+  name: Kimi K3 Architecture and Engineering Cases
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://www.kimi.com/en/blog/kimi-k3
+  retrieved_at: '2026-11-08T20:04:27+09:00'
+  is_synthetic: false
+  publisher: Moonshot AI
+  date_precision: day
+  published_on: '2026-07-16'
+  publication_date_locator: https://www.kimi.com/en/blog/
+- id: external_kimi_k3
+  type: ExternalResearch
+  access_scope: public
+  name: Kimi K3 Architecture and Engineering Cases
+  source_ref: source_kimi_k3
+  record_kind: technical_report
+  review_status: official_publication
+  evidence_basis: vendor_reported_evaluation
+  validation_stage_ref: stage_system_evaluation
+  availability_at_publication: mixed
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  inspection_scope: technical_article
+  topic_refs:
+  - sparse_moe_model_architecture
+  - model_architecture_optimization
+  - hardware_software_optimization_agent
+  - inference_kernel_compiler_optimization
+  key_findings:
+  - 기술 글은 Attention·MoE 구조와 Kernel·Compiler·Chip 설계의 초기 사례를 소개한다.
+  limitations:
+  - Chip 사례는 업체가 설명한 시뮬레이션 기반 개념 검증이며 실제 실리콘 성능이 아니다.
+  - 공개일은 공식 Research Index로 확인했다. 향후 Weight 공개 계획을 실제 공개 확인으로 대체하지 않는다.
+- id: source_genie4_page
+  type: SourceRecord
+  access_scope: public
+  name: Genie 4 World Simulation Model Page
+  source_kind: official_vendor_publication
+  authority_domains:
+  - public_research
+  locator: https://deepmind.google/models/genie/
+  retrieved_at: '2026-11-08T20:04:27+09:00'
+  is_synthetic: false
+  publisher: Google DeepMind
+  date_precision: not_reported
+- id: external_genie4_page
+  type: ExternalResearch
+  access_scope: public
+  name: Genie 4 World Simulation Model Page
+  source_ref: source_genie4_page
+  record_kind: technical_report
+  review_status: official_publication
+  evidence_basis: architecture_description
+  validation_stage_ref: stage_prototype
+  availability_at_publication: unspecified
+  internal_reproduction_status: not_reproduced
+  verification_scope: source_content_checked
+  checked_on: '2026-11-08'
+  inspection_scope: technical_article
+  topic_refs:
+  - multimodal_world_model_architecture
+  - world_model_video_workload_analysis
+  key_findings:
+  - 조회 시 공식 모델 페이지는 자연어로 변화시키는 상호작용 세계 시뮬레이션을 설명한다.
+  limitations:
+  - 이 페이지에서 공개일을 확인하지 못해 날짜를 추정하지 않았다.
+  - 제품 소개와 메모리 Workload의 정량 분석·로봇 실환경 검증을 구분해야 한다.

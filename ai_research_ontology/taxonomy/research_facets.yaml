@@ -1,5 +1,5 @@
 dataset_kind: vocabulary
-version: 0.4.0
+version: 0.5.0
 entities:
 - id: data_kv_cache
   type: DataObjectKind
@@ -277,4 +277,34 @@ entities:
   access_scope: public
   name: Product / Software Release
   description: 출처에서 발표한 제품·소프트웨어 제공 상태.
+  term_status: proposed
+- id: data_recurrent_state
+  type: DataObjectKind
+  access_scope: public
+  name: Recurrent / SSM State
+  description: 순환·상태 공간 모델이 갱신하는 상태. Attention의 KV Cache와 구분하는 데이터 종류.
+  term_status: proposed
+- id: data_multimodal_stream
+  type: DataObjectKind
+  access_scope: public
+  name: Multimodal Input / Stream
+  description: 영상·음성·센서 등 입력과 시계열 Stream. Model Weight·KV Cache와 구분.
+  term_status: proposed
+- id: layer_package_interconnect
+  type: SystemLayer
+  access_scope: public
+  name: On-package Interconnect
+  description: Package 내 Chiplet·Logic·Memory 연결 위치. Network Fabric과 구분.
+  term_status: proposed
+- id: layer_edge_device
+  type: SystemLayer
+  access_scope: public
+  name: Edge / On-device Execution
+  description: 제한된 전력·메모리와 지연 조건에서 실행하는 Device 위치.
+  term_status: proposed
+- id: bottleneck_thermal
+  type: Bottleneck
+  access_scope: public
+  name: Thermal Constraint
+  description: 전력 외에 온도·방열 한계가 성능·배치·지속 동작을 제한하는 경우.
   term_status: proposed

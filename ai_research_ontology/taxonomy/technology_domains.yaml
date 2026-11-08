@@ -1,0 +1,90 @@
+dataset_kind: controlled_vocabulary
+version: 0.5.0
+status: proposed
+design_note: Six technical domains and six cross-cutting concerns are an executive view, not an adopted
+  organization chart or exhaustive world taxonomy.
+entities:
+- id: domain_models_agents
+  type: TechnologyDomain
+  access_scope: public
+  name: AI Models & Agent Systems
+  description: 모델 구조·학습·추론 시 사고와 Agent의 계획·상호작용을 연구한다.
+  core_question: 모델과 Agent의 동작 변화가 시스템에 어떤 요구를 만드는가?
+  term_status: proposed
+- id: domain_retrieval_data
+  type: TechnologyDomain
+  access_scope: public
+  name: Retrieval, Knowledge & Data Systems
+  description: 검색·Vector Index·RAG·Agent 장기 기억·데이터와 연구 지식 관리. 물리 메모리와 구분한다.
+  core_question: 필요한 지식을 품질·최신성·접근 조건에 맞게 어떻게 저장하고 찾는가?
+  term_status: proposed
+- id: domain_runtime_distributed
+  type: TechnologyDomain
+  access_scope: public
+  name: AI Runtime & Distributed Systems
+  description: Serving·학습 실행·컴파일러·Kernel·병렬화·Collective·GPU 공통 실행 플랫폼.
+  core_question: 연산·메모리·통신을 조정해 주어진 품질·SLO를 어떻게 달성하는가?
+  term_status: proposed
+- id: domain_memory_interconnect
+  type: TechnologyDomain
+  access_scope: public
+  name: Memory Architecture & Interconnect
+  description: HBM·DRAM·CXL·HBF·계층 배치·메모리 연결·Chiplet/Package 공동 설계.
+  core_question: 메모리의 용량·대역폭·연결·신뢰성 제약을 어떻게 해결하는가?
+  term_status: proposed
+- id: domain_storage_datapath
+  type: TechnologyDomain
+  access_scope: public
+  name: Storage Systems & Data Paths
+  description: SSD·Controller·Firmware·GPU 주도 I/O·File/Object·KV/Checkpoint 저장과 Computational Storage.
+  core_question: 실제 AI 데이터 이동·보존·복구 요구에 맞는 저장 경로를 어떻게 구현하는가?
+  term_status: proposed
+- id: domain_engineering_intelligence
+  type: TechnologyDomain
+  access_scope: public
+  name: AI for Engineering & Design
+  description: 요구사항·RTL·Verification·Firmware·EDA·알고리즘 발견과 개발 도구·워크플로 자동화.
+  core_question: AI가 만든 설계·코드·의사결정을 어떤 검증을 거쳐 재사용할 수 있는가?
+  term_status: proposed
+- id: concern_quality_correctness
+  type: ResearchConcern
+  access_scope: public
+  name: Quality & Correctness
+  description: Task 품질·Recall·기능 정확성·수치 동등성을 보존한다.
+  core_question: 개선이 요구 품질과 정확성을 충족하는가?
+  term_status: proposed
+- id: concern_reliability_resilience
+  type: ResearchConcern
+  access_scope: public
+  name: Reliability & Resilience
+  description: RAS·복구·내구성·지속 운영과 실패 전파를 다룬다.
+  core_question: 실패·장애·오류 상황에서 무엇을 보장하는가?
+  term_status: proposed
+- id: concern_security_privacy
+  type: ResearchConcern
+  access_scope: public
+  name: Security & Privacy
+  description: Agent 권한·데이터 격리·출처·무결성·기밀성과 개인 정보 보호.
+  core_question: 누가 어떤 데이터와 도구에 접근하며 경계를 어떻게 검증하는가?
+  term_status: proposed
+- id: concern_efficiency_economics
+  type: ResearchConcern
+  access_scope: public
+  name: Energy, Thermal & Cost Efficiency
+  description: 성공한 Task와 품질·SLO를 기준으로 에너지·열·비용을 평가한다.
+  core_question: 정해진 품질과 지연에서 자원을 얼마나 효율적으로 쓰는가?
+  term_status: proposed
+- id: concern_interoperability_standards
+  type: ResearchConcern
+  access_scope: public
+  name: Interoperability & Standards
+  description: 규격·프로토콜·구현 적합성·버전과 실제 상호운용을 구분한다.
+  core_question: 어떤 버전·구성에서 연결과 적합성이 실제 확인됐는가?
+  term_status: proposed
+- id: concern_evaluation_reproducibility
+  type: ResearchConcern
+  access_scope: public
+  name: Evaluation & Reproducibility
+  description: 비교 조건·관측·벤치마크·코드와 실험 근거를 보존한다.
+  core_question: 다른 사람이 같은 조건으로 결과를 확인할 수 있는가?
+  term_status: proposed
